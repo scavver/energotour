@@ -1,8 +1,8 @@
 // Body
-$body-bg: #f8fafc;
+$body-bg: #efefef;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: 'Ubuntu', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
@@ -17,3 +17,29 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$eclipse: #3f3f3f;
+$safety-orange: #ff6a00;
+$shuttle-grey: #5e6873;
+$fiord: #4d5863;
+$chelsea-cucumber: #77a347; // Better Success
+$dawnpink: #f0e8df; // Light shades | Use this color as the background for your dark-on-light designs, or the text color of an inverted design.
+$whiskey: #d7a068; // Light accent | Accent colors can be used to bring attention to design elements by contrasting with the rest of the palette.
+$tree-poppy: #f9a11b; // Main brand color | This color should be eye-catching but not harsh. It can be liberally applied to your layout as its main identity.
+$driftwood: #b18255; // Dark accent | Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
+$cocoa-brown: #352925; // Dark shades | Use as the text color for dark-on-light designs, or as the background for inverted designs.
+$summer-sky: #3490dc;
+
+// Custom colors
+$theme-colors: (
+  "eclipse": $eclipse,
+  "safety-orange": $safety-orange,
+  "shuttle-grey": $shuttle-grey,
+  "fiord": $fiord,
+  "dawnpink": $dawnpink,
+  "whiskey": $whiskey,
+  "primarys": $tree-poppy,
+  "driftwood": $driftwood,
+  "cocoa-brown": $cocoa-brown,
+  "success": $chelsea-cucumber,
+  "primary": $summer-sky
+);

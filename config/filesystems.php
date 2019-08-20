@@ -48,6 +48,18 @@ return [
             'root' => storage_path('app'),
         ],
 
+        // Для картинок, по умолчанию
+        'images' => [
+            'driver' => 'local',
+            'root' => storage_path('images'),
+        ],
+
+        // Для обложек. 🤔 Казалось бы, зачем..
+        'covers' => [
+            'driver' => 'local',
+            'root' => storage_path('covers'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

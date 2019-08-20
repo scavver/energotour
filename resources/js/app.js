@@ -5,28 +5,44 @@
  */
 
 require('./bootstrap');
+require('./ekko-lightbox');
 
 window.Vue = require('vue');
+window.ekkoLightbox = require('ekko-lightbox');
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+// Плагины
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+import Toastr from 'vue-toastr';
+import VueRouter from 'vue-router';
+import YmapPlugin from 'vue-yandex-maps';
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+// Настройки компонента Яндекс Карт
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+const settings = {
+    apiKey: ''  // TODO: Use .env variable
+};
+
+Vue.use(Toastr);
+Vue.use(VueRouter);
+Vue.use(YmapPlugin, settings);
+
+// Компоненты
+
+Vue.component('image-uploader', require('./components/ImageUploader.vue').default);
+Vue.component('accommodation-catalogue', require('./components/AccommodationCatalogue').default);
+Vue.component('twitter', require('./components/Twitter').default);
+Vue.component('accommodation-location', require('./components/AccommodationLocation').default);
+Vue.component('accommodation-markers', require('./components/AccommodationMarkers').default);
+
+// Настройки Vue Router
+
+const router = new VueRouter({
+    mode: 'history'
+});
+
+// Vue Application
 
 const app = new Vue({
     el: '#app',
+    router: router
 });

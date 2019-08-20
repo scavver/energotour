@@ -14,9 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>.
-                </div>
+                    <a href="{{ route('verification.resend') }}" id="verification">{{ __('Click here to request a verification link') }} <i class="fas fa-paper-plane"></i></a>                </div>
             </div>
         </div>
     </div>

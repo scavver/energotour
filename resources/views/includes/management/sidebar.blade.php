@@ -1,0 +1,11 @@
+<div class="nav flex-column nav-pills mx-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link {{ request()->is('management') ? 'active' : '' }}" href="{{ url('/management') }}"><i class="fas fa-tachometer-alt fa-fw mr-2"></i> Контрольная панель</a>
+    <a class="nav-link {{ request()->is('management/places')||request()->is('management/places/*') ? 'active' : '' }}" href="{{ url('/management/places') }}"><i class="fas fa-map-pin fa-fw mr-2"></i> Места</a>
+    <a class="nav-link {{ request()->is('management/prices')||request()->is('management/prices/*') ? 'active' : '' }}" href="{{ url('/management/prices') }}"><i class="fas fa-dollar-sign fa-fw mr-2"></i> Прайсы</a>
+    <a class="nav-link {{ request()->is('management/discounts')||request()->is('management/discounts/*') ? 'active' : '' }}" href="{{ url('/management/discounts') }}"><i class="fas fa-percentage fa-fw mr-2"></i> Скидки</a>
+    <a class="nav-link {{ request()->is('management/galleries')||request()->is('management/galleries/*') ? 'active' : '' }}" href="{{ url('/management/galleries') }}"><i class="fas fa-image fa-fw mr-2"></i> Галереи</a>
+    <a class="nav-link {{ request()->is('management/users')||request()->is('management/users/*') ? 'active' : '' }}" href="{{ url('/management/users') }}"><i class="fas fa-user-friends fa-fw mr-2"></i> Пользователи</a>
+    <a class="nav-link {{ request()->is('management/properties')||request()->is('management/properties/*') ? 'active' : '' }}" href="{{ url('/management/properties') }}"><i class="fas fa-icons fa-fw mr-2"></i> Услуги и удобства</a>
+    <a class="nav-link {{ request()->is('management/categories')||request()->is('management/categories/*') ? 'active' : '' }}" href="{{ url('/management/categories') }}"><i class="fas fa-map-marked-alt fa-fw mr-2"></i> Регионы</a>
+    <a class="nav-link {{ request()->is('management/types')||request()->is('management/types/*') ? 'active' : '' }}" href="{{ url('/management/types') }}"><i class="fas fa-hotel fa-fw mr-2"></i> Типы</a>
+</div> 
