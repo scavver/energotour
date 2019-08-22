@@ -43,7 +43,7 @@ class PlaceController extends Controller
             'type_id' => 'required|integer',
             'category_id' => 'required|integer',
             'slug' => 'required|string|max:100|unique:places',
-            'content' => 'required|string|max:20000',
+            'content' => 'required|string',
             'cover' => 'nullable|image',
             'lat' => 'nullable',
             'lng' => 'nullable'
@@ -64,7 +64,6 @@ class PlaceController extends Controller
         $place->properties()->sync($request->property); // Синхронизация чекбоксов с Pivot таблицей
 
         if($cover = $request->hasFile('cover')) {
-            // TODO: Delete previous cover
             $cover = $request->cover->store('covers');
 
             $id = $place->id;
@@ -101,7 +100,7 @@ class PlaceController extends Controller
             'type_id' => 'required|integer',
             'category_id' => 'required|integer',
             'slug' => 'required|string|max:100',
-            'content' => 'required|string|max:20000',
+            'content' => 'required|string',
             'cover' => 'nullable|image',
             'lat' => 'nullable',
             'lng' => 'nullable'
@@ -123,16 +122,18 @@ class PlaceController extends Controller
 
         $place->properties()->sync($request->property);
 
+        // Если в запросе есть файл обложки
         if($cover = $request->hasFile('cover')) {
-            // TODO: Delete previous cover
-            $cover = $request->cover->store('covers');
+            // Находим старую обложку в таблице
+            $oldCover = Cover::where('place_id', $id)->first();
+            // Удаляем ее файл из хранилища
+            Storage::delete($oldCover->path);
 
-            $image = new Cover();
+            // Сохраняем новый файл
+            $newCover = $request->cover->store('covers');
 
-            $image->path = $cover;
-            $image->place_id = $id;
-
-            $image->save();
+            // Обновляем путь к файлу в таблице
+            $oldCover->update(['path' => $newCover]);
         }
 
         return redirect(url('management/places'))->with('success', 'Место успешно обновлено.');

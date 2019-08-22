@@ -30,7 +30,7 @@ class DiscountController extends Controller
     {
         $request->validate([
             'max_discount' => 'required|integer',
-            'content' => 'required|string|max:10000',
+            'content' => 'required|string',
             'place_id' => 'required|integer'
         ]);
 
@@ -53,7 +53,7 @@ class DiscountController extends Controller
     {
         $request->validate([
             'max_discount' => 'required|integer',
-            'content' => 'required|string|max:10000',
+            'content' => 'required|string',
             'place_id' => 'required|integer'
         ]);
 

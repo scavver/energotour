@@ -30,7 +30,7 @@ class PriceController extends Controller
     {
         $request->validate([
             'min_price' => 'required|integer',
-            'content' => 'required|string|max:10000',
+            'content' => 'required|string',
             'place_id' => 'required|integer'
         ]);
 
@@ -53,7 +53,7 @@ class PriceController extends Controller
     {
         $request->validate([
             'min_price' => 'required|integer',
-            'content' => 'required|string|max:10000',
+            'content' => 'required|string',
             'place_id' => 'required|integer'
         ]);
 
