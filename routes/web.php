@@ -27,6 +27,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('management')->group(function () {
         Route::get('/', 'ManagementController@dashboard')->name('dashboard');
 
+        Route::resource('/pages', 'Management\PageController')->except(['show']);
         Route::resource('/galleries', 'Management\GalleryController')->except(['show']);
         Route::resource('/types', 'Management\TypeController')->except(['show']);
         Route::resource('/categories', 'Management\CategoryController')->except(['show']);

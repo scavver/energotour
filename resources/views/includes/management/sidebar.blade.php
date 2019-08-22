@@ -1,5 +1,6 @@
 <div class="nav flex-column nav-pills mx-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <a class="nav-link {{ request()->is('management') ? 'active' : '' }}" href="{{ url('/management') }}"><i class="fas fa-tachometer-alt fa-fw mr-2"></i> Контрольная панель</a>
+    <a class="nav-link {{ request()->is('management/pages')||request()->is('management/pages/*') ? 'active' : '' }}" href="{{ url('/management/pages') }}"><i class="far fa-newspaper fa-fw mr-2"></i> Страницы</a>
     <a class="nav-link {{ request()->is('management/places')||request()->is('management/places/*') ? 'active' : '' }}" href="{{ url('/management/places') }}"><i class="fas fa-map-pin fa-fw mr-2"></i> Места</a>
     <a class="nav-link {{ request()->is('management/prices')||request()->is('management/prices/*') ? 'active' : '' }}" href="{{ url('/management/prices') }}"><i class="fas fa-dollar-sign fa-fw mr-2"></i> Прайсы</a>
     <a class="nav-link {{ request()->is('management/discounts')||request()->is('management/discounts/*') ? 'active' : '' }}" href="{{ url('/management/discounts') }}"><i class="fas fa-percentage fa-fw mr-2"></i> Скидки</a>
