@@ -97,8 +97,8 @@
             </div>
 
             <div class="form-group">
-                <label for="content">Content</label>
-                <textarea class="form-control" id="content" name="content" rows="3">{{ $place->content }}</textarea>
+                <label for="editor">Content</label>
+                <textarea class="form-control" id="editor" name="content" rows="3">{{ $place->content }}</textarea>
             </div>
 
             <div class="form-group form-check-inline">

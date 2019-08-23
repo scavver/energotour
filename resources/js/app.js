@@ -6,9 +6,11 @@
 
 require('./bootstrap');
 require('./ekko-lightbox');
+require('./summernote');
 
 window.Vue = require('vue');
 window.ekkoLightbox = require('ekko-lightbox');
+window.summernote = require('summernote/dist/summernote-bs4');
 
 // Плагины
 

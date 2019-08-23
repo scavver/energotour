@@ -46,8 +46,8 @@
             </div>
 
             <div class="form-group">
-                <label for="content">Content</label>
-                <textarea class="form-control" id="content" name="content" rows="3" required>{{ $discount->content }}</textarea>
+                <label for="editor">Content</label>
+                <textarea class="form-control" id="editor" name="content" rows="3" required>{{ $discount->content }}</textarea>
 
                 @error('content')
                 <span class="invalid-feedback" role="alert">
