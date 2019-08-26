@@ -9,7 +9,9 @@
 @endsection
 
 @section("content")
-    <div class="container">
-        {!! $page->content !!}
-    </div>
+    <main>
+        <div class="container py-4">
+            {!! $page->content !!}
+        </div>
+    </main>
 @endsection
