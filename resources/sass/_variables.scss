@@ -28,6 +28,7 @@ $tree-poppy: #f9a11b; // Main brand color | This color should be eye-catching bu
 $driftwood: #b18255; // Dark accent | Another accent color to consider. Not all colors have to be used - sometimes a simple color scheme works best.
 $cocoa-brown: #352925; // Dark shades | Use as the text color for dark-on-light designs, or as the background for inverted designs.
 $summer-sky: #3490dc;
+$pattens-blue: #dee2e6;
 
 // Custom colors
 $theme-colors: (
@@ -41,5 +42,6 @@ $theme-colors: (
   "driftwood": $driftwood,
   "cocoa-brown": $cocoa-brown,
   "success": $chelsea-cucumber,
-  "primary": $summer-sky
+  "primary": $summer-sky,
+  "pattens-blue": $pattens-blue
 );

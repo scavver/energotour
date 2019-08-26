@@ -282,6 +282,13 @@ footer {
   font-size: 1.2rem;
 }
 
+dl.row.footer {
+  margin-bottom: 10px;
+}
+dl.row.footer.last {
+  margin-bottom: 0;
+}
+
 // Менеджмент
 
 .column-id {
@@ -305,4 +312,20 @@ footer {
 #sidebar .nav-pills .nav-link.active {
   background: #3490dc;
   background: linear-gradient(90deg, #3490dc 60%, #5fb1f5 100%);
+}
+
+// Навигация
+
+.nav-phone-number {
+  display: inherit;
+  line-height: 1;
+}
+
+.nav-phone-text {
+  display: block;
+  font-size: 70%;
+  font-weight: 300;
+  line-height: 1;
+  padding-top: 5px;
+  color: #ffffffcc;
 }
