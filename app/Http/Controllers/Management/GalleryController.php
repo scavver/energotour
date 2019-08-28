@@ -32,7 +32,9 @@ class GalleryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-            'place_id' => 'nullable|integer'
+            'place_id' => 'nullable|integer',
+            'is_main' => 'boolean',
+            'is_room' => 'boolean'
         ]);
 
         $gallery = Gallery::create($request->all());
@@ -55,7 +57,9 @@ class GalleryController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:100',
-            'place_id' => 'nullable|integer'
+            'place_id' => 'nullable|integer',
+            'is_main' => 'boolean',
+            'is_room' => 'boolean'
         ]);
 
         $gallery = Gallery::find($id);

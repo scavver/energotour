@@ -40,6 +40,20 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <div class="custom-control custom-switch custom-control-inline">
+                <input type="hidden" name="is_room" value="0">
+                <input type="checkbox" class="custom-control-input" id="is_room" value="1" name="is_room">
+                <label class="custom-control-label" for="is_room">Номер объекта размещения</label>
+            </div>
+
+            <div class="custom-control custom-switch custom-control-inline">
+                <input type="hidden" name="is_main" value="0">
+                <input type="checkbox" class="custom-control-input" id="is_main" value="1" name="is_main">
+                <label class="custom-control-label" for="is_main">Слайдер объекта размещения</label>
+            </div>
+        </div>
+
         <a href="{{ route('galleries.index') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back</a>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>

@@ -51,4 +51,9 @@ class Place extends Model
         return $this->hasMany('App\Gallery');
     }
 
+    // Получить номера объекта размещения.
+    public function rooms()
+    {
+        return $this->hasMany('App\Room');
+    }
 }
