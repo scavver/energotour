@@ -3,6 +3,10 @@
     <a class="nav-link {{ request()->is('management/pages')||request()->is('management/pages/*') ? 'active' : '' }}" href="{{ url('/management/pages') }}"><i class="far fa-newspaper fa-fw mr-2"></i> Страницы</a>
     <a class="nav-link {{ request()->is('management/galleries')||request()->is('management/galleries/*') ? 'active' : '' }}" href="{{ url('/management/galleries') }}"><i class="fas fa-image fa-fw mr-2"></i> Галереи</a>
     <a class="nav-link {{ request()->is('management/rooms')||request()->is('management/rooms/*') ? 'active' : '' }}" href="{{ url('/management/rooms') }}"><i class="fas fa-bed fa-fw mr-2"></i> Номера</a>
+    <a class="nav-link {{ request()->is('management/about')||request()->is('management/about/*') ? 'active' : '' }}" href="{{ url('/management/about') }}"><i class="fas fa-pencil-alt fa-fw mr-2"></i> Описания</a>
+    <a class="nav-link {{ request()->is('management/food')||request()->is('management/food/*') ? 'active' : '' }}" href="{{ url('/management/food') }}"><i class="fas fa-utensils fa-fw mr-2"></i> Питание</a>
+    <a class="nav-link {{ request()->is('management/infrastructure')||request()->is('management/infrastructure/*') ? 'active' : '' }}" href="{{ url('/management/infrastructure') }}"><i class="fas fa-tree fa-fw mr-2"></i> Инфраструктура</a>
+    <a class="nav-link {{ request()->is('management/treatment')||request()->is('management/treatment/*') ? 'active' : '' }}" href="{{ url('/management/treatment') }}"><i class="fas fa-notes-medical fa-fw mr-2"></i> Лечение</a>
     <a class="nav-link {{ request()->is('management/places')||request()->is('management/places/*') ? 'active' : '' }}" href="{{ url('/management/places') }}"><i class="fas fa-map-pin fa-fw mr-2"></i> Места</a>
     <a class="nav-link {{ request()->is('management/prices')||request()->is('management/prices/*') ? 'active' : '' }}" href="{{ url('/management/prices') }}"><i class="fas fa-dollar-sign fa-fw mr-2"></i> Прайсы</a>
     <a class="nav-link {{ request()->is('management/discounts')||request()->is('management/discounts/*') ? 'active' : '' }}" href="{{ url('/management/discounts') }}"><i class="fas fa-percentage fa-fw mr-2"></i> Скидки</a>

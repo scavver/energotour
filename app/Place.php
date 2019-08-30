@@ -56,4 +56,28 @@ class Place extends Model
     {
         return $this->hasMany('App\Room');
     }
+
+    // Получить запись с информацией об отеле.
+    public function about()
+    {
+        return $this->hasOne('App\About');
+    }
+
+    // Получить запись с информацией о питании в отеле.
+    public function food()
+    {
+        return $this->hasOne('App\Food');
+    }
+
+    // Получить запись с информацией об инфраструктуре отеля.
+    public function infrastructure()
+    {
+        return $this->hasOne('App\Infrastructure');
+    }
+
+    // Получить запись с информацией о лечении в отеле.
+    public function treatment()
+    {
+        return $this->hasOne('App\Treatment');
+    }
 }
