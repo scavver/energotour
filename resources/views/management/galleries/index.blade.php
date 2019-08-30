@@ -33,10 +33,10 @@
             <thead>
             <tr>
                 <th scope="col" class="column-id pl-3 text-center">ID</th>
-                <th scope="col">Place ID</th>
-                <th scope="col">Name</th>
-                <th scope="col" class="text-center">Created At</th>
-                <th scope="col" class="text-center">Updated At</th>
+                <th scope="col">Объект размещения</th>
+                <th scope="col">Название</th>
+                <th scope="col" class="text-center">Создан</th>
+                <th scope="col" class="text-center">Последняя правка</th>
                 <th scope="col" class="column-actions pr-3"><a href="{{ action('Management\GalleryController@create') }}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus mx-3"></i></a></th>
             </tr>
             </thead>
@@ -44,7 +44,7 @@
             @foreach($galleries as $gallery)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $gallery->id }}</th>
-                    <td class="align-middle">{{ $gallery->place_id }}</td>
+                    <td class="align-middle">{{ $gallery->place['name'] }}</td>
                     <td class="align-middle">{{ $gallery->name }}</td>
                     <td class="text-center align-middle">{{ $gallery->created_at->format('d.m.Y H:i:s') }}</td>
                     <td class="text-center align-middle">{{ $gallery->updated_at->format('d.m.Y H:i:s') }}</td>

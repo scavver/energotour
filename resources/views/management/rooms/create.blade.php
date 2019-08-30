@@ -32,7 +32,7 @@
                     <select class="form-control" id="gallery_id" name="gallery_id">
                         <option value="">Без галереи</option>
                         @foreach($galleries as $gallery)
-                            <option value="{{ $gallery->id }}">{{ $gallery->name }}</option>
+                            <option value="{{ $gallery->id }}">{{ $gallery->place->name . ' ➜ ' . $gallery->name }}</option>
                         @endforeach
                     </select>
                 </div>

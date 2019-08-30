@@ -42,7 +42,7 @@
                         @foreach($galleries as $gallery)
                             <option value="{{ $gallery->id }}"
                                     @if($gallery->id == $room->gallery_id) selected="selected" @endif>
-                                {{ $gallery->name }}
+                                {{ $gallery->place->name . ' ➜ ' . $gallery->name }}
                             </option>
                         @endforeach
                     </select>
