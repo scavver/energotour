@@ -30,6 +30,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('/pages', 'Management\PageController')->except(['show']);                           // Страницы
         Route::resource('/galleries', 'Management\GalleryController')->except(['show']);                    // Галереи
         Route::resource('/rooms', 'Management\RoomController')->except(['show']);                           // Номера
+        Route::resource('/about', 'Management\AboutController')->except(['show']);                          // Описания
+        Route::resource('/food', 'Management\FoodController')->except(['show']);                            // Питание
+        Route::resource('/infrastructure', 'Management\InfrastructureController')->except(['show']);        // Инфраструктура
+        Route::resource('/treatment', 'Management\TreatmentController')->except(['show']);                  // Лечение
         Route::resource('/places', 'Management\PlaceController')->except(['show']);                         // Места
         Route::resource('/prices', 'Management\PriceController')->except(['show']);                         // Прайсы
         Route::resource('/discounts', 'Management\DiscountController')->except(['show']);                   // Скидки
