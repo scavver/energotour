@@ -147,7 +147,7 @@
     @if (count($hot) > 0)
     <div class="container special-offers">
         <div class="row px-3 py-4 header">
-            <h2 class="text-uppercase w-100">Горящие предложения</h2>
+            <h2 class="text-uppercase w-100">Лучшие предложения</h2>
 
             <a href="{{ url('places?selectedCategory=&selectedType=&checkedProperties=1') }}">Показать все <i class="fas fa-angle-right"></i></a>
         </div>

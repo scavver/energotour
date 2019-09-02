@@ -76,8 +76,7 @@
         <!-- Navigation -->
         <div class="col-12 d-flex justify-content-center justify-content-sm-center justify-content-md-start justify-content-lg-start justify-content-xl-start align-items-center">
             <nav class="nav nav-fill w-100">
-                <a class="nav-link" href="https://www.russiatourism.ru/operators/show.php?id=113303" target="_blank">РТО № 018 028</a>
-                <a class="nav-link" href="/pages/help">Задать вопрос</a>
+                <a class="nav-link" href="https://www.russiatourism.ru/operators/show.php?id=113303" target="_blank">Мы в реестре туроператоров</a>
                 <a class="nav-link" href="/pages/about">О компании</a>
                 <a class="nav-link" href="/pages/contacts">Контакты</a>
                 <a class="nav-link ml-auto" href="https://github.com/scavver" target="_blank"><i class="fab fa-github-alt fa-fw"></i></a>

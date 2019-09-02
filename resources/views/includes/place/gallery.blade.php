@@ -2,12 +2,12 @@
     @if (count($place->galleries) > 0)
         @foreach($place->galleries as $gallery)
             @if($gallery->is_main != 1)
-                <h4 class="pl-3 py-3 m-0">{{ $gallery->name }}</h4>
+                <h4 class="pl-3 py-3">{{ $gallery->name }}</h4>
 
-                <div class="gallery card-columns">
+                <div class="gallery card-columns px-3 my-0 py-0 bordered-bottom">
                     @foreach($gallery->images as $image)
                         <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                            <div class="card border-0 m-0">
+                            <div class="card border-0">
                                 <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
                             </div>
                         </a>

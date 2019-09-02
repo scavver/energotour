@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-primary navbar-dark text-white shadow-sm p-extra">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-primary navbar-dark text-white shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">
             <i class="far fa-compass pr-1"></i> {{ config('app.name', 'Laravel') }}
@@ -49,8 +49,9 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link active" href="tel:88001001094">
-                        <span class="nav-phone-number"><i class="fas fa-headset mr-1"></i> 8 800 100 10 94</span>
-                        <span class="nav-phone-text text-right d-none d-md-block">звонок бесплатный</span>
+                        <i class="fas fa-headset mr-1"></i> 8 800 100 10 94
+{{--                        <span class="nav-phone-number"><i class="fas fa-headset mr-1"></i> 8 800 100 10 94</span>--}}
+{{--                        <span class="nav-phone-text text-right d-none d-md-block">звонок бесплатный</span>--}}
                     </a>
                 </li>
             </ul>

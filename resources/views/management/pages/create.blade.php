@@ -56,7 +56,7 @@
 
         <div class="form-group">
             <label for="edit">Содержимое страницы</label>
-            <textarea class="form-control quill" id="edit" name="content" rows="15" required></textarea>
+            <textarea class="form-control" id="edit" name="content" rows="15" required></textarea>
 
             @error('content')
             <span class="invalid-feedback" role="alert">

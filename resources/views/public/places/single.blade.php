@@ -18,9 +18,18 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <!-- <a class="text-right nav-link" id="v-pills-location-tab" data-toggle="pill" href="#v-pills-location" role="tab" aria-controls="v-pills-location" aria-selected="false">Показать на карте</a> -->
                     <a class="text-center text-md-right nav-link active" id="v-pills-description-tab" data-toggle="pill" href="#v-pills-description" role="tab" aria-controls="v-pills-description" aria-selected="true">Описание</a>
-                    <a class="text-center text-md-right nav-link" id="v-pills-location-tab" data-toggle="pill" href="#v-pills-photo" role="tab" aria-controls="v-pills-photo" aria-selected="false">Фотографии</a>
+                    @if(count($place->galleries) >= 2)
+                    <a class="text-center text-md-right nav-link" id="v-pills-photo-tab" data-toggle="pill" href="#v-pills-photo" role="tab" aria-controls="v-pills-photo" aria-selected="false">Фотографии</a>
+                    @endif
+                    @if(count($rooms) > 0)
+                        <a class="text-center text-md-right nav-link" id="v-pills-rooms-tab" data-toggle="pill" href="#v-pills-rooms" role="tab" aria-controls="v-pills-rooms" aria-selected="false">Номерной фонд</a>
+                    @endif
+                    @if(!empty($place->discount))
                     <a class="text-center text-md-right nav-link" id="v-pills-discount-tab" data-toggle="pill" href="#v-pills-discount" role="tab" aria-controls="v-pills-discount" aria-selected="false">Наши скидки</a>
+                    @endif
+                    @if(!empty($place->price))
                     <a class="text-center text-md-right nav-link" id="v-pills-price-tab" data-toggle="pill" href="#v-pills-price" role="tab" aria-controls="v-pills-price" aria-selected="false">Прайс-лист</a>
+                    @endif
                 </div>
 
                 <!-- Banner -->
@@ -32,7 +41,7 @@
 
         <!-- Content -->
         <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-2 order-sm-2 order-md-2 shadow-sm bg-white min-vh-100 px-0 order-0 order-sm-0 order-md-1 order-xl-1 bg-white">
-            <h3 class="px-3 pt-3 pb-2">{{ $place->name }}<small> / {{ $place->type->name }} / {{ $place->category->name }}</small></h3>
+            <h3 class="px-3 pt-3 pb-3 mb-0 bordered-bottom">{{ $place->name }}<small> / {{ $place->type->name }} / {{ $place->category->name }}</small></h3>
 
             <div class="tab-content" id="v-pills-tabContent">
                 <!-- Tab: Description -->
@@ -41,19 +50,33 @@
                 </div>
 
                 <!-- Tab: Gallery -->
+                @if(count($place->galleries) >= 2)
                 <div class="tab-pane fade" id="v-pills-photo" role="tabpanel" aria-labelledby="v-pills-photo-tab">
                     @include("includes.place.gallery")
                 </div>
+                @endif
+
+                <!-- Tab: Rooms -->
+                @if(count($rooms) > 0)
+                <div class="px-3 tab-pane fade show" id="v-pills-rooms" role="tabpanel" aria-labelledby="v-pills-rooms-tab">
+                    @include("includes.place.rooms")
+                </div>
+                @endif
+
+                <!-- Tab: Discount -->
+                @if(!empty($place->discount))
+                    <div class="tab-pane fade" id="v-pills-discount" role="tabpanel" aria-labelledby="v-pills-discount-tab">
+                        @include("includes.place.discount")
+                    </div>
+                @endif
 
                 <!-- Tab: Price -->
+                @if(!empty($place->price))
                 <div class="tab-pane fade" id="v-pills-price" role="tabpanel" aria-labelledby="v-pills-price-tab">
                     @include("includes.place.price")
                 </div>
+                @endif
 
-                <!-- Tab: Discount -->
-                <div class="tab-pane fade" id="v-pills-discount" role="tabpanel" aria-labelledby="v-pills-discount-tab">
-                    @include("includes.place.discount")
-                </div>
             </div>
         </main>
         <!-- End: Content -->

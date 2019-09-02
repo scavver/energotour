@@ -1,15 +1,15 @@
 <!-- Slider, Price, Discount, Properties (First Row) -->
-<div class="row">
+<div class="row bordered-bottom">
     <!-- Slider -->
-    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-8">
+    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 bordered-right">
         @if (count($slides) > 0)
-            <div id="carouselExampleIndicators" class="carousel slide mb-3" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide my-3" data-ride="carousel">
                 <ol class="carousel-indicators">
                     @for($i = 0; $i < count($slides); $i++)
                         <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="
                                             @if($i == 0)
                                 active
-@endif">
+                   @endif">
                         </li>
                     @endfor
                 </ol>
@@ -38,25 +38,31 @@
 
     <!-- Price, Discount -->
     <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-4">
-        <div class="row pr-3 pl-3 pl-sm-3 pl-md-0">
-            <div class="card-group w-100">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">до -{{ $place->discount->max_discount }}%</h5>
-                        <p class="card-text"><small class="text-muted">Частным лицам</small></p>
-                    </div>
-                </div>
+        <div class="row p-3">
+            <!-- Price & Discount -->
+            <div class="card w-100 mb-3">
+                <div class="card-body text-center">
+                    <div class="single price-discount">
+                        от
+                        <span class="price px-1">
+                            <s class="pr-1">{{ $place->price->min_price }}</s>
+                            <strong>{{ intval($place->price->min_price - ($place->price->min_price * ($place->discount->max_discount / 100))) }} руб.</strong>
+                        </span>
 
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5 class="card-title">от {{ $place->price->min_price }} руб.</h5>
-                        <p class="card-text"><small class="text-muted">По прайсу</small></p>
+                        <span class="discount">
+                            -{{ $place->discount->max_discount }}%
+                        </span>
                     </div>
                 </div>
             </div>
 
+            <!-- Booking button link -->
+            <a class="btn btn-outline-success btn-block mb-3 mt-0" href="{{ url('booking') }}">
+                <i class="fas fa-calendar-check mr-2 fa-fw"></i> Онлайн бронирование
+            </a>
+
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-outline-primary btn-block mb-3" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-outline-primary btn-block my-0" data-toggle="modal" data-target="#exampleModal">
                 <i class="fas fa-drafting-compass mr-2 fa-fw"></i> Показать на карте
             </button>
         </div>
@@ -79,7 +85,7 @@
         </div>
 
         <!-- Properties -->
-        <div class="row pt-0 pb-3 pr-3 pl-3 pl-sm-3 pl-md-0">
+        <div class="row px-3 pb-3 pt-0">
             <h5>Услуги и удобства в отеле</h5>
 
             <div class="single-tags">
@@ -93,9 +99,71 @@
 </div>
 
 <!-- Content (Second Row) -->
-<div class="row">
+@if(!empty($place->about->description))
+<div class="row pt-3">
     <div class="col">
         <h4>Описание</h4>
-        {!! $place->content !!}
+        {!! $place->about->description !!}
     </div>
 </div>
+@endif
+
+<!-- Content (Third Row) -->
+@if(!empty($place->about->rules_of_settlement))
+    <div class="row pt-3 bordered-top">
+        <div class="col">
+            <h4>Правила заселения</h4>
+            <p>{!! $place->about->rules_of_settlement !!}</p>
+        </div>
+    </div>
+@endif
+
+<!-- Content (Fourth Row) -->
+@if(!empty($place->about->included_services))
+    <div class="row pt-3 bordered-top">
+        <div class="col">
+            <h4>Условия включенные в стоимость</h4>
+            <p>{!! $place->about->included_services !!}</p>
+        </div>
+    </div>
+@endif
+
+<!-- Content (Fifth Row) -->
+@if(!empty($place->about->address))
+    <div class="row pt-3 bordered-top">
+        <div class="col">
+            <h4>Адрес</h4>
+            <p>{!! $place->about->address !!}</p>
+        </div>
+    </div>
+@endif
+
+<!-- Content (Sixth Row) -->
+@if(!empty($place->about->territory))
+    <div class="row pt-3 bordered-top">
+        <div class="col">
+            <h4>Территория</h4>
+            <p>{!! $place->about->territory !!}</p>
+        </div>
+    </div>
+@endif
+
+<!-- Content (Seventh Row) -->
+@if(!empty($place->about->reconstruction))
+    <div class="row pt-3 bordered-top">
+        <div class="col">
+            <h4>Реконструкция</h4>
+            <p>{!! $place->about->reconstruction !!}</p>
+        </div>
+    </div>
+@endif
+
+<!-- Content (Second Row) -->
+@if(!empty($place->about->children))
+    <div class="row pt-3 bordered-top">
+        <div class="col">
+            <h4>Дети</h4>
+            <p>{!! $place->about->children !!}</p>
+        </div>
+    </div>
+@endif
