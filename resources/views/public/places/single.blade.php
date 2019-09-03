@@ -24,11 +24,17 @@
                     @if(count($rooms) > 0)
                         <a class="text-center text-md-right nav-link" id="v-pills-rooms-tab" data-toggle="pill" href="#v-pills-rooms" role="tab" aria-controls="v-pills-rooms" aria-selected="false">Номерной фонд</a>
                     @endif
+                    @if(count($infrastructure) > 0)
+                        <a class="text-center text-md-right nav-link" id="v-pills-infrastructure-tab" data-toggle="pill" href="#v-pills-infrastructure" role="tab" aria-controls="v-pills-infrastructure" aria-selected="false">Инфраструктура</a>
+                    @endif
                     @if(!empty($place->discount))
                     <a class="text-center text-md-right nav-link" id="v-pills-discount-tab" data-toggle="pill" href="#v-pills-discount" role="tab" aria-controls="v-pills-discount" aria-selected="false">Наши скидки</a>
                     @endif
                     @if(!empty($place->price))
                     <a class="text-center text-md-right nav-link" id="v-pills-price-tab" data-toggle="pill" href="#v-pills-price" role="tab" aria-controls="v-pills-price" aria-selected="false">Прайс-лист</a>
+                    @endif
+                    @if(count($treatment) > 0)
+                        <a class="text-center text-md-right nav-link" id="v-pills-treatment-tab" data-toggle="pill" href="#v-pills-treatment" role="tab" aria-controls="v-pills-treatment" aria-selected="false">Лечение</a>
                     @endif
                 </div>
 
@@ -63,6 +69,13 @@
                 </div>
                 @endif
 
+                <!-- Tab: Infrastructure -->
+                @if(count($infrastructure) > 0)
+                    <div class="px-3 tab-pane fade show" id="v-pills-infrastructure" role="tabpanel" aria-labelledby="v-pills-infrastructure-tab">
+                        @include("includes.place.infrastructure")
+                    </div>
+                @endif
+
                 <!-- Tab: Discount -->
                 @if(!empty($place->discount))
                     <div class="tab-pane fade" id="v-pills-discount" role="tabpanel" aria-labelledby="v-pills-discount-tab">
@@ -77,6 +90,12 @@
                 </div>
                 @endif
 
+                <!-- Tab: Treatment -->
+                @if(count($treatment) > 0)
+                    <div class="px-3 tab-pane fade show" id="v-pills-treatment" role="tabpanel" aria-labelledby="v-pills-treatment-tab">
+                        @include("includes.place.treatment")
+                    </div>
+                @endif
             </div>
         </main>
         <!-- End: Content -->

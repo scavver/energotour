@@ -1,6 +1,6 @@
 <template>
     <div class="sticky-top p-3 vh-100">
-        <a class="twitter-timeline" data-height="calc(100% - 3.4rem)" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
+        <a class="twitter-timeline" data-height="100%" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
     </div>
 </template>
 

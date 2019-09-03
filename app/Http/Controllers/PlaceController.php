@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Gallery;
+use App\Infrastructure;
 use App\Place;
 use App\Room;
+use App\Treatment;
 
 class PlaceController extends Controller
 {
@@ -20,6 +22,8 @@ class PlaceController extends Controller
     {
         $place = Place::where('slug', $slug)->first();
         $rooms = Room::where('place_id', '=', $place->id)->get();
+        $infrastructure = Infrastructure::where('place_id', '=', $place->id)->get();
+        $treatment = Treatment::where('place_id', '=', $place->id)->get();
 
         if (empty($place)) {
             abort(404);
@@ -27,6 +31,6 @@ class PlaceController extends Controller
 
         $slides = Gallery::where('place_id', $place->id)->where('is_main', '1')->first()->images;
 
-        return view('public.places.single', ['place' => $place, 'slides' => $slides, 'rooms' => $rooms]);
+        return view('public.places.single', ['place' => $place, 'slides' => $slides, 'rooms' => $rooms, 'infrastructure' => $infrastructure, 'treatment' => $treatment]);
     }
 }
