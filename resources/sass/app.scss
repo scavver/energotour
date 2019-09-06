@@ -11,19 +11,30 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Глобальные
+@media screen and (min-width: 768px) {
+  body {
+    padding-top: 3.81rem !important;
+  }
+  .sticky-top {
+    top: 3.81rem !important;
+  }
+}
+
 body {
-  padding-top: 3.81rem;
+  padding-top: 3.46rem;
   background-color: #f5f5f6;
 }
+.sticky-top {
+  top: 3.46rem;
+}
+
 ::selection {
   background: #ceb4ff;
 }
 ::-moz-selection {
   background: #ffb52d;
 }
-.sticky-top {
-  top: 3.81rem;
-}
+
 main p {
   font-size: 1rem !important;
   font-weight: 300 !important;
