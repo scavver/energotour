@@ -51,8 +51,8 @@
                     </dl>
 
                     <dl class="row footer">
-                        <dt class="col font-weight-normal text-pattens-blue">Украина</dt>
-                        <dd class="col text-right"><a href="tel:+380509456888" class="text-white">+38 050 945-68-88</a></dd>
+                        <dt class="col font-weight-normal text-pattens-blue">Крым <span class="font-weight-light" style="font-size: 80%;">(Viber, WhatsApp)</span></dt>
+                        <dd class="col text-right"><a href="tel:+79787253747" class="text-white">+7 978 725-37-47</a></dd>
                     </dl>
 
                     <dl class="row footer">
@@ -61,9 +61,10 @@
                     </dl>
 
                     <dl class="row footer last">
-                        <dt class="col font-weight-normal text-pattens-blue">Крым <span class="font-weight-light" style="font-size: 80%;">(Viber, WhatsApp)</span></dt>
-                        <dd class="col text-right"><a href="tel:+79787253747" class="text-white">+7 978 725-37-47</a></dd>
+                        <dt class="col font-weight-normal text-pattens-blue">Украина</dt>
+                        <dd class="col text-right"><a href="tel:+380509456888" class="text-white">+38 050 945-68-88</a></dd>
                     </dl>
+
                 </div>
                 <!-- End: Columns -->
             </div>
