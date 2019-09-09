@@ -13,9 +13,9 @@
                 <dd class="col-6 col-md-8">{{ $place->infrastructure->beach }}</dd>
             @endif
 
-            @if(!empty($place->infrastructure->entertainment))
+            @if(!empty($place->infrastructure->entertainments))
                 <dt class="col-6 col-md-4">Развлечения</dt>
-                <dd class="col-6 col-md-8">{{ $place->infrastructure->entertainment }}</dd>
+                <dd class="col-6 col-md-8">{{ $place->infrastructure->entertainments }}</dd>
             @endif
 
             @if(!empty($place->infrastructure->sport))
