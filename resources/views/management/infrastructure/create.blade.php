@@ -51,11 +51,11 @@
                 </div>
 
                 <div class="col">
-                    <label for="entertainment">Развлечения</label>
+                    <label for="entertainments">Развлечения</label>
 
-                    <textarea name="entertainment" id="entertainment" rows="3" class="form-control @error('entertainment') is-invalid @enderror"></textarea>
+                    <textarea name="entertainments" id="entertainments" rows="3" class="form-control @error('entertainments') is-invalid @enderror"></textarea>
 
-                    @error('entertainment')
+                    @error('entertainments')
                     <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
