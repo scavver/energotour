@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Management;
 
 
+use Intervention\Image\Facades\Image as Intervention;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Gallery;
 use App\Image;
-use Intervention\Image\Facades\Image as Intervention;
 
 class ImageController extends Controller
 {
@@ -22,15 +23,12 @@ class ImageController extends Controller
                 // Сохранение и получение в ответ пути оригинального изображения
                 $path = $img->store('images');
 
-                // Рандомная строка для названия оригинала со сжатым качеством
-                $random = Str::random(5);
-
                 // Нейминг путей оригинала и миниатюры
-                $path_compressed = 'images/' . md5($path . $random . time()) . '.' . $img->extension();
+                $path_compressed = 'images/' . md5(time() . $path) . '.' . $img->extension();
                 $path_sm = 'images/' . md5($path . time()) . '.' . $img->extension();
 
                 // Кодируем оригинал в jpg с заданным качеством
-                $compressed = Intervention::make($path)->encode('jpg', 65);
+                $compressed = Intervention::make($path)->encode('jpg', 40);
                 $compressed->save($path_compressed);
 
                 // Создание миниатюры
