@@ -36,6 +36,9 @@
                     @if(count($treatment) > 0)
                         <a class="text-center text-md-right nav-link" id="v-pills-treatment-tab" data-toggle="pill" href="#v-pills-treatment" role="tab" aria-controls="v-pills-treatment" aria-selected="false">Лечение</a>
                     @endif
+                    @if(!empty($food))
+                        <a class="text-center text-md-right nav-link" id="v-pills-food-tab" data-toggle="pill" href="#v-pills-food" role="tab" aria-controls="v-pills-food" aria-selected="false">Питание</a>
+                    @endif
                 </div>
 
                 <!-- Banner -->
@@ -94,6 +97,13 @@
                 @if(count($treatment) > 0)
                     <div class="px-3 tab-pane fade show" id="v-pills-treatment" role="tabpanel" aria-labelledby="v-pills-treatment-tab">
                         @include("includes.place.treatment")
+                    </div>
+                @endif
+
+                <!-- Tab: Food -->
+                @if(!empty($food))
+                    <div class="px-3 tab-pane fade" id="v-pills-food" role="tabpanel" aria-labelledby="v-pills-food-tab">
+                        @include("includes.place.food")
                     </div>
                 @endif
             </div>
