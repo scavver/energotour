@@ -77,6 +77,7 @@ class GalleryController extends Controller
 
         foreach ($images as $image) {
             Storage::delete($image->path);
+            Storage::delete($image->path_compressed);
             Storage::delete($image->path_sm);
         }
 

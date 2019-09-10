@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Image extends Model
 {
     // Атрибуты, для которых разрешено массовое назначение.
-    protected $fillable = ['alt', 'priority', 'gallery_id'];
+    protected $fillable = ['alt', 'path_compressed', 'path_sm', 'priority', 'gallery_id'];
 
     // Получить галерею, владеющую картинкой.
     public function gallery()

@@ -19,10 +19,21 @@ class ImageController extends Controller
 
         if (count($request->images)) {
             foreach ($request->images as $img) {
+                // Сохранение и получение в ответ пути оригинального изображения
                 $path = $img->store('images');
 
+                // Рандомная строка для названия оригинала со сжатым качеством
+                $random = Str::random(5);
+
+                // Нейминг путей оригинала и миниатюры
+                $path_compressed = 'images/' . md5($path . $random . time()) . '.' . $img->extension();
                 $path_sm = 'images/' . md5($path . time()) . '.' . $img->extension();
 
+                // Кодируем оригинал в jpg с заданным качеством
+                $compressed = Intervention::make($path)->encode('jpg', 65);
+                $compressed->save($path_compressed);
+
+                // Создание миниатюры
                 $thumbnail_sm = Intervention::make($path)->fit(400, 267, function ($constraint) {
                     $constraint->upsize();
                 });
@@ -31,6 +42,7 @@ class ImageController extends Controller
                 $image = new Image();
 
                 $image->path = $path;
+                $image->path_compressed = $path_compressed;
                 $image->path_sm = $path_sm;
                 $image->gallery_id = $galleryID;
 
@@ -70,6 +82,7 @@ class ImageController extends Controller
         $image = Image::find($id);
 
         Storage::delete($image->path);
+        Storage::delete($image->path_compressed);
         Storage::delete($image->path_sm);
 
         $image->delete();
