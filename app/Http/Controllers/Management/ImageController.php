@@ -7,7 +7,6 @@ use Intervention\Image\Facades\Image as Intervention;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Gallery;
 use App\Image;
 
