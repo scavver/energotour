@@ -22,6 +22,10 @@ Route::prefix('places')->group(function () {
     Route::get('/{slug}', 'PlaceController@single')->name('places.single');   // Страница санатория или отеля
 });
 
+Route::get('booking', function () {
+    return view('public.booking');
+})->name('booking');
+
 // Management
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('management')->group(function () {

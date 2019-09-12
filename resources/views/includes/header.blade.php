@@ -22,8 +22,8 @@
                 <li class="nav-item {{ (request()->is('places') || request()->is('places/*')) ? 'active' : '' }}">
                     <a class="nav-link" href="{{ url('places') }}">Санатории и отели</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="">Онлайн бронирование</a>
+                <li class="nav-item {{ request()->is('booking') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('booking') }}">Онлайн бронирование</a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="">Авиабилеты</a>
