@@ -40,6 +40,10 @@ main p {
   font-weight: 300 !important;
 }
 
+main p.content {
+  white-space: pre-wrap;
+}
+
 // Спиннер
 .spinner {
   margin: 100px auto;

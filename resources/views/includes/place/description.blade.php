@@ -113,7 +113,7 @@
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Правила заселения</h4>
-            <p>{!! $place->about->rules_of_settlement !!}</p>
+            <p class="content">{{ $place->about->rules_of_settlement }}</p>
         </div>
     </div>
 @endif
@@ -123,7 +123,7 @@
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Условия включенные в стоимость</h4>
-            <p>{!! $place->about->included_services !!}</p>
+            <p class="content">{{ $place->about->included_services }}</p>
         </div>
     </div>
 @endif
@@ -133,7 +133,7 @@
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Адрес</h4>
-            <p>{!! $place->about->address !!}</p>
+            <p class="content">{{ $place->about->address }}</p>
         </div>
     </div>
 @endif
@@ -143,7 +143,7 @@
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Территория</h4>
-            <p>{!! $place->about->territory !!}</p>
+            <p class="content">{{ $place->about->territory }}</p>
         </div>
     </div>
 @endif
@@ -153,7 +153,7 @@
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Реконструкция</h4>
-            <p>{!! $place->about->reconstruction !!}</p>
+            <p class="content">{{ $place->about->reconstruction }}</p>
         </div>
     </div>
 @endif
@@ -163,7 +163,7 @@
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Дети</h4>
-            <p>{!! $place->about->children !!}</p>
+            <p class="content">{{ $place->about->children }}</p>
         </div>
     </div>
 @endif

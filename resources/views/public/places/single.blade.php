@@ -18,26 +18,26 @@
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <!-- <a class="text-right nav-link" id="v-pills-location-tab" data-toggle="pill" href="#v-pills-location" role="tab" aria-controls="v-pills-location" aria-selected="false">Показать на карте</a> -->
                     <a class="text-center text-md-right nav-link active" id="v-pills-description-tab" data-toggle="pill" href="#v-pills-description" role="tab" aria-controls="v-pills-description" aria-selected="true">Описание</a>
-                    @if(count($place->galleries) >= 2)
-                    <a class="text-center text-md-right nav-link" id="v-pills-photo-tab" data-toggle="pill" href="#v-pills-photo" role="tab" aria-controls="v-pills-photo" aria-selected="false">Фотографии</a>
-                    @endif
                     @if(count($rooms) > 0)
                         <a class="text-center text-md-right nav-link" id="v-pills-rooms-tab" data-toggle="pill" href="#v-pills-rooms" role="tab" aria-controls="v-pills-rooms" aria-selected="false">Номерной фонд</a>
+                    @endif
+                    @if(!empty($food))
+                        <a class="text-center text-md-right nav-link" id="v-pills-food-tab" data-toggle="pill" href="#v-pills-food" role="tab" aria-controls="v-pills-food" aria-selected="false">Питание</a>
                     @endif
                     @if(count($infrastructure) > 0)
                         <a class="text-center text-md-right nav-link" id="v-pills-infrastructure-tab" data-toggle="pill" href="#v-pills-infrastructure" role="tab" aria-controls="v-pills-infrastructure" aria-selected="false">Инфраструктура</a>
                     @endif
-                    @if(!empty($place->discount))
-                    <a class="text-center text-md-right nav-link" id="v-pills-discount-tab" data-toggle="pill" href="#v-pills-discount" role="tab" aria-controls="v-pills-discount" aria-selected="false">Наши скидки</a>
-                    @endif
-                    @if(!empty($place->price))
-                    <a class="text-center text-md-right nav-link" id="v-pills-price-tab" data-toggle="pill" href="#v-pills-price" role="tab" aria-controls="v-pills-price" aria-selected="false">Прайс-лист</a>
-                    @endif
                     @if(count($treatment) > 0)
                         <a class="text-center text-md-right nav-link" id="v-pills-treatment-tab" data-toggle="pill" href="#v-pills-treatment" role="tab" aria-controls="v-pills-treatment" aria-selected="false">Лечение</a>
                     @endif
-                    @if(!empty($food))
-                        <a class="text-center text-md-right nav-link" id="v-pills-food-tab" data-toggle="pill" href="#v-pills-food" role="tab" aria-controls="v-pills-food" aria-selected="false">Питание</a>
+                    @if(count($place->galleries) >= 2)
+                    <a class="text-center text-md-right nav-link" id="v-pills-photo-tab" data-toggle="pill" href="#v-pills-photo" role="tab" aria-controls="v-pills-photo" aria-selected="false">Фотографии</a>
+                    @endif
+                    @if(!empty($place->price))
+                        <a class="text-center text-md-right nav-link" id="v-pills-price-tab" data-toggle="pill" href="#v-pills-price" role="tab" aria-controls="v-pills-price" aria-selected="false">Прайс-лист</a>
+                    @endif
+                    @if(!empty($place->discount))
+                    <a class="text-center text-md-right nav-link" id="v-pills-discount-tab" data-toggle="pill" href="#v-pills-discount" role="tab" aria-controls="v-pills-discount" aria-selected="false">Наши скидки</a>
                     @endif
                 </div>
 
@@ -58,18 +58,18 @@
                     @include("includes.place.description")
                 </div>
 
-                <!-- Tab: Gallery -->
-                @if(count($place->galleries) >= 2)
-                <div class="tab-pane fade" id="v-pills-photo" role="tabpanel" aria-labelledby="v-pills-photo-tab">
-                    @include("includes.place.gallery")
-                </div>
-                @endif
-
                 <!-- Tab: Rooms -->
                 @if(count($rooms) > 0)
-                <div class="px-3 tab-pane fade show" id="v-pills-rooms" role="tabpanel" aria-labelledby="v-pills-rooms-tab">
-                    @include("includes.place.rooms")
-                </div>
+                    <div class="px-3 tab-pane fade show" id="v-pills-rooms" role="tabpanel" aria-labelledby="v-pills-rooms-tab">
+                        @include("includes.place.rooms")
+                    </div>
+                @endif
+
+                <!-- Tab: Food -->
+                @if(!empty($food))
+                    <div class="px-3 tab-pane fade" id="v-pills-food" role="tabpanel" aria-labelledby="v-pills-food-tab">
+                        @include("includes.place.food")
+                    </div>
                 @endif
 
                 <!-- Tab: Infrastructure -->
@@ -79,20 +79,6 @@
                     </div>
                 @endif
 
-                <!-- Tab: Discount -->
-                @if(!empty($place->discount))
-                    <div class="tab-pane fade" id="v-pills-discount" role="tabpanel" aria-labelledby="v-pills-discount-tab">
-                        @include("includes.place.discount")
-                    </div>
-                @endif
-
-                <!-- Tab: Price -->
-                @if(!empty($place->price))
-                <div class="tab-pane fade" id="v-pills-price" role="tabpanel" aria-labelledby="v-pills-price-tab">
-                    @include("includes.place.price")
-                </div>
-                @endif
-
                 <!-- Tab: Treatment -->
                 @if(count($treatment) > 0)
                     <div class="px-3 tab-pane fade show" id="v-pills-treatment" role="tabpanel" aria-labelledby="v-pills-treatment-tab">
@@ -100,10 +86,24 @@
                     </div>
                 @endif
 
-                <!-- Tab: Food -->
-                @if(!empty($food))
-                    <div class="px-3 tab-pane fade" id="v-pills-food" role="tabpanel" aria-labelledby="v-pills-food-tab">
-                        @include("includes.place.food")
+                <!-- Tab: Gallery -->
+                @if(count($place->galleries) >= 2)
+                <div class="tab-pane fade" id="v-pills-photo" role="tabpanel" aria-labelledby="v-pills-photo-tab">
+                    @include("includes.place.gallery")
+                </div>
+                @endif
+
+                <!-- Tab: Price -->
+                @if(!empty($place->price))
+                    <div class="tab-pane fade" id="v-pills-price" role="tabpanel" aria-labelledby="v-pills-price-tab">
+                        @include("includes.place.price")
+                    </div>
+                @endif
+
+                <!-- Tab: Discount -->
+                @if(!empty($place->discount))
+                    <div class="tab-pane fade" id="v-pills-discount" role="tabpanel" aria-labelledby="v-pills-discount-tab">
+                        @include("includes.place.discount")
                     </div>
                 @endif
             </div>
