@@ -12,9 +12,9 @@
      <div class="container-fluid pt-md-4 px-0">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 col-sm-12 col-md-4 px-0 mb-3 mb-md-0">
-
-                        <div class="card border-0 shadow-sm h-100" id="fast-search">
+                    <div class="col-12 col-sm-12 col-md-4 px-0 mb-3 mb-md-0 d-flex align-items-center">
+                        <iframe src="https://samo.energotour.com/fast_search" frameborder="0" height="387px" width="100%" scrolling="no"></iframe>
+                        {{-- <div class="card border-0 shadow-sm h-100" id="fast-search">
                             <div class="card-body pt-0">
                                 <h5 class="card-title my-3">Онлайн бронирование</h5>
                                 <div class="form-group">
@@ -50,14 +50,12 @@
                                 </div>
 
                                 <button type="button" class="btn btn-primary text-white btn btn-block">Найти</button>
-
                             </div>
-
-                        </div>
+                        </div>--}}
 
                     </div>
 
-                    <div class="col-12 col-sm-12 col-md-8 col-xl-8 pr-md-0">
+                    <div class="col-12 col-sm-12 col-md-8 col-xl-8 pr-md-0 d-flex align-items-center">
                         @if (count($carouselImages) > 0)
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">
