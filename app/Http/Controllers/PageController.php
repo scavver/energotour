@@ -38,4 +38,36 @@ class PageController extends Controller
         // Возвращаем стандартный вид для отображения контента страницы ($page->content)
         return view('public.page', ['page' => $page]);
     }
+
+    // Страница "Как забронировать тур"
+    public function howToBooking()
+    {
+        return view('public.pages.howToBooking');
+    }
+
+    // Страница "Как оплатить"
+    public function howToPay()
+    {
+        return view('public.pages.howToPay');
+    }
+
+    // Страница "Вопрос ответ"
+    public function faq()
+    {
+        return view('public.pages.faq');
+    }
+
+    // Страница "История компании"
+    public function history()
+    {
+        $galleries = Gallery::whereBetween('id', [52, 62])->get();
+
+        return view('public.pages.history', ['galleries' => $galleries]);
+    }
+
+    // Страница "Контакты"
+    public function contacts()
+    {
+        return view('public.pages.contacts');
+    }
 }

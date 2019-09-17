@@ -13,10 +13,10 @@
 // Глобальные
 @media screen and (min-width: 768px) {
   body {
-    padding-top: 3.81rem !important;
+    // padding-top: 3.81rem !important;
   }
   .sticky-top {
-    top: 3.81rem !important;
+    top: 3.46rem !important; // 46
   }
 }
 
@@ -38,6 +38,16 @@ body {
 main p {
   font-size: 1rem !important;
   font-weight: 300 !important;
+}
+
+main ul,ol {
+  font-size: 1rem !important;
+  font-weight: 300 !important;
+}
+
+// Tabs
+.nav-link {
+  padding: 0.5rem 0.75rem !important;
 }
 
 main p.content {

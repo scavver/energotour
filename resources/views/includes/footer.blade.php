@@ -8,7 +8,7 @@
                     <ul>
                         <li class="heading">Наши услуги</li>
 
-                        <li class="item"><a href="/pages/places">Санатории и отели</a></li>
+                        <li class="item"><a href="/places">Санатории и отели</a></li>
                         <li class="item"><a href="/pages/avia">Авиабилеты</a></li>
                         <li class="item"><a href="/pages/excursions">Экскурсии</a></li>
                         <li class="item"><a href="/pages/transfer">Трансфер</a></li>
@@ -20,10 +20,10 @@
                     <ul>
                         <li class="heading">Туристам</li>
 
-                        <li class="item"><a href="/pages/faq">Вопрос-ответ</a></li>
+                        <li class="item"><a href="/tourists/faq">Вопрос-ответ</a></li>
                         <li class="item"><a href="/pages/notes">Памятка туристам</a></li>
-                        <li class="item"><a href="/pages/events">Событийный Крым</a></li>
-                        <li class="item"><a href="/pages/landmarks">Достопримечательности</a></li>
+                        <li class="item"><a href="/events">Событийный Крым</a></li>
+                        <li class="item"><a href="/landmarks">Достопримечательности</a></li>
                     </ul>
                 </div>
 
@@ -32,9 +32,9 @@
                     <ul>
                         <li class="heading">Информация</li>
 
-                        <li class="item"><a href="/pages/office">Наш офис</a></li>
-                        <li class="item"><a href="/pages/history">История компании</a></li>
-                        <li class="item"><a href="/pages/docs">Регистрационные документы</a></li>
+                        <li class="item"><a href="/contacts">Контакты</a></li>
+                        <li class="item"><a href="/history">История компании</a></li>
+                        <li class="item"><a href="/docs">Регистрационные документы</a></li>
                         <li class="item"><a href="/pages/privacy-policy">Политика конфиденциальности</a></li>
                     </ul>
                 </div>
