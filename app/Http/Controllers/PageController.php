@@ -19,9 +19,11 @@ class PageController extends Controller
 
         $hot = Place::whereHas('properties', function($q) { $q->where('id', 1); })->take(3)->get();
 
-        $pool = Place::whereHas('properties', function($q) { $q->where('id', 2); })->where('id', '<>', 1)->take(3)->get();
+        $pool = Place::whereHas('properties', function($q) { $q->where('id', 2); })->where('id', '<>', 1)->orderByRaw('RAND()')->take(3)->get();
 
-        return view('public.home', ['carouselImages' => $carouselImages, 'categories' => $categories, 'hot' => $hot, 'pool' => $pool]);
+        $family = Place::whereHas('properties', function($q) { $q->where('id', 7); })->where('id', '<>', 1)->orderByRaw('RAND()')->take(3)->get();
+
+        return view('public.home', ['carouselImages' => $carouselImages, 'categories' => $categories, 'hot' => $hot, 'pool' => $pool, 'family' => $family]);
     }
 
     // Кастомные страницы (Контакты, О компании, и т.д.)
