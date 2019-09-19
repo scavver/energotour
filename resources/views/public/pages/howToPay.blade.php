@@ -15,7 +15,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <ul class="nav nav-pills card-header-pills">
+                    <ul class="nav nav-pills card-header-pills" style="font-weight: 400 !important;">
                         <li class="nav-item">
                             <a class="nav-link active" id="pills-cash-tab" data-toggle="pill" href="#pills-cash" role="tab" aria-controls="pills-cash" aria-selected="true">Наличными</a>
                         </li>
@@ -51,11 +51,15 @@
                         <div class="tab-pane fade show active" id="pills-cash" role="tabpanel" aria-labelledby="pills-cash-tab">
                             <p>Оплата наличными возможна в офисе компании в г.Симферополь, бул. Франко 6-а, оф.4</p>
 
-                            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad1f97bda4c57e9efc8c336f016da7290050e876449fe92ef563ad629bcc0ef39&amp;source=constructor" width="100%" height="500" frameborder="0"></iframe>
+                            <div class="py-2">
+                                <div class="iframe">
+                                    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Ad1f97bda4c57e9efc8c336f016da7290050e876449fe92ef563ad629bcc0ef39&amp;source=constructor" width="100%" height="350" frameborder="0"></iframe>
+                                </div>
+                            </div>
                         </div>
                         <!-- Account -->
                         <div class="tab-pane fade" id="pills-account" role="tabpanel" aria-labelledby="pills-account-tab">
-                            <p>Оплатить счет можно в любом банке РФ, либо из Вашего личного кабинета банка, в котором Вы обслуживаетесь.- этого на нашем сайте не было.</p>
+                            <p>Оплатить счет можно в любом банке РФ, либо из Вашего личного кабинета банка, в котором Вы обслуживаетесь.</p>
 
                             <p>При оплате  счета в банке, в графе «Назначение платежа»:</p>
 

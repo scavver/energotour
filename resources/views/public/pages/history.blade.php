@@ -172,6 +172,7 @@
             @endforeach
 
             <p><strong>ФК "Шахтер" Донецк - прeмиум партнерство</strong></p>
+            <img src="https://shakhtar.com/assets/images/global/logo.svg" width="100px" class="pt-1 pb-3">
             <br>
             <ul>
                 <li>Национальный туроператор РФ "Алеан" - дипломом "Лучшее агентство - партнер по направлению Крым"</li>
@@ -206,6 +207,7 @@
             <p>Директор компании "Энерготур" избран Председателем Профсоюза работников тур-индустрии Республики Крым.</p>
 
             <p><strong>ФК "Шахтер" Донецк - прeмиум партнерство</strong></p>
+            <img src="https://shakhtar.com/assets/images/global/logo.svg" width="100px" class="pt-1 pb-3">
             <br>
             <ul>
                 <li>Пансионат "Массандра" г. Ялта - диплом "Партнер 2015 года"</li>

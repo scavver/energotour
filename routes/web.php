@@ -28,8 +28,10 @@ Route::prefix('tourists')->group(function () {
     Route::get('/faq', 'PageController@faq')->name('tourists.faq');                                 // Страница "Вопрос ответ"
 });
 
-Route::get('/history', 'PageController@history')->name('tourists.history');                         // Страница "История компании"
-Route::get('/contacts', 'PageController@contacts')->name('tourists.contacts');                      // Страница "Контакты"
+Route::get('/history', 'PageController@history')->name('history');                         // Страница "История компании"
+Route::get('/contacts', 'PageController@contacts')->name('contacts');                      // Страница "Контакты"
+Route::get('/docs', 'PageController@docs')->name('docs');                                  // Страница "Ргеистрационные документы"
+Route::get('/avia', 'PageController@avia')->name('avia');                                  // Страница "Авиабилеты"
 
 Route::get('booking', function () {
     return view('public.booking');

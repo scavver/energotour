@@ -72,4 +72,10 @@ class PageController extends Controller
     {
         return view('public.pages.contacts');
     }
+
+    // Страница "Регистрационные документы"
+    public function docs()
+    {
+        return view('public.pages.docs');
+    }
 }

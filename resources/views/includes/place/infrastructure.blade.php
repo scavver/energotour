@@ -32,6 +32,11 @@
                 <dt class="col-6 col-md-4">Паркинг</dt>
                 <dd class="col-6 col-md-8">{{ $place->infrastructure->parking }}</dd>
             @endif
+
+            @if(!empty($place->infrastructure->parking))
+                <dt class="col-6 col-md-4">Дополнительно</dt>
+                <dd class="col-6 col-md-8">{{ $place->infrastructure->extra }}</dd>
+            @endif
         </dl>
     </div>
 

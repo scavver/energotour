@@ -213,7 +213,7 @@
              <div class="row px-3 pb-4 header">
                  <h2 class="text-uppercase w-100">Отдых с детьми</h2>
 
-                 <a href="{{ url('places?selectedCategory=&selectedType=&checkedProperties=2') }}">Показать все <i class="fas fa-angle-right"></i></a>
+                 <a href="{{ url('places?selectedCategory=&selectedType=&checkedProperties=7') }}">Показать все <i class="fas fa-angle-right"></i></a>
              </div>
 
              <div class="row">
