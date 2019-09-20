@@ -175,69 +175,49 @@
 
      <!-- And I got a swimming pool full of liquor and they dive in lyrics -->
 
-     @if (count($pool) > 0)
-         <div class="container special-offers">
-             <div class="row px-3 pb-4 header">
-                 <h2 class="text-uppercase w-100">С бассейном</h2>
+     <div class="container special-offers">
+         <div class="row px-3 pb-4 header">
+             <h2 class="text-uppercase w-100">Популярные категории</h2>
+         </div>
 
-                 <a href="{{ url('places?selectedCategory=&selectedType=&checkedProperties=2') }}">Показать все <i class="fas fa-angle-right"></i></a>
-             </div>
-
-             <div class="row">
-                 @foreach($pool as $place)
-                     <div class="col-12 col-sm-12 col-md-4">
-                         <a href="{{ url('places/' . $place->slug) }}">
-                             <div class="place-container">
-                                 <img src="{{ $place->cover->path }}" class="image-container" alt="{{ $place->name }}">
-                                 <div class="content-container text-center">
-                                     <div class="place-name">{{ $place->name }}</div>
-                                     <div class="region-type">{{ $place->category->name }} | {{ $place->type->name }}</div>
-                                     <div class="price-discount"><s class="pr-1">{{ $place->price->min_price }}</s> {{ intval($place->price->min_price - ($place->price->min_price * ($place->discount->max_discount / 100))) }} руб. <span class="pl-3">-{{ $place->discount->max_discount }}%</span></div>
-                                 </div>
-                             </div>
-                         </a>
+         <div class="row">
+             <div class="col-12 col-sm-12 col-md-4">
+                 <a href="{{ url('/places?selectedCategory=&selectedType=1&checkedProperties=') }}">
+                     <div class="place-container">
+                         <img src="{{ $place->where('id', 17)->first()->cover->path }}" class="image-container" alt="Санатории Крыма">
+                         <div class="content-container text-center">
+                             <div class="place-name">Санатории</div>
+                             <div class="region-type">{{ count($sanatorium) }} Предложений</div>
+                         </div>
                      </div>
-                 @endforeach
-             </div>
-         </div>
-     @else
-         <div class="d-flex justify-content-center text-center m-3">
-             <span class="text-danger">Не удалось загрузить коллекцию специальных предложений<br>views.public.home | app/Http/Controllers/PageController</span>
-         </div>
-     @endif
-
-     <!-- Family Guy -->
-
-     @if (count($family) > 0)
-         <div class="container special-offers">
-             <div class="row px-3 pb-4 header">
-                 <h2 class="text-uppercase w-100">Отдых с детьми</h2>
-
-                 <a href="{{ url('places?selectedCategory=&selectedType=&checkedProperties=7') }}">Показать все <i class="fas fa-angle-right"></i></a>
+                 </a>
              </div>
 
-             <div class="row">
-                 @foreach($family as $place)
-                     <div class="col-12 col-sm-12 col-md-4">
-                         <a href="{{ url('places/' . $place->slug) }}">
-                             <div class="place-container">
-                                 <img src="{{ $place->cover->path }}" class="image-container" alt="{{ $place->name }}">
-                                 <div class="content-container text-center">
-                                     <div class="place-name">{{ $place->name }}</div>
-                                     <div class="region-type">{{ $place->category->name }} | {{ $place->type->name }}</div>
-                                     <div class="price-discount"><s class="pr-1">{{ $place->price->min_price }}</s> {{ intval($place->price->min_price - ($place->price->min_price * ($place->discount->max_discount / 100))) }} руб. <span class="pl-3">-{{ $place->discount->max_discount }}%</span></div>
-                                 </div>
-                             </div>
-                         </a>
+             <div class="col-12 col-sm-12 col-md-4">
+                 <a href="{{ url('/places?selectedCategory=&selectedType=&checkedProperties=7') }}">
+                     <div class="place-container">
+                         <img src="{{ $place->where('id', 13)->first()->cover->path }}" class="image-container" alt="Отдых с детьми в Крыму">
+                         <div class="content-container text-center">
+                             <div class="place-name">Отдых с детьми</div>
+                             <div class="region-type">{{ count($family) }} Предложений</div>
+                         </div>
                      </div>
-                 @endforeach
+                 </a>
+             </div>
+
+             <div class="col-12 col-sm-12 col-md-4">
+                 <a href="{{ url('/places?selectedCategory=&selectedType=&checkedProperties=2') }}">
+                     <div class="place-container">
+                         <img src="{{ $place->where('id', 8)->first()->cover->path }}" class="image-container" alt="Санатории и отели с бассейном в Крыму">
+                         <div class="content-container text-center">
+                             <div class="place-name">С бассейном</div>
+                             <div class="region-type">{{ count($pool) }} Предложений</div>
+                         </div>
+                     </div>
+                 </a>
              </div>
          </div>
-     @else
-         <div class="d-flex justify-content-center text-center m-3">
-             <span class="text-danger">Не удалось загрузить коллекцию специальных предложений<br>views.public.home | app/Http/Controllers/PageController</span>
-         </div>
-     @endif
+     </div>
 
      <div class="container-fluid bg-white">
          <div class="container p-3 text-center">

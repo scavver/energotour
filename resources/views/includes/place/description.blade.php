@@ -118,11 +118,21 @@
     </div>
 @endif
 
+<!-- Content (Second Row) -->
+@if(!empty($place->about->children))
+    <div class="row pt-3 bordered-top">
+        <div class="col">
+            <h4>Дети</h4>
+            <p class="content">{{ $place->about->children }}</p>
+        </div>
+    </div>
+@endif
+
 <!-- Content (Fourth Row) -->
 @if(!empty($place->about->included_services))
     <div class="row pt-3 bordered-top">
         <div class="col">
-            <h4>Условия включенные в стоимость</h4>
+            <h4>Услуги включенные в стоимость</h4>
             <p class="content">{{ $place->about->included_services }}</p>
         </div>
     </div>
@@ -154,16 +164,6 @@
         <div class="col">
             <h4>Реконструкция</h4>
             <p class="content">{{ $place->about->reconstruction }}</p>
-        </div>
-    </div>
-@endif
-
-<!-- Content (Second Row) -->
-@if(!empty($place->about->children))
-    <div class="row pt-3 bordered-top">
-        <div class="col">
-            <h4>Дети</h4>
-            <p class="content">{{ $place->about->children }}</p>
         </div>
     </div>
 @endif

@@ -55,8 +55,8 @@
         </div>
 
         <div class="form-group">
-            <label for="edit">Содержимое страницы</label>
-            <textarea class="form-control" id="edit" name="content" rows="15" required></textarea>
+            <label for="editor">Содержимое страницы</label>
+            <textarea class="form-control" id="editor" name="content" rows="15" required></textarea>
 
             @error('content')
             <span class="invalid-feedback" role="alert">

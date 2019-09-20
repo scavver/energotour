@@ -35,7 +35,7 @@
                         <li class="item"><a href="/contacts">Контакты</a></li>
                         <li class="item"><a href="/history">История компании</a></li>
                         <li class="item"><a href="/docs">Регистрационные документы</a></li>
-                        <li class="item"><a href="/pages/privacy-policy">Политика конфиденциальности</a></li>
+                        <li class="item"><a href="/pages/privacy-policy">Защита персональных данных</a></li>
                     </ul>
                 </div>
 

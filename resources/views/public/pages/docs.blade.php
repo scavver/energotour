@@ -15,14 +15,14 @@
 
             <div class="row">
                 <div class="col-6 text-center">
-                    <a href="{{ asset('images/docs-01.png') }}" data-toggle="lightbox" class="text-center">
-                        <img src="https://x.energotour.com/images/docs-02.jpg" class="img-fluid rounded" width="60%">
+                    <a href="{{ asset('images/docs-02.jpg') }}" data-toggle="lightbox" class="text-center">
+                        <img src="{{ asset('images/docs-02.jpg') }}" class="img-fluid rounded" width="60%">
                     </a>
                 </div>
 
                 <div class="col-6 text-center">
-                    <a href="{{ asset('images/docs-01.png') }}" data-toggle="lightbox" class="text-center">
-                        <img src="https://x.energotour.com/images/docs-01.jpg" class="img-fluid rounded" width="60%">
+                    <a href="{{ asset('images/docs-01.jpg') }}" data-toggle="lightbox" class="text-center">
+                        <img src="{{ asset('images/docs-01.jpg') }}" class="img-fluid rounded" width="60%">
                     </a>
                 </div>
             </div>
