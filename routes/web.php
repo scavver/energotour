@@ -33,6 +33,8 @@ Route::get('/contacts', 'PageController@contacts')->name('contacts');           
 Route::get('/docs', 'PageController@docs')->name('docs');                                  // Страница "Ргеистрационные документы"
 Route::get('/avia', 'PageController@avia')->name('avia');                                  // Страница "Авиабилеты"
 
+Route::get('/landmarks', 'PageController@landmarks')->name('landmarks');                   // Достопримечательности
+
 Route::get('booking', function () {
     return view('public.booking');
 })->name('booking');
@@ -42,6 +44,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('management')->group(function () {
         Route::get('/', 'ManagementController@dashboard')->name('dashboard');                               // Контрольная панель
 
+        Route::resource('/landmarks', 'Management\LandmarkController')->except(['show']);                   // Достопримечательности
         Route::resource('/pages', 'Management\PageController')->except(['show']);                           // Страницы
         Route::resource('/galleries', 'Management\GalleryController')->except(['show']);                    // Галереи
         Route::resource('/rooms', 'Management\RoomController')->except(['show']);                           // Номера

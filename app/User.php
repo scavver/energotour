@@ -24,4 +24,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Получить достопримечательности созданные пользователем
+    public function landmarks()
+    {
+        return $this->hasMany('App\Landmark');
+    }
 }

@@ -18,4 +18,10 @@ class Category extends Model
         return $this->hasMany('App\Place');
     }
 
+    // Получить достопримечательности
+    public function landmarks()
+    {
+        return $this->hasMany('App\Landmark');
+    }
+
 }
