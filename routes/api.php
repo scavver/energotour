@@ -39,3 +39,8 @@ Route::get('properties/{id}', 'API\PropertyController@getPlaceIds');
 
 Route::get('coords', 'API\CoordController@getAllCoords');
 Route::get('coords/{slug}', 'API\CoordController@getPlaceCoords');
+
+// Достопримечательности
+
+Route::get('landmarks', 'API\LandmarkController@getLandmarks');
+Route::get('landmarks/{slug}', 'API\LandmarkController@getLandmark');

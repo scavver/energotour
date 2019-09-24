@@ -35,6 +35,8 @@ Vue.component('accommodation-catalogue', require('./components/AccommodationCata
 Vue.component('twitter', require('./components/Twitter').default);
 Vue.component('accommodation-location', require('./components/AccommodationLocation').default);
 Vue.component('accommodation-markers', require('./components/AccommodationMarkers').default);
+Vue.component('landmark-list', require('./components/LandmarkList').default);
+Vue.component('landmark', require('./components/Landmark').default);
 
 // Настройки Vue Router
 

@@ -22,6 +22,11 @@ Route::prefix('places')->group(function () {
     Route::get('/{slug}', 'PlaceController@single')->name('places.single');   // Страница санатория или отеля
 });
 
+Route::prefix('landmarks')->group(function () {
+    Route::get('/', 'LandmarkController@index')->name('landmarks');                 // Список всех достопримечательностей
+    Route::get('/{slug}', 'LandmarkController@single')->name('landmarks.single');   // Страница достопримечательности
+});
+
 Route::prefix('tourists')->group(function () {
     Route::get('/how-to-booking', 'PageController@howToBooking')->name('tourists.howToBooking');    // Страница "Как забронировать тур"
     Route::get('/how-to-pay', 'PageController@howToPay')->name('tourists.howToPay');                // Страница "Как оплатить"
@@ -32,8 +37,6 @@ Route::get('/history', 'PageController@history')->name('history');              
 Route::get('/contacts', 'PageController@contacts')->name('contacts');                      // Страница "Контакты"
 Route::get('/docs', 'PageController@docs')->name('docs');                                  // Страница "Ргеистрационные документы"
 Route::get('/avia', 'PageController@avia')->name('avia');                                  // Страница "Авиабилеты"
-
-Route::get('/landmarks', 'PageController@landmarks')->name('landmarks');                   // Достопримечательности
 
 Route::get('booking', function () {
     return view('public.booking');
