@@ -82,9 +82,9 @@
                         <img src="/images/russian-federation.svg" height="65px" alt="">
                     </div>
 
-                    <div class="d-inline-block">
+                    <div class="d-inline-block" style="font-weight: 200; font-size: 0.8rem;">
                         Мы в реестре туроператоров<br>
-                        ООО "Туристическая компания "Энерго - Тур"<br>
+                        <span class="d-none d-md-inline">ООО "Туристическая компания "Энерго - Тур"<br></span>
                         РТО 018028
                     </div>
                 </a>

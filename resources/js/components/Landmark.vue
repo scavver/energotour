@@ -7,7 +7,7 @@
     </div>
 
     <main v-else class="container pb-4">
-        <h3 class="pt-3 pb-3 bordered-bottom mb-3"><small class="pl-3 pr-2"><a href="/landmarks"><i class="fas fa-arrow-left fa-fw"></i></a></small> {{ landmark.data.title }}</h3>
+        <h3 class="pt-3 pb-3 bordered-bottom mb-3"><small class="d-none d-md-inline pl-3 pr-2"><a href="/landmarks"><i class="fas fa-arrow-left fa-fw"></i></a></small> {{ landmark.data.title }}</h3>
         <div class="landmark-content" v-html="landmark.data.content"></div>
     </main>
 </template>
