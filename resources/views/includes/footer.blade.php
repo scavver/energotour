@@ -22,7 +22,7 @@
 
                         <li class="item"><a href="/tourists/faq">Вопрос-ответ</a></li>
                         <li class="item"><a href="/pages/notes">Памятка туристам</a></li>
-                        <li class="item"><a href="/events">Событийный Крым</a></li>
+                        <li class="item"><a href="/pages/events">Событийный Крым</a></li>
                         <li class="item"><a href="/landmarks">Достопримечательности</a></li>
                     </ul>
                 </div>
@@ -75,12 +75,24 @@
     <!-- Upper Footer -->
     <div class="row px-1 px-md-5 bg-fiord">
         <!-- Navigation -->
-        <div class="col-12 d-flex justify-content-center justify-content-sm-center justify-content-md-start justify-content-lg-start justify-content-xl-start align-items-center">
-            <nav class="nav nav-fill w-100">
-                <a class="nav-link" href="https://www.russiatourism.ru/operators/show.php?id=113303" target="_blank">Мы в реестре туроператоров</a>
-                <a class="nav-link" href="/pages/about">О компании</a>
-                <a class="nav-link" href="/pages/contacts">Контакты</a>
-                <a class="nav-link ml-auto" href="https://github.com/scavver" target="_blank"><i class="fab fa-github-alt fa-fw"></i></a>
+        <div class="col-12 py-2 d-flex justify-content-center justify-content-sm-center justify-content-md-start justify-content-lg-start justify-content-xl-start align-items-center">
+            <nav class="nav nav-fill w-100 px-md-2">
+                <a class="nav-link d-flex align-items-center" href="https://www.russiatourism.ru/operators/show.php?id=113303" target="_blank">
+                    <div class="d-inline-block bordered-right pr-3 mr-0 mr-md-3">
+                        <img src="/images/russian-federation.svg" height="65px" alt="">
+                    </div>
+
+                    <div class="d-inline-block">
+                        Мы в реестре туроператоров<br>
+                        ООО "Туристическая компания "Энерго - Тур"<br>
+                        РТО 018028
+                    </div>
+                </a>
+
+                <div class="ml-auto mr-auto mr-md-0 ml-md-auto d-flex align-items-center" style="font-size: 16px;">
+                    <a class="d-inline-block" href="https://github.com/scavver/energotour" title="GitHub Repo (MIT)" target="_blank" style="padding: 0.5rem 0.45rem !important;"><i class="fab fa-github-alt"></i></a>
+                    {{-- <a class="d-inline-block" href="https://twitter.com/energotour" target="_blank" style="padding: 0.5rem 0.45rem !important;"><i class="fab fa-twitter"></i></a> --}}
+                </div>
             </nav>
         </div>
     </div>

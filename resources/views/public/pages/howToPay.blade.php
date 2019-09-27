@@ -93,7 +93,7 @@
 
                             <p>По всем возникающим техническим вопросам просьба обращаться в службу поддержки по телефону: +7 495 995-58-78</p>
 
-                            <p></p>Вы так же можете связаться с нами при помощи обратной связи по ссылке <a href="http://pay.travel/site/contacts" target="_blank">http://pay.travel/site/contacts</a>
+                            <p>Ссылка для обратной связи: <a href="http://pay.travel/site/contacts" target="_blank">http://pay.travel/site/contacts</a></p>
                         </div>
                         <!-- Pay.Travel -->
                         <div class="tab-pane fade" id="pills-pay-travel" role="tabpanel" aria-labelledby="pills-pay-travel-tab">
