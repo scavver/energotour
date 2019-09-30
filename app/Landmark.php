@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Landmark extends Model
 {
     // Атрибуты, для которых разрешено массовое назначение.
-    protected $fillable = ['category_id', 'user_id', 'title', 'description', 'content', 'slug'];
+    protected $fillable = ['category_id', 'user_id', 'cover_id', 'title', 'description', 'content', 'slug'];
 
     // Получить автора достопримечательности
     public function user()
@@ -19,5 +19,11 @@ class Landmark extends Model
     public function category()
     {
         return $this->belongsTo('App\Category');
+    }
+
+    // Получить обложку достопримечательности
+    public function cover()
+    {
+        return $this->belongsTo('App\Image', 'id');
     }
 }

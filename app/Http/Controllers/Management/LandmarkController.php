@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
+use App\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Category;
 use App\Landmark;
+use Illuminate\Support\Facades\Storage;
 
 class LandmarkController extends Controller
 {
@@ -37,18 +39,30 @@ class LandmarkController extends Controller
             'content' => 'required|string',
             'slug' => 'required|string|max:100|unique:landmarks',
             'category_id' => 'required|integer',
+            'cover' => 'nullable|image',
         ]);
 
-        $landmark = Landmark::create(
-            array_merge(
-                $request->only([
-                'title',
-                'description',
-                'content',
-                'slug',
-                'category_id',
-            ]),
-            ['user_id' => $user->id]));
+        if($cover = $request->hasFile('cover')) {
+            $cover_path = $request->cover->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
+
+            $image = new Image(); // Новая запись в таблицу с изображениями
+            $image->path = $cover_path; // Передаем путь
+            $image->save();
+        }
+
+        $landmark = new Landmark();
+
+        $landmark->title = $request->title;
+        $landmark->description = $request->description;
+        $landmark->content = $request->content;
+        $landmark->slug = $request->slug;
+        $landmark->category_id = $request->category_id;
+        $landmark->user_id = $user->id;
+        if(!empty($image)) {
+            $landmark->cover_id = $image->id;
+        }
+
+        $landmark->save();
 
         return redirect(route('landmarks.index'))->with('success', 'Достопримечательность добавлена 👍');
     }
@@ -71,17 +85,35 @@ class LandmarkController extends Controller
             'content' => 'required|string',
             'slug' => 'required|string|max:100',
             'category_id' => 'required|integer',
+            'cover' => 'nullable|image',
         ]);
 
-        $landmark = Landmark::find($id);
+        $landmark = Landmark::find($id); // Определяем достопримечательность с которой работаем
 
-        $landmark->update($request->only([
-            'title',
-            'description',
-            'content',
-            'slug',
-            'category_id',
-        ]));
+        // Если в запросе есть файл обложки
+        if($cover = $request->hasFile('cover')) {
+            // Находим старую обложку в таблице
+            $oldCover = Image::where('id', $landmark->cover_id)->first();
+            // Удаляем ее файл из хранилища
+            Storage::delete($oldCover->path);
+
+            // Сохраняем новый файл
+            $cover_path = $request->cover->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
+
+            $oldCover->path = $cover_path; // Заменяем путь на новый
+            $oldCover->save();
+        }
+
+        $landmark->title = $request->title;
+        $landmark->description = $request->description;
+        $landmark->content = $request->content;
+        $landmark->slug = $request->slug;
+        $landmark->category_id = $request->category_id;
+        if(!empty($image)) {
+            $landmark->cover_id = $image->id;
+        }
+
+        $landmark->save(); // Сохраняем изменения
 
         return redirect(route('landmarks.index'))->with('success', 'Достопримечательность обновлена 👌');
     }

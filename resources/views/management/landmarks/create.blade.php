@@ -11,7 +11,7 @@
         <small class="text-muted">New landmark</small>
     </h3>
 
-    <form action="{{ action('Management\LandmarkController@store') }}" method="post" class="mx-3">
+    <form action="{{ action('Management\LandmarkController@store') }}" enctype="multipart/form-data" method="post" class="mx-3">
         @csrf
 
         <div class="form-group">
@@ -69,11 +69,22 @@
         </div>
 
         <div class="form-group">
-            <label for="editor">Контент</label>
+            <label for="editor">Материал</label>
             <textarea class="form-control" id="editor" name="content" rows="15" required></textarea>
 
             @error('content')
             <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="cover">Cover</label>
+            <input type="file" class="form-control-file" id="cover" name="cover">
+
+            @error('cover')
+            <span class="text-danger">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror

@@ -14,4 +14,10 @@ class Image extends Model
     {
         return $this->belongsTo('App\Gallery');
     }
+
+    // Получить достопримечательность изображения
+    public function landmark()
+    {
+        return $this->hasOne('App\Landmark', 'cover_id');
+    }
 }

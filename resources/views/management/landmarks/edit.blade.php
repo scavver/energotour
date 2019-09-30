@@ -11,7 +11,7 @@
         <small class="text-muted">Edit landmark</small>
     </h3>
 
-    <form action="{{ action('Management\LandmarkController@update', $landmark->id) }}" method="post" class="mx-3">
+    <form action="{{ action('Management\LandmarkController@update', $landmark->id) }}" enctype="multipart/form-data" method="post" class="mx-3">
         @csrf
         @method('PUT')
 
@@ -73,13 +73,24 @@
         </div>
 
         <div class="form-group">
-            <label for="editor">Содержимое страницы</label>
+            <label for="editor">Материал</label>
             <textarea class="form-control" id="editor" name="content" rows="15" required>{{ $landmark->content }}</textarea>
 
             @error('content')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label for="cover">Cover</label>
+            <input type="file" class="form-control-file" id="cover" name="cover">
+
+            @error('cover')
+            <span class="text-danger">
+                    <strong>{{ $message }}</strong>
+                </span>
             @enderror
         </div>
 

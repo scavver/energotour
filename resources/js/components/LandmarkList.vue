@@ -10,13 +10,18 @@
         <h3 class="pt-3 pb-3 mb-3 bordered-bottom">Достопримечательности</h3>
         <a v-for="landmark in landmarks.data" :href="'landmarks/' + landmark.slug" class="card-place">
             <div class="card mb-3">
+
                 <div class="row no-gutters">
-                    <div class="col">
+                    <div class="col-md-5">
+                        <img :src="landmark.cover" class="card-img" alt="">
+                    </div>
+
+                    <div class="col-7">
                         <div class="card-body">
-                            <h5 class="card-title mb-0 pb-0">{{ landmark.title }}</h5>
-
-
-
+                            <h3 class="card-title mb-0 pb-0" style="color: black !important;">{{ landmark.title }}</h3>
+                            <p class="card-text pt-2" style="color: #5e6872;">
+                                <i class="fas fa-map-marker-alt fa-fw mr-2"></i> {{ landmark.category.name }}
+                            </p>
                         </div>
                     </div>
                 </div>
