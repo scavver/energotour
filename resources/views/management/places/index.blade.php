@@ -1,7 +1,7 @@
 @extends('layouts.management')
 
 @section('title')
-    Места
+    Объекты размещения
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col p-0 d-flex align-self-center">
                 <h3 class="m-3">
-                    Места
+                    Объекты размещения
                     <small class="text-muted">Places</small>
                 </h3>
             </div>
@@ -33,12 +33,12 @@
             <thead>
             <tr>
                 <th scope="col" class="column-id pl-3 text-center">ID</th>
-                <th scope="col">Type</th>
-                <th scope="col">Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Slug</th>
-                <th scope="col" class="text-center">Created At</th>
-                <th scope="col" class="text-center">Updated At</th>
+                <th scope="col" class="text-center">Тип</th>
+                <th scope="col">Название</th>
+                <th scope="col" class="text-center">Регион</th>
+                <th scope="col" class="text-center">URL</th>
+                <th scope="col" class="text-center">Создан</th>
+                <th scope="col" class="text-center">Обновлен</th>
                 <th scope="col" class="column-actions text-right pr-3"><a href="{{ action('Management\PlaceController@create') }}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus mx-3"></i></a></th>
             </tr>
             </thead>
@@ -46,10 +46,10 @@
             @foreach($places as $place)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $place->id }}</th>
-                    <td class="align-middle">{{ $place->type_id }}</td>
+                    <td class="text-center align-middle">{{ $place->type->name }}</td>
                     <td class="align-middle">{{ $place->name }}</td>
-                    <td class="align-middle">{{ $place->category_id }}</td>
-                    <td class="align-middle">{{ $place->slug }}</td>
+                    <td class="text-center align-middle">{{ $place->category->name }}</td>
+                    <td class="text-center align-middle">{{ $place->slug }}</td>
                     <td class="text-center align-middle">{{ $place->created_at->format('d.m.Y H:i:s') }}</td>
                     <td class="text-center align-middle">{{ $place->updated_at->format('d.m.Y H:i:s') }}</td>
                     <td class="text-center pr-3">

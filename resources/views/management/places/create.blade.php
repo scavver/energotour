@@ -1,21 +1,21 @@
 @extends('layouts.management')
 
 @section('title')
-    Добавить место
+    Новый объект размещения
 @endsection
 
 @section('content')
 
     <h3 class="m-3">
-        Добавить место
-        <small class="text-muted">Add a new place</small>
+        Новый объект размещения
+        <small class="text-muted">New place</small>
     </h3>
 
     <form action="{{ action('Management\PlaceController@store') }}" method="post" enctype="multipart/form-data" class="mx-3">
         @csrf
 
         <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Название</label>
 
             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -29,7 +29,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col">
-                    <label for="title">Title</label>
+                    <label for="title">Заголовок (SEO)</label>
 
                     <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title') }}" required autocomplete="title">
 
@@ -40,7 +40,7 @@
                     @enderror
                 </div>
                 <div class="col">
-                    <label for="description">Description</label>
+                    <label for="description">Описание (SEO)</label>
 
                     <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description">
 
@@ -56,7 +56,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col">
-                    <label for="type_id">Type</label>
+                    <label for="type_id">Тип объекта</label>
 
                     <select class="form-control" id="type_id" name="type_id">
                         @foreach($types as $type)
@@ -65,7 +65,7 @@
                     </select>
                 </div>
                 <div class="col">
-                    <label for="category_id">Category</label>
+                    <label for="category_id">Регион</label>
 
                     <select class="form-control" id="category_id" name="category_id">
                         @foreach($categories as $category)
@@ -77,22 +77,11 @@
         </div>
 
         <div class="form-group">
-            <label for="slug">Slug</label>
+            <label for="slug">URL</label>
 
             <input id="slug" type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}" required autocomplete="slug">
 
             @error('slug')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="editor">Content</label>
-            <textarea class="form-control" id="editor" name="content" rows="3" required>{{ old('content') }}</textarea>
-
-            @error('content')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
@@ -106,7 +95,7 @@
         </div>
 
         <div class="form-group">
-            <label for="cover">Cover</label>
+            <label for="cover">Изображение объекта (800х400)</label>
             <input type="file" class="form-control-file" id="cover" name="cover">
 
             @error('cover')

@@ -43,7 +43,6 @@ class PlaceController extends Controller
             'type_id' => 'required|integer',
             'category_id' => 'required|integer',
             'slug' => 'required|string|max:100|unique:places',
-            'content' => 'required|string',
             'cover' => 'nullable|image',
             'lat' => 'nullable',
             'lng' => 'nullable'
@@ -56,7 +55,6 @@ class PlaceController extends Controller
             'type_id',
             'category_id',
             'slug',
-            'content',
             'lat',
             'lng'
         ]));
@@ -100,7 +98,6 @@ class PlaceController extends Controller
             'type_id' => 'required|integer',
             'category_id' => 'required|integer',
             'slug' => 'required|string|max:100',
-            'content' => 'required|string',
             'cover' => 'nullable|image',
             'lat' => 'nullable',
             'lng' => 'nullable'
@@ -115,7 +112,6 @@ class PlaceController extends Controller
             'type_id',
             'category_id',
             'slug',
-            'content',
             'lat',
             'lng'
         ]));

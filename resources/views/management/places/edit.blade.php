@@ -1,14 +1,14 @@
 @extends('layouts.management')
 
 @section('title')
-    Редактирование места
+    Изменить объект размещения
 @endsection
 
 @section('content')
 
     <h3 class="m-3">
-        Редактирование места
-        <small class="text-muted">Edit a place</small>
+        Изменить объект размещения
+        <small class="text-muted">Edit place</small>
     </h3>
 
     @foreach($places as $place)
@@ -17,7 +17,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="name">Name</label>
+                <label for="name">Название</label>
 
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $place->name }}" autocomplete="name" autofocus>
 
@@ -31,7 +31,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="title">Title</label>
+                        <label for="title">Заголовок (SEO)</label>
 
                         <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $place->title }}" required>
 
@@ -42,7 +42,7 @@
                         @enderror
                     </div>
                     <div class="col">
-                        <label for="description">Description</label>
+                        <label for="description">Описание (SEO)</label>
 
                         <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $place->description }}" required>
 
@@ -58,7 +58,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="type_id">Type</label>
+                        <label for="type_id">Тип объекта</label>
 
                         <select class="form-control" id="type_id" name="type_id">
                             @foreach($types as $type)
@@ -70,7 +70,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <label for="category_id">Category</label>
+                        <label for="category_id">Регион</label>
 
                         <select class="form-control" id="category_id" name="category_id">
                             @foreach($categories as $category)
@@ -85,7 +85,7 @@
             </div>
 
             <div class="form-group">
-                <label for="slug">Slug</label>
+                <label for="slug">URL</label>
 
                 <input id="slug" type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ $place->slug }}" autocomplete="slug">
 
@@ -96,11 +96,6 @@
                 @enderror
             </div>
 
-            <div class="form-group">
-                <label for="editor">Content</label>
-                <textarea class="form-control" id="editor" name="content" rows="3">{{ $place->content }}</textarea>
-            </div>
-
             <div class="form-group form-check-inline">
                 @foreach($properties as $property)
                     <input type="checkbox" name="property[]" value="{{$property->id}}" {{ $place->properties->contains($property->id) ? 'checked' : '' }}><i class="{{ $property->class }} fa-fw mx-2" title="{{ $property->title }}"></i><br>
@@ -108,7 +103,7 @@
             </div>
 
             <div class="form-group">
-                <label for="cover">Cover</label>
+                <label for="cover">Изображение объекта (800х400)</label>
                 <input type="file" class="form-control-file" id="cover" name="cover">
 
                 @error('cover')
