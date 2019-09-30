@@ -24,6 +24,6 @@ class Landmark extends Model
     // Получить обложку достопримечательности
     public function cover()
     {
-        return $this->belongsTo('App\Image', 'id');
+        return $this->belongsTo('App\Image', 'cover_id');
     }
 }
