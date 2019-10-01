@@ -9,6 +9,7 @@
     <yandex-map v-else :coords="coords" :scroll-zoom="scroll" :zoom="zoom" class="ymap-class">
         <ymap-marker
                 v-for="place in places.data"
+                :callbacks="callbacks(place)"
                 :coords="place.coords"
                 :hint-content="place.name"
                 :key="place.name"
@@ -34,6 +35,9 @@
             this.getCoords();
         },
         methods: {
+            callbacks(place) {
+                return { click: function() { window.location.replace('/places/' + place.slug) } } // API Link: /api/coords
+            },
             getCoords() {
                 this.isLoading = true;
 

@@ -18,7 +18,8 @@ class Coord extends Resource
     {
         return [
             'name' => $this->name,
-            'coords' => [$this->lat, $this->lng]
+            'coords' => [$this->lat, $this->lng],
+            'slug' => $this->slug,
         ];
     }
 }
