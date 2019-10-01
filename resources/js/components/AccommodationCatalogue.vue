@@ -69,8 +69,9 @@
             </main>
             <!-- End: Accommodation Catalogue -->
             <aside class="col-12 col-sm-12 d-md-none d-lg-none d-xl-block col-xl-2 order-3 order-sm-3 order-md-3 p-0">
-                <div class="sticky-top p-3 vh-100">
-                    <a class="twitter-timeline" data-height="calc(100% - 3.4rem)" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
+                <div class="sticky-top sticky-offset p-3 vh-twitter">
+                    <a class="twitter-timeline" data-height="100%" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
+                    <!-- calc(100% - 3.4rem) -->
                 </div>
             </aside>
         </div>

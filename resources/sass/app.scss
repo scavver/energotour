@@ -16,8 +16,35 @@
     // padding-top: 3.81rem !important;
   }
   .sticky-top {
-    top: 3.46rem !important; // 46
+    // top: 3.46rem !important; // 46
   }
+}
+
+.sticky-offset {
+  top: 3.46rem;
+}
+
+.vh-twitter {
+  height: calc(100vh - 3.46rem) !important;
+}
+
+@media screen and (min-width: 1300px) {
+  .navbar-tel {
+    position: absolute;
+    right: 1rem;
+    top: 5px;
+  }
+}
+
+@media screen and (max-width: 1203px) {
+  .navbar-tel {
+    display: none;
+  }
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }
 
 body {
@@ -25,7 +52,7 @@ body {
   background-color: #f5f5f6;
 }
 .sticky-top {
-  top: 3.46rem;
+  // top: 3.46rem;
 }
 
 ::selection {

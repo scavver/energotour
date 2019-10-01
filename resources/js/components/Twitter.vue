@@ -1,5 +1,5 @@
 <template>
-    <div class="sticky-top p-3 vh-100">
+    <div class="sticky-top sticky-offset p-3 vh-twitter">
         <a class="twitter-timeline" data-height="100%" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
     </div>
 </template>
