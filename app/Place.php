@@ -27,10 +27,10 @@ class Place extends Model
         return $this->belongsTo('App\Category');
     }
 
-    // Получить изображение достопримечательности
-    public function image()
+    // Получить обложку места.
+    public function cover()
     {
-        return $this->morphOne('App\Image', 'imageable');
+        return $this->hasOne('App\Cover');
     }
 
     // Получить прайс места.
