@@ -14,7 +14,18 @@
                         </div>
                     @endif
 
-                    <a href="{{ route('verification.resend') }}" id="verification">{{ __('Click here to request a verification link') }} <i class="fas fa-paper-plane"></i></a>                </div>
+                    {{ __('Before proceeding, please check your email for a verification link.') }}
+                    {{ __('If you did not receive the email') }},
+
+                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
+                        @csrf
+
+                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">
+                            {{ __('click here to request another') }}
+                        </button>.
+                    </form>
+
+                    {{-- <a href="{{ route('verification.resend') }}" id="verification">{{ __('Click here to request a verification link') }} <i class="fas fa-paper-plane"></i></a></div> --}}
             </div>
         </div>
     </div>
