@@ -11,7 +11,7 @@
         <small class="text-muted">New price</small>
     </h3>
 
-    <form action="{{ action('Management\PriceController@store') }}" method="post" class="mx-3">
+    <form action="{{ action('Management\PriceController@store') }}" method="post" enctype="multipart/form-data" class="mx-3">
         @csrf
 
         <div class="form-group">
@@ -41,11 +41,11 @@
         </div>
 
         <div class="form-group">
-            <label for="editor">Content</label>
-            <textarea class="form-control" id="editor" name="content" rows="3" required></textarea>
+            <label for="image">Cover</label>
+            <input type="file" class="form-control-file" id="image" name="image">
 
-            @error('content')
-            <span class="invalid-feedback" role="alert">
+            @error('image')
+            <span class="text-danger">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror

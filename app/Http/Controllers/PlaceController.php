@@ -21,7 +21,7 @@ class PlaceController extends Controller
     // Страница места размещения
     public function single($slug)
     {
-        $place = Place::where('slug', $slug)->first();
+        $place = Place::where('slug', $slug)->with('price.image')->first();
 
         if (empty($place)) {
             abort(404);

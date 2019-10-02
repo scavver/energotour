@@ -12,7 +12,7 @@
     </h3>
 
     @foreach($prices as $price)
-        <form action="{{ action('Management\PriceController@update', $price->id) }}" method="post" class="mx-3">
+        <form action="{{ action('Management\PriceController@update', $price->id) }}" method="post" enctype="multipart/form-data" class="mx-3">
             @csrf
             @method('PUT')
 
@@ -46,13 +46,13 @@
             </div>
 
             <div class="form-group">
-                <label for="editor">Content</label>
-                <textarea class="form-control" id="editor" name="content" rows="3" required>{{ $price->content }}</textarea>
+                <label for="image">Cover</label>
+                <input type="file" class="form-control-file" id="image" name="image">
 
-                @error('content')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
+                @error('image')
+                <span class="text-danger">
+                <strong>{{ $message }}</strong>
+            </span>
                 @enderror
             </div>
 

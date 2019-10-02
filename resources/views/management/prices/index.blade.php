@@ -33,8 +33,8 @@
             <thead>
             <tr>
                 <th scope="col" class="column-id pl-3 text-center">ID</th>
-                <th scope="col">PlaceID</th>
-                <th scope="col">Min Price</th>
+                <th scope="col">Объект размещения</th>
+                <th scope="col">Цена от</th>
                 <th scope="col" class="column-actions text-right pr-3"><a href="{{ action('Management\PriceController@create') }}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus mx-3"></i></a></th>
             </tr>
             </thead>
@@ -42,7 +42,7 @@
             @foreach($prices as $price)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $price->id }}</th>
-                    <td class="align-middle">{{ $price->place_id }}</td>
+                    <td class="align-middle">{{ $price->place->name }}</td>
                     <td class="align-middle">{{ $price->min_price }}</td>
                     <td class="text-center align-middle pr-3">
                         <form action="{{ action('Management\PriceController@destroy', $price->id) }}" method="post">

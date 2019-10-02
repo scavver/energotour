@@ -20,6 +20,23 @@
   }
 }
 
+.place-card-button {
+  border-radius: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-color: #dfdfdf;
+}
+
+.place-card-button-last {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: 0 !important;
+  border-color: #dfdfdf;
+}
+
 .sticky-offset {
   top: 3.46rem;
 }
