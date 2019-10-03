@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Management;
 
-use App\Cover;
 use App\Image;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdatePlace;
-use App\Http\Requests\StorePlace;
 use App\Category;
 use App\Place;
 use App\Property;
@@ -19,8 +18,9 @@ class PlaceController extends Controller
     public function index()
     {
         $places = Place::paginate(15);
+        $places_total = count(Place::all());
 
-        return view('management.places.index', ['places' => $places]);
+        return view('management.places.index', ['places' => $places, 'places_total' => $places_total]);
     }
 
     // Страница добавления нового места размещения
@@ -34,7 +34,7 @@ class PlaceController extends Controller
     }
 
     // Сохранение места размещения
-    public function store(StorePlace $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:100',
@@ -43,7 +43,7 @@ class PlaceController extends Controller
             'type_id' => 'required|integer',
             'category_id' => 'required|integer',
             'slug' => 'required|string|max:100|unique:places',
-            'cover' => 'nullable|image',
+            'image' => 'nullable|image',
             'lat' => 'nullable',
             'lng' => 'nullable'
         ]);
@@ -61,16 +61,14 @@ class PlaceController extends Controller
 
         $place->properties()->sync($request->property); // Синхронизация чекбоксов с Pivot таблицей
 
-        if($cover = $request->hasFile('cover')) {
-            $cover = $request->cover->store('covers');
+        // Добавляем изображение в хранилище и таблицу
+        if($file = $request->hasFile('image')) {
+            $file_path = $request->image->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
 
-            $id = $place->id;
-
-            $image = new Cover();
-
-            $image->path = $cover;
-            $image->place_id = $id;
-
+            $image = new Image(); // Новая запись в таблицу с изображениями
+            $image->path = $file_path; // Передаем путь
+            $image->imageable_id = $place->id; // Полиморфное отношение
+            $image->imageable_type = 'App\Place'; // Полиморфное отношение
             $image->save();
         }
 
@@ -89,7 +87,7 @@ class PlaceController extends Controller
     }
 
     // Обновление места размещения
-    public function update(UpdatePlace $request, $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'name' => 'required|string|max:100',
@@ -98,7 +96,7 @@ class PlaceController extends Controller
             'type_id' => 'required|integer',
             'category_id' => 'required|integer',
             'slug' => 'required|string|max:100',
-            'cover' => 'nullable|image',
+            'image' => 'nullable|image',
             'lat' => 'nullable',
             'lng' => 'nullable'
         ]);
@@ -118,18 +116,31 @@ class PlaceController extends Controller
 
         $place->properties()->sync($request->property);
 
-        // Если в запросе есть файл обложки
-        if($cover = $request->hasFile('cover')) {
-            // Находим старую обложку в таблице
-            $oldCover = Cover::where('place_id', $id)->first();
-            // Удаляем ее файл из хранилища
-            Storage::delete($oldCover->path);
+        // Если в запросе есть файл изображения
+        if($file = $request->hasFile('image')) {
+            // Пытаемся найти старую обложку в таблице
+            $old_image = Image::where('imageable_id', $place->id)->where('imageable_type', 'App\Place')->first();
 
-            // Сохраняем новый файл
-            $newCover = $request->cover->store('covers');
+            if(!empty($old_image)) {
+                // Удаляем ее файл из хранилища
+                Storage::delete($old_image->path);
 
-            // Обновляем путь к файлу в таблице
-            $oldCover->update(['path' => $newCover]);
+                // Сохраняем новый файл
+                $file_path = $request->image->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
+
+                $old_image->path = $file_path; // Заменяем путь на новый
+                $old_image->save();
+            }
+            else {
+                $file_path = $request->image->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
+
+                $image = new Image(); // Новая запись в таблицу с изображениями
+                $image->path = $file_path; // Передаем путь
+                $image->imageable_id = $place->id; // Полиморфное отношение
+                $image->imageable_type = 'App\Place'; // Полиморфное отношение
+                $image->save();
+            }
+
         }
 
         return redirect(url('management/places'))->with('success', 'Место успешно обновлено.');
@@ -139,8 +150,12 @@ class PlaceController extends Controller
     public function destroy($id)
     {
         $place = Place::find($id);
-
         $place->delete();
+
+        // Ищем изображение, удаляем из хранилища и таблицы
+        $image = Image::where('imageable_id', $place->id)->where('imageable_type', 'App\Place')->first();
+        Storage::delete($image->path);
+        $image->delete();
 
         return redirect(url('management/places'))->with('success', 'Место успешно удалено.');
     }

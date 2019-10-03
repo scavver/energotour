@@ -60,7 +60,7 @@
                     @if(!empty($place->price))
                     {{-- Официальные цены --}}
                     <button type="button" class="btn btn-outline-primary btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#priceModal">
-                        <i class="fas fa-money-check-alt mr-2 fa-fw"></i> Официальные цены
+                        <i class="fas fa-money-check-alt mr-2 fa-fw"></i> Прайс-лист
                     </button>
 
                     {{-- Модальное окно с прайс-листом --}}

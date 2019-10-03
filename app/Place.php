@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Place extends Model
 {
     // Атрибуты, для которых разрешено массовое назначение.
-    protected $fillable = ['name', 'title', 'description', 'type_id', 'category_id', 'slug', 'cover', 'lat', 'lng'];
+    protected $fillable = ['name', 'title', 'description', 'type_id', 'category_id', 'slug', 'lat', 'lng'];
 
     // Характеристики, принадлежащие месту.
     public function properties()
@@ -27,10 +27,10 @@ class Place extends Model
         return $this->belongsTo('App\Category');
     }
 
-    // Получить обложку места.
-    public function cover()
+    // Получить изображение достопримечательности
+    public function image()
     {
-        return $this->hasOne('App\Cover');
+        return $this->morphOne('App\Image', 'imageable');
     }
 
     // Получить прайс места.

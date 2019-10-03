@@ -95,10 +95,10 @@
         </div>
 
         <div class="form-group">
-            <label for="cover">Изображение объекта (800х400)</label>
-            <input type="file" class="form-control-file" id="cover" name="cover">
+            <label for="image">Изображение объекта (800х400)</label>
+            <input type="file" class="form-control-file" id="image" name="image">
 
-            @error('cover')
+            @error('image')
             <span class="text-danger">
                 <strong>{{ $message }}</strong>
             </span>
@@ -132,8 +132,8 @@
             </div>
         </div>
 
-        <a href="{{ route('places.index') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back</a>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <a href="{{ route('places.index') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Назад</a>
+        <button class="btn btn-primary" type="submit">Добавить объект</button>
     </form>
     <br>
 @endsection

@@ -25,7 +25,7 @@ class Place extends Resource
             'name' => $this->name,
             'slug' => $this->slug,
             'type' => $this->type,
-            'cover' => $this->cover->path,
+            'image' => $this->image->path,
             'category' => [
                 'id' => $this->category->id,
                 'name' => $this->category->name,

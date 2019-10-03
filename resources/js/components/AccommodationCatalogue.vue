@@ -44,7 +44,7 @@
 
                         <div class="row no-gutters">
                             <div class="col-md-5">
-                                <img :src="place.cover" class="card-img" alt="">
+                                <img :src="place.image" class="card-img" alt="">
                             </div>
                             <div class="col-md-7">
                                 <div class="card-body">

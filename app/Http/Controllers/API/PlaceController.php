@@ -27,7 +27,7 @@ class PlaceController extends Controller
            }
 
            // Строим запрос на основе имеющихся, обработанных данных из $request
-           $places = Place::with('properties')
+           $places = Place::with('properties')->with('image')
                ->when($selectedType, function ($query, $selectedType) {
                    return $query->where('type_id', $selectedType);
                })
