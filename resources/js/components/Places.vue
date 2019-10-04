@@ -6,14 +6,14 @@
                 <h4 class="mb-3">Фильтры <small><a class="ml-1" href="/places"><i class="fas fa-retweet fa-fw" title="Сбросить все фильтры"></i></a></small></h4>
 
                 <div class="form-group">
-                    <select v-model="selectedType" @change="onChange" class="form-control" id="type">
+                    <select v-model="t" @change="onChange" class="form-control" id="type">
                         <option value="" selected>Все типы</option>
                         <option v-for="type in types" :value="type.id">{{ type.name }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <select v-model="selectedRegion" @change="onChange" class="form-control" id="region">
+                    <select v-model="r" @change="onChange" class="form-control" id="region">
                         <option value="" selected>Весь Крым</option>
                         <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
                     </select>
@@ -22,7 +22,7 @@
                 <h4 class="mb-3">Услуги и удобства</h4>
 
                 <div v-for="property in properties" id="property">
-                    <input type="checkbox" :id="property.id" v-model="checkedProperties" :value="property.id" @change="onChange">
+                    <input type="checkbox" :id="property.id" v-model="p" :value="property.id" @change="onChange">
                     <label :for="property.id"><i :class="property.class" class="fa-fw mx-1"></i> {{ property.title }}</label>
                 </div>
             </aside>
@@ -87,9 +87,9 @@
             regions: [],            // Mounted API Array
             properties: [],         // Mounted API Array
             /* - - - - - - - - - - - - - - - - - - - - - - - - - */
-            selectedType: '',       // Selected Type
-            selectedRegion: '',   // Selected Region
-            checkedProperties: [],  // Checked Properties
+            r: '',          // Selected Region
+            t: '',          // Selected Type
+            p: [],          // Checked Properties
             /* - - - - - - - - - - - - - - - - - - - - - - - - - */
             places: []              // Mounted API (+ URL Query) Places Array
         }),
@@ -128,11 +128,11 @@
                     })
             },
             onChange() {
-                const { selectedRegion, selectedType, checkedProperties } = this;
+                const { r, t, p } = this;
                 const queryParams = {
-                    selectedRegion,
-                    selectedType,
-                    checkedProperties: checkedProperties.join()
+                    r,
+                    t,
+                    p: p.join()
                 };
                 this.$router.push({ query: queryParams });
             },
