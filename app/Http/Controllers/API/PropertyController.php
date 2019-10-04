@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class PropertyController extends Controller
 {
-    public function getAllProperties()
+    public function get_properties()
     {
         $properties = Property::all();
 
@@ -17,7 +17,7 @@ class PropertyController extends Controller
         return $properties;
     }
 
-    public function getPlaceIds($id)
+    public function get_place_ids($id)
     {
         $places = Place::whereHas('properties', function($q) use($id) { $q->where('id', $id); })->select('id')->get();
 

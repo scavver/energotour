@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CategoriesTableSeeder extends Seeder
+class RegionsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,22 +12,18 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
+        DB::table('regions')->insert([
             [
                 'name' => 'Большая Ялта',
-                'cover' => 'images/cat-1.png'
             ],
             [
                 'name' => 'Большая Алушта',
-                'cover' => 'images/cat-2.png'
             ],
             [
                 'name' => 'Евпатория',
-                'cover' => 'images/cat-3.png'
             ],
             [
                 'name' => 'Саки',
-                'cover' => 'images/cat-4.png'
             ]
 
         ]);

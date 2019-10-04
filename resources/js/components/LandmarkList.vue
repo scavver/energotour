@@ -13,14 +13,14 @@
 
                 <div class="row no-gutters">
                     <div class="col-md-5">
-                        <img :src="landmark.cover" class="card-img" alt="">
+                        <img :src="landmark.image" class="card-img" alt="">
                     </div>
 
                     <div class="col-7">
                         <div class="card-body">
                             <h3 class="card-title mb-0 pb-0" style="color: black !important;">{{ landmark.title }}</h3>
                             <p class="card-text pt-2" style="color: #5e6872;">
-                                <i class="fas fa-map-marker-alt fa-fw mr-2"></i> {{ landmark.category.name }}
+                                <i class="fas fa-map-marker-alt fa-fw mr-2"></i> {{ landmark.region.name }}
                             </p>
                         </div>
                     </div>
@@ -60,32 +60,6 @@
 </script>
 
 <style lang="scss">
-    #property {
-        height: 2rem;
-
-        label, input {
-            position: absolute;
-            // left: 0;
-            top: auto;
-            bottom: auto;
-            color: gray;
-            transition: color 0.2s ease-in-out;
-        }
-
-        label:hover {
-            color: #f3910c;
-        }
-
-        :checked + label {
-            color: #f3910c;
-        }
-
-        input {
-            opacity: 0;
-            z-index: -1;
-        }
-    }
-
     .card-place {
         .card {
             transition: all .15s ease-in-out;
@@ -110,28 +84,5 @@
     }
     a.card-place:hover {
         text-decoration: none;
-    }
-
-    .card-discount {
-        position: absolute;
-        background-color: #f9811b;
-        color: white;
-        font-weight: 600;
-        padding: 5px;
-        top: 10px;
-        right: -5px;
-        left: auto;
-        z-index: 5;
-    }
-
-    .card-price {
-        position: absolute;
-        top: 50px;
-        right: -5px;
-        left: auto;
-        background: #7cad64;
-        color: white;
-        padding: 5px;
-        z-index: 5;
     }
 </style>

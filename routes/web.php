@@ -60,7 +60,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('/discounts', 'Management\DiscountController')->except(['show']);                   // Скидки
         Route::resource('/users', 'Management\UserController')->except(['show']);                           // Пользователи
         Route::resource('/properties', 'Management\PropertyController')->except(['show']);                  // Услуги и удобства
-        Route::resource('/categories', 'Management\CategoryController')->except(['show']);                  // Регионы
+        Route::resource('/regions', 'Management\RegionController')->except(['show']);                       // Регионы
         Route::resource('/types', 'Management\TypeController')->except(['show']);                           // Типы
         Route::resource('/images', 'Management\ImageController')->except(['index', 'create', 'show']);      // Картинки
     });

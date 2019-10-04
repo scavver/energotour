@@ -19,7 +19,6 @@
     <div class="px-3">
         Всего услуг и удобств: {{ $properties }}<br>
         Всего мест: {{ $places }}<br>
-        Всего обложек: {{ $covers }}<br>
         Всего галерей: {{ $galleries }}<br>
         Всего картинок: {{ $images }}<br>
         Прайсов: {{ $prices }}<br>

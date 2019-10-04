@@ -31,7 +31,7 @@ Vue.use(YmapPlugin, settings);
 // Компоненты
 
 Vue.component('image-uploader', require('./components/ImageUploader.vue').default);
-Vue.component('accommodation-catalogue', require('./components/AccommodationCatalogue').default);
+Vue.component('places', require('./components/Places').default);
 Vue.component('twitter', require('./components/Twitter').default);
 Vue.component('accommodation-location', require('./components/AccommodationLocation').default);
 Vue.component('accommodation-markers', require('./components/AccommodationMarkers').default);

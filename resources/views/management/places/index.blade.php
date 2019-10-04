@@ -48,7 +48,7 @@
                     <th scope="row" class="align-middle text-center pl-3">{{ $place->id }}</th>
                     <td class="align-middle"><a href="{{ asset('management/places/' . $place->id . '/edit') }}">{{ $place->name }}</a></td>
                     <td class="text-center align-middle">{{ $place->type->name }}</td>
-                    <td class="text-center align-middle">{{ $place->category->name }}</td>
+                    <td class="text-center align-middle">{{ $place->region->name }}</td>
                     <td class="text-center align-middle"><a href="{{ asset('places/' . $place->slug) }}" target="_blank">{{ $place->slug }}</a></td>
                     <td class="text-center align-middle">{{ $place->created_at->format('d.m.Y H:i:s') }}</td>
                     <td class="text-center align-middle">{{ $place->updated_at->format('d.m.Y H:i:s') }}</td>

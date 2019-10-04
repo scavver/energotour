@@ -26,9 +26,9 @@ class Place extends Resource
             'slug' => $this->slug,
             'type' => $this->type,
             'image' => $this->image->path,
-            'category' => [
-                'id' => $this->category->id,
-                'name' => $this->category->name,
+            'region' => [
+                'id' => $this->region->id,
+                'name' => $this->region->name,
             ],
             'discount' => $this->discount->max_discount,
             'price' => $this->price->min_price,

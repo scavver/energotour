@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 
 class CoordController extends Controller
 {
-    public function getAllCoords()
+    public function get_coords()
     {
         // Получаем коллекцию всех объектов размещения
         $places = Place::all();
@@ -18,7 +18,7 @@ class CoordController extends Controller
         return new CoordCollection($places);
     }
 
-    public function getPlaceCoords($slug)
+    public function get_place_coords($slug)
     {
         // Передаем slug объекта размещения /places/[oreanda-resort]
         $places = Place::where('slug', $slug)->select('name', 'slug', 'lat', 'lng')->get();

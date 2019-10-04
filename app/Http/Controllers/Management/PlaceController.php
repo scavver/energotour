@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Management;
 
-use App\Image;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UpdatePlace;
-use App\Category;
-use App\Place;
+use Illuminate\Http\Request;
 use App\Property;
+use App\Region;
+use App\Place;
+use App\Image;
 use App\Type;
 
 class PlaceController extends Controller
@@ -28,9 +27,9 @@ class PlaceController extends Controller
     {
         $types = Type::all();
         $properties = Property::all();
-        $categories = Category::all();
+        $regions = Region::all();
 
-        return view('management.places.create', ['types' => $types, 'properties' => $properties,'categories' => $categories]);
+        return view('management.places.create', ['types' => $types, 'properties' => $properties,'regions' => $regions]);
     }
 
     // Сохранение места размещения
@@ -41,7 +40,7 @@ class PlaceController extends Controller
             'title' => 'required|string|max:60',
             'description' => 'required|string|max:155',
             'type_id' => 'required|integer',
-            'category_id' => 'required|integer',
+            'region_id' => 'required|integer',
             'slug' => 'required|string|max:100|unique:places',
             'image' => 'nullable|image',
             'lat' => 'nullable',
@@ -53,7 +52,7 @@ class PlaceController extends Controller
             'title',
             'description',
             'type_id',
-            'category_id',
+            'region_id',
             'slug',
             'lat',
             'lng'
@@ -80,10 +79,10 @@ class PlaceController extends Controller
     {
         $places = Place::all()->where('id', $id);
         $properties = Property::all();
-        $categories = Category::all();
+        $regions = Region::all();
         $types = Type::all();
 
-        return view('management.places.edit', ['places' => $places, 'properties' => $properties, 'categories' => $categories, 'types' => $types]);
+        return view('management.places.edit', ['places' => $places, 'properties' => $properties, 'regions' => $regions, 'types' => $types]);
     }
 
     // Обновление места размещения
@@ -94,7 +93,7 @@ class PlaceController extends Controller
             'title' => 'required|string|max:60',
             'description' => 'required|string|max:155',
             'type_id' => 'required|integer',
-            'category_id' => 'required|integer',
+            'region_id' => 'required|integer',
             'slug' => 'required|string|max:100',
             'image' => 'nullable|image',
             'lat' => 'nullable',
@@ -108,7 +107,7 @@ class PlaceController extends Controller
             'title',
             'description',
             'type_id',
-            'category_id',
+            'region_id',
             'slug',
             'lat',
             'lng'

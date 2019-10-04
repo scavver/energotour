@@ -14,7 +14,7 @@ class PlaceController extends Controller
     // Страница всех мест размещения - "Санатории и отели"
     public function index()
     {
-        // В шаблон встроен компонент AccommodationCatalogue.vue
+        // В шаблон встроен компонент Places.vue
         return view('public.places.index');
     }
 

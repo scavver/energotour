@@ -13,9 +13,9 @@
                 </div>
 
                 <div class="form-group">
-                    <select v-model="selectedCategory" @change="onChange" class="form-control" id="category">
+                    <select v-model="selectedRegion" @change="onChange" class="form-control" id="region">
                         <option value="" selected>Весь Крым</option>
-                        <option v-for="category in categories" :value="category.id">{{ category.name }}</option>
+                        <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
                     </select>
                 </div>
 
@@ -28,7 +28,7 @@
             </aside>
             <!-- End: Search Filters -->
 
-            <!-- Accommodation Catalogue -->
+            <!-- Places -->
             <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-1 order-sm-1 order-md-2 shadow-sm bg-white min-vh-100 px-0 order-0 order-sm-0 order-md-1 order-xl-1 single bg-white p-3">
                 <div v-if="isLoading" class="d-flex justify-content-center">
                     <div class="spinner">
@@ -51,7 +51,7 @@
                                     <h5 class="card-title">{{ place.name }}</h5>
                                     <p class="card-text" style="margin-bottom: 2.65rem !important; color: #5e6872;">
                                         <i class="fas fa-landmark fa-fw mr-2"></i> {{ place.type.name }}<br>
-                                        <i class="fas fa-map-marker-alt fa-fw mr-2"></i> {{ place.category.name }}
+                                        <i class="fas fa-map-marker-alt fa-fw mr-2"></i> {{ place.region.name }}
                                     </p>
 
                                     <div class="d-flex">
@@ -67,7 +67,7 @@
                     </div>
                 </a>
             </main>
-            <!-- End: Accommodation Catalogue -->
+            <!-- End: Places -->
             <aside class="col-12 col-sm-12 d-md-none d-lg-none d-xl-block col-xl-2 order-3 order-sm-3 order-md-3 p-0">
                 <div class="sticky-top sticky-offset p-3 vh-twitter">
                     <a class="twitter-timeline" data-height="100%" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
@@ -84,11 +84,11 @@
             isLoading: true,        // Bootstrap spinner
             /* - - - - - - - - - - - - - - - - - - - - - - - - - */
             types: [],              // Mounted API Array
-            categories: [],         // Mounted API Array
+            regions: [],            // Mounted API Array
             properties: [],         // Mounted API Array
             /* - - - - - - - - - - - - - - - - - - - - - - - - - */
             selectedType: '',       // Selected Type
-            selectedCategory: '',   // Selected Category
+            selectedRegion: '',   // Selected Region
             checkedProperties: [],  // Checked Properties
             /* - - - - - - - - - - - - - - - - - - - - - - - - - */
             places: []              // Mounted API (+ URL Query) Places Array
@@ -99,7 +99,7 @@
             }
         },
         async mounted() {
-            await Promise.all([this.getTypes(), this.getCategories(), this.getProperties()])
+            await Promise.all([this.getTypes(), this.getRegions(), this.getProperties()])
                 .catch( () => { this.isLoading = false; });
 
             this.getPlaces();
@@ -115,10 +115,10 @@
                         this.types = response.data
                     })
             },
-            getCategories() {
-                axios.get('/api/categories')
+            getRegions() {
+                axios.get('/api/regions')
                     .then(response => {
-                        this.categories = response.data
+                        this.regions = response.data
                     })
             },
             getProperties() {
@@ -128,9 +128,9 @@
                     })
             },
             onChange() {
-                const { selectedCategory, selectedType, checkedProperties } = this;
+                const { selectedRegion, selectedType, checkedProperties } = this;
                 const queryParams = {
-                    selectedCategory,
+                    selectedRegion,
                     selectedType,
                     checkedProperties: checkedProperties.join()
                 };

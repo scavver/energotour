@@ -10,7 +10,7 @@ use App\Landmark;
 class LandmarkController extends Controller
 {
     // Список всех достопримечательностей
-    public function getLandmarks()
+    public function get_landmarks()
     {
         $landmarks = Landmark::all();
 
@@ -20,7 +20,7 @@ class LandmarkController extends Controller
     }
 
     // Достопримечательность
-    public function getLandmark($slug)
+    public function get_landmark($slug)
     {
         $landmark = Landmark::where('slug', $slug)->first();
 

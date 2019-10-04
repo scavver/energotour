@@ -18,11 +18,11 @@ class Landmark extends JsonResource
             'title' => $this->title,
             'content' => $this->content,
             'slug' => $this->slug,
-            'category' => [
-                'id' => $this->category->id,
-                'name' => $this->category->name,
+            'region' => [
+                'id' => $this->region->id,
+                'name' => $this->region->name,
             ],
-            'cover' => $this->cover->path,
+            'image' => $this->image->path,
         ];
     }
 }

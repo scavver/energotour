@@ -65,11 +65,11 @@
                     </select>
                 </div>
                 <div class="col">
-                    <label for="category_id">Регион</label>
+                    <label for="region_id">Регион</label>
 
-                    <select class="form-control" id="category_id" name="category_id">
-                        @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <select class="form-control" id="region_id" name="region_id">
+                        @foreach($regions as $region)
+                            <option value="{{ $region->id }}">{{ $region->name }}</option>
                         @endforeach
                     </select>
                 </div>

@@ -22,8 +22,8 @@
 
                         <li class="item"><a href="/tourists/faq">Вопрос-ответ</a></li>
                         <li class="item"><a href="/pages/notes">Памятка туристам</a></li>
-                        <li class="item"><a href="/pages/events">Событийный Крым</a></li>
-                        <li class="item"><a href="/landmarks">Достопримечательности</a></li>
+                        <li class="item"><a href="/pages/events">Афиша Крыма</a></li>
+                        <li class="item"><a href="/landmarks">Достопримечательности Крыма</a></li>
                     </ul>
                 </div>
 

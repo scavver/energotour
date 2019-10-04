@@ -13,6 +13,6 @@
     <a class="nav-link {{ request()->is('management/discounts')||request()->is('management/discounts/*') ? 'active' : '' }}" href="{{ url('/management/discounts') }}"><i class="fas fa-percentage fa-fw mr-2"></i> Скидки</a>
     <a class="nav-link {{ request()->is('management/users')||request()->is('management/users/*') ? 'active' : '' }}" href="{{ url('/management/users') }}"><i class="fas fa-user-friends fa-fw mr-2"></i> Пользователи</a>
     <a class="nav-link {{ request()->is('management/properties')||request()->is('management/properties/*') ? 'active' : '' }}" href="{{ url('/management/properties') }}"><i class="fas fa-icons fa-fw mr-2"></i> Услуги и удобства</a>
-    <a class="nav-link {{ request()->is('management/categories')||request()->is('management/categories/*') ? 'active' : '' }}" href="{{ url('/management/categories') }}"><i class="fas fa-map-marked-alt fa-fw mr-2"></i> Регионы</a>
+    <a class="nav-link {{ request()->is('management/regions')||request()->is('management/regions/*') ? 'active' : '' }}" href="{{ url('/management/regions') }}"><i class="fas fa-map-marked-alt fa-fw mr-2"></i> Регионы</a>
     <a class="nav-link {{ request()->is('management/types')||request()->is('management/types/*') ? 'active' : '' }}" href="{{ url('/management/types') }}"><i class="fas fa-hotel fa-fw mr-2"></i> Типы</a>
 </div> 

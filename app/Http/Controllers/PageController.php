@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
-use App\Page;
-use App\Place;
-use Illuminate\Http\Request;
+use App\Region;
 use App\Gallery;
+use App\Place;
+use App\Page;
 
 class PageController extends Controller
 {
@@ -15,15 +14,15 @@ class PageController extends Controller
     {
         $carouselImages = Gallery::find(1)->images;
 
-        $categories = Category::all();
+        $regions = Region::all();
 
         $hot = Place::whereHas('properties', function($q) { $q->where('id', 1); })->take(3)->get();
 
-        $sanatorium = Place::whereHas('category', function($q) { $q->where('id', 1); })->get();
+        $sanatorium = Place::whereHas('region', function($q) { $q->where('id', 1); })->get();
         $pool = Place::whereHas('properties', function($q) { $q->where('id', 2); })->where('id', '<>', 1)->get();
         $family = Place::whereHas('properties', function($q) { $q->where('id', 7); })->where('id', '<>', 1)->get();
 
-        return view('public.home', ['carouselImages' => $carouselImages, 'categories' => $categories, 'hot' => $hot, 'sanatorium' => $sanatorium, 'pool' => $pool, 'family' => $family]);
+        return view('public.home', ['carouselImages' => $carouselImages, 'regions' => $regions, 'hot' => $hot, 'sanatorium' => $sanatorium, 'pool' => $pool, 'family' => $family]);
     }
 
     // Кастомные страницы (Контакты, О компании, и т.д.)

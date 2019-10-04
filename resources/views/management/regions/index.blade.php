@@ -23,7 +23,7 @@
                     <small class="text-muted">Regions</small>
                 </h3>
             </div>
-            <div class="col p-0 d-flex justify-content-end m-3 align-self-center">{{ $categories->links() }}</div>
+            <div class="col p-0 d-flex justify-content-end m-3 align-self-center">{{ $regions->links() }}</div>
         </div>
     </div>
 
@@ -34,21 +34,21 @@
             <tr>
                 <th scope="col" class="column-id pl-3 text-center">ID</th>
                 <th scope="col">Name</th>
-                <th scope="col" class="column-actions pr-3"><a href="{{ action('Management\CategoryController@create') }}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus mx-3"></i></a></th>
+                <th scope="col" class="column-actions pr-3"><a href="{{ action('Management\RegionController@create') }}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus mx-3"></i></a></th>
             </tr>
             </thead>
             <tbody>
-            @foreach($categories as $category)
+            @foreach($regions as $region)
                 <tr>
-                    <th scope="row" class="align-middle text-center pl-3">{{ $category->id }}</th>
-                    <td class="align-middle">{{ $category->name }}</td>
+                    <th scope="row" class="align-middle text-center pl-3">{{ $region->id }}</th>
+                    <td class="align-middle">{{ $region->name }}</td>
                     <td class="text-center align-middle pr-3">
-                        <form action="{{ action('Management\CategoryController@destroy', $category->id) }}" method="post">
+                        <form action="{{ action('Management\RegionController@destroy', $region->id) }}" method="post">
                             @csrf
                             @method('DELETE')
 
                             <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                <a href="{{ action('Management\CategoryController@edit', $category->id) }}" class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
+                                <a href="{{ action('Management\RegionController@edit', $region->id) }}" class="btn btn-secondary"><i class="fas fa-pencil-alt"></i></a>
                                 <button type="submit" class="btn btn-secondary"><i class="fas fa-trash"></i></button>
                             </div>
                         </form>

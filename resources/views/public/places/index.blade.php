@@ -9,5 +9,5 @@
 @endsection
 
 @section("content")
-    <accommodation-catalogue></accommodation-catalogue>
+    <places></places>
 @endsection

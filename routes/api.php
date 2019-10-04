@@ -23,24 +23,25 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * API на данный момент используется преимущественно для
  *
  * Отображения динамического списка объектов размещения;
- * Подгрузки координат на яндекс карты.
+ * Подгрузки координат на яндекс карты;
+ * Достопримечатнльностей.
  */
 
-Route::get('places', 'API\PlaceController@getPlaces');
+Route::get('places', 'API\PlaceController@get_places');
 
-Route::get('types', 'API\TypeController@getAllTypes');
-Route::get('types/{id}', 'API\TypeController@getPlaceIds');
+Route::get('types', 'API\TypeController@get_types');
+Route::get('types/{id}', 'API\TypeController@get_place_ids');
 
-Route::get('categories', 'API\CategoryController@getAllCategories');
-Route::get('categories/{id}', 'API\CategoryController@getPlaceIds');
+Route::get('regions', 'API\RegionController@get_regions');
+Route::get('regions/{id}', 'API\RegionController@get_places_ids');
 
-Route::get('properties', 'API\PropertyController@getAllProperties');
-Route::get('properties/{id}', 'API\PropertyController@getPlaceIds');
+Route::get('properties', 'API\PropertyController@get_properties');
+Route::get('properties/{id}', 'API\PropertyController@get_place_ids');
 
-Route::get('coords', 'API\CoordController@getAllCoords');
-Route::get('coords/{slug}', 'API\CoordController@getPlaceCoords');
+Route::get('coords', 'API\CoordController@get_coords');
+Route::get('coords/{slug}', 'API\CoordController@get_place_coords');
 
 // Достопримечательности
 
-Route::get('landmarks', 'API\LandmarkController@getLandmarks');
-Route::get('landmarks/{slug}', 'API\LandmarkController@getLandmark');
+Route::get('landmarks', 'API\LandmarkController@get_landmarks');
+Route::get('landmarks/{slug}', 'API\LandmarkController@get_landmark');
