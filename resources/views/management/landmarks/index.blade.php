@@ -46,7 +46,7 @@
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $landmark->id }}</th>
                     <td class="align-middle">{{ $landmark->title }}</td>
-                    <td class="align-middle">{{ $landmark->category->name }}</td>
+                    <td class="align-middle">{{ $landmark->region->name }}</td>
                     <td class="align-middle">{{ $landmark->user->name }}</td>
                     <td class="text-center align-middle">{{ $landmark->created_at->format('d.m.Y H:i:s') }}</td>
                     <td class="text-center align-middle">{{ $landmark->updated_at->format('d.m.Y H:i:s') }}</td>
