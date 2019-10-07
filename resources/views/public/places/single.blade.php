@@ -29,7 +29,7 @@
                     @if(count($treatment) > 0)
                         <a class="text-center text-md-right nav-link" id="v-pills-treatment-tab" data-toggle="pill" href="#v-pills-treatment" role="tab" aria-controls="v-pills-treatment" aria-selected="false">Лечение</a>
                     @endif
-                    @if(!empty($food))
+                    @if(count($food) > 0)
                         <a class="text-center text-md-right nav-link" id="v-pills-food-tab" data-toggle="pill" href="#v-pills-food" role="tab" aria-controls="v-pills-food" aria-selected="false">Питание</a>
                     @endif
                 </div>
