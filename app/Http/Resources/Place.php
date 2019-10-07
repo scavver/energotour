@@ -30,8 +30,8 @@ class Place extends Resource
                 'id' => $this->region->id,
                 'name' => $this->region->name,
             ],
-            'discount' => $this->discount->max_discount,
-            'price' => $this->price->min_price,
+            'discount' => $this->discount['max_discount'],
+            'price' => $this->price['min_price'],
             'properties' => $this->properties,
         ];
     }
