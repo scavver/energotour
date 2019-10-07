@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.app-no-callback")
 
 @section("title")
     Санатории и отели
