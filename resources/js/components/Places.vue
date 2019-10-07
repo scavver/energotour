@@ -43,7 +43,7 @@
                         <div class="card-price rounded">от {{ place.price }} <i class="fas fa-ruble-sign fa-fw"></i></div>
 
                         <div class="row no-gutters">
-                            <div class="col-md-5" style="height: 188px !important;">
+                            <div class="col-md-5" style="height: 189px !important;">
                                 <img :src="place.image" class="card-img" alt="">
                             </div>
                             <div class="col-md-7">
