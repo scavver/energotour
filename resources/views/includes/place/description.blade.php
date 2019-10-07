@@ -2,7 +2,7 @@
     {{-- Левая часть --}}
     <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 bordered-right">
         {{-- Слайдер --}}
-        @if (count($slides) > 0)
+        @if (!empty($slides))
             <div id="carouselExampleIndicators" class="carousel slide my-3" data-ride="carousel">
                 <ol class="carousel-indicators">
                     @for($i = 0; $i < count($slides); $i++)

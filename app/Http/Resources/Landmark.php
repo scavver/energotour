@@ -22,7 +22,7 @@ class Landmark extends JsonResource
                 'id' => $this->region->id,
                 'name' => $this->region->name,
             ],
-            'image' => $this->image->path,
+            'image' => $this->image['path'],
         ];
     }
 }

@@ -32,7 +32,8 @@ class PlaceController extends Controller
         $treatment = Treatment::where('place_id', '=', $place->id)->get();
         $food = Food::where('place_id', '=', $place->id)->get();
 
-        $slides = Gallery::where('place_id', $place->id)->where('is_main', '1')->first()->images;
+        $slides = Gallery::where('place_id', $place->id)->where('is_main', '1')->first();
+        $slides = $slides['images'];
 
         return view('public.places.single', ['place' => $place, 'slides' => $slides, 'rooms' => $rooms, 'infrastructure' => $infrastructure, 'treatment' => $treatment, 'food' => $food]);
     }
