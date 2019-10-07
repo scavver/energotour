@@ -46,13 +46,13 @@
                     <div class="single price-discount m-3">
                         от
                         <span class="price px-1">
-                            <s class="pr-1">{{ $place->price->min_price }}</s>
-                            <strong>{{ intval($place->price->min_price - ($place->price->min_price * ($place->discount->max_discount / 100))) }} руб.</strong>
+                            <s class="pr-1">{{ $place->price['min_price'] }}</s>
+                            <strong>{{ intval($place->price['min_price'] - ($place->price['min_price'] * ($place->discount['max_discount'] / 100))) }} руб.</strong>
                         </span>
 
                         @if(!empty($place->discount))
                         <span class="discount">
-                            -{{ $place->discount->max_discount }}%
+                            -{{ $place->discount['max_discount'] }}%
                         </span>
                         @endif
                     </div>
@@ -74,7 +74,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <a href="{{ asset($place->price->image->path) }}" title="Открыть оригинал" target="_blank"><img src="{{ asset($place->price->image->path) }}" width="100%" alt="Цены {{ $place->title }}"></a>
+                                    <a href="{{ asset($place->price->image['path']) }}" title="Открыть оригинал" target="_blank"><img src="{{ asset($place->price->image['path']) }}" width="100%" alt="Цены {{ $place->title }}"></a>
                                 </div>
                             </div>
                         </div>
