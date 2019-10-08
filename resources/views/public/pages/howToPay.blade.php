@@ -1,11 +1,11 @@
 @extends("layouts.app")
 
 @section("title")
-    Как оплатить
+Способы оплаты
 @endsection
 
 @section("description")
-    Инструкция по оплате тура при заказе через туристическую компанию Энерго Тур.
+Как оплатить путевку у туроператора Энерго-Тур.
 @endsection
 
 @section("content")

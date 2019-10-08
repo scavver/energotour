@@ -1,11 +1,11 @@
 @extends("layouts.app")
 
 @section("title")
-    Часто задаваемые вопросы
+Часто задаваемые вопросы
 @endsection
 
 @section("description")
-    Ответы на часто задаваемые вопросы. Туристическая компания Энерго Тур.
+Ответы на часто задаваемые вопросы. Туристическая компания Энерго Тур.
 @endsection
 
 @section("content")
@@ -146,6 +146,11 @@
                                 Ознакомиться с перечнем услуг, входящих в стоимость путевки можно на
                                 странице каждого объекта, вкладка «ОПИСАНИЕ»
                             </p>
+                            <div class="pb-3">
+                                <a href="{{ asset('images/services.png') }}" data-toggle="lightbox" class="text-center">
+                                    <img src="{{ asset('images/services.png') }}" class="img-fluid rounded" width="40%">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 @extends("layouts.app")
 
 @section("title")
-    {{ $page->title }}
+{{ $page->title }}
 @endsection
 
 @section("description")
-    {{ $page->description }}
+{{ $page->description }}
 @endsection
 
 @section("content")

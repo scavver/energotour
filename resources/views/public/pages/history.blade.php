@@ -1,11 +1,11 @@
 @extends("layouts.app")
 
 @section("title")
-    История компании
+История компании
 @endsection
 
 @section("description")
-    История компании Энерго Тур.
+История компании Энерго Тур.
 @endsection
 
 @section("content")
