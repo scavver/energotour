@@ -27,6 +27,14 @@
         </div>
 
         <div class="form-group">
+            <div class="custom-control custom-switch custom-control-inline">
+                <input type="hidden" name="enabled" value="0">
+                <input type="checkbox" class="custom-control-input" id="enabled" value="1" name="enabled">
+                <label class="custom-control-label" for="enabled">Номер объекта размещения</label>
+            </div>
+        </div>
+
+        <div class="form-group">
             <div class="row">
                 <div class="col">
                     <label for="title">Заголовок (SEO)</label>

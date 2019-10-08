@@ -36,6 +36,7 @@ class PlaceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'enabled' => 'required|boolean',
             'name' => 'required|string|max:100',
             'title' => 'required|string|max:60',
             'description' => 'required|string|max:155',
@@ -48,6 +49,7 @@ class PlaceController extends Controller
         ]);
 
         $place = Place::create($request->only([
+            'enabled',
             'name',
             'title',
             'description',
@@ -89,6 +91,7 @@ class PlaceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'enabled' => 'required|boolean',
             'name' => 'required|string|max:100',
             'title' => 'required|string|max:60',
             'description' => 'required|string|max:155',
@@ -103,6 +106,7 @@ class PlaceController extends Controller
         $place = Place::find($id);
 
         $place->update($request->only([
+            'enabled',
             'name',
             'title',
             'description',
