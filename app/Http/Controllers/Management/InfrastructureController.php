@@ -69,6 +69,7 @@ class InfrastructureController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'previous'       => 'string',
             'place_id'       => 'required|integer',
             'pool'           => 'nullable|string',
             'beach'          => 'nullable|string',
@@ -92,7 +93,9 @@ class InfrastructureController extends Controller
             'extra',
         ]));
 
-        return redirect(route('infrastructure.index'))->with('success', '🎊 Инфраструктура обновлена');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', '🎊 Инфраструктура обновлена');
     }
 
     // Удаление инфраструктуры

@@ -91,6 +91,7 @@ class PlaceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'previous' => 'string',
             'enabled' => 'required|boolean',
             'name' => 'required|string|max:100',
             'title' => 'required|string|max:60',
@@ -146,7 +147,9 @@ class PlaceController extends Controller
 
         }
 
-        return redirect(url('management/places'))->with('success', 'Место успешно обновлено.');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', 'Место успешно обновлено.');
     }
 
     // Удаление места размещения

@@ -31,10 +31,10 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:100',
-            'place_id' => 'nullable|integer',
-            'is_main' => 'boolean',
-            'is_room' => 'boolean'
+            'name'      => 'required|string|max:100',
+            'place_id'  => 'nullable|integer',
+            'is_main'   => 'boolean',
+            'is_room'   => 'boolean'
         ]);
 
         $gallery = Gallery::create($request->all());
@@ -56,17 +56,20 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:100',
-            'place_id' => 'nullable|integer',
-            'is_main' => 'boolean',
-            'is_room' => 'boolean'
+            'previous'  => 'string',
+            'name'      => 'required|string|max:100',
+            'place_id'  => 'nullable|integer',
+            'is_main'   => 'boolean',
+            'is_room'   => 'boolean'
         ]);
 
         $gallery = Gallery::find($id);
 
         $gallery->update($request->all());
 
-        return redirect(route('galleries.index'))->with('success', 'Галерея обновлена.');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', 'Галерея обновлена.');
     }
 
     // Удаление галереи

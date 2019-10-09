@@ -79,19 +79,20 @@ class RoomController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string',
-            'place_id' => 'integer',
-            'gallery_id' => 'nullable|integer',
-            'number_of_rooms' => 'nullable|string',
-            'category' => 'required|string',
-            'view' => 'nullable|string',
-            'number_of_places' => 'required|integer',
-            'number_of_extra_places' => 'nullable|integer',
-            'area' => 'nullable|string',
-            'furniture' => 'nullable|string',
-            'equipment' => 'nullable|string',
-            'bathroom' => 'nullable|string',
-            'service' => 'nullable|string'
+            'previous'                  => 'string',
+            'name'                      => 'required|string',
+            'place_id'                  => 'integer',
+            'gallery_id'                => 'nullable|integer',
+            'number_of_rooms'           => 'nullable|string',
+            'category'                  => 'required|string',
+            'view'                      => 'nullable|string',
+            'number_of_places'          => 'required|integer',
+            'number_of_extra_places'    => 'nullable|integer',
+            'area'                      => 'nullable|string',
+            'furniture'                 => 'nullable|string',
+            'equipment'                 => 'nullable|string',
+            'bathroom'                  => 'nullable|string',
+            'service'                   => 'nullable|string'
         ]);
 
         $room = Room::find($id);
@@ -112,7 +113,9 @@ class RoomController extends Controller
             'service'
         ]));
 
-        return redirect(route('rooms.index'))->with('success', '🎊 Номер обновлен');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', '🎊 Номер обновлен');
     }
 
     // Удаление комнаты

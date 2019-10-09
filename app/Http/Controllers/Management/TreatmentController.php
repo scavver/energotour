@@ -59,6 +59,7 @@ class TreatmentController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'previous' => 'string',
             'place_id' => 'required|integer',
             'profiles' => 'nullable|string',
             'types'    => 'nullable|string',
@@ -72,7 +73,9 @@ class TreatmentController extends Controller
             'types',
         ]));
 
-        return redirect(route('treatment.index'))->with('success', '🎊 Лечение обновлено');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', '🎊 Лечение обновлено');
     }
 
     // Удаление лечения

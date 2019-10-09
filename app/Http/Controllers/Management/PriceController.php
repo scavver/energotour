@@ -70,9 +70,10 @@ class PriceController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'previous'  => 'string',
             'min_price' => 'required|integer',
-            'place_id' => 'required|integer',
-            'image' => 'nullable|image',
+            'place_id'  => 'required|integer',
+            'image'     => 'nullable|image',
         ]);
 
         $price = Price::find($id);
@@ -96,7 +97,9 @@ class PriceController extends Controller
             $old_image->save();
         }
 
-        return redirect(route('prices.index'))->with('success', 'Цены обновлены.');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', 'Цены обновлены.');
     }
 
     // Удаление прайса

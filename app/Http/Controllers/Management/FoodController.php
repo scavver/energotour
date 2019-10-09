@@ -59,6 +59,7 @@ class FoodController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'previous' => 'string',
             'place_id' => 'required|integer',
             'included' => 'required|string',
             'extra'    => 'nullable|string',
@@ -72,7 +73,9 @@ class FoodController extends Controller
             'extra',
         ]));
 
-        return redirect(route('food.index'))->with('success', '🎊 Питание обновлено');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', '🎊 Питание обновлено');
     }
 
     // Удаление питания

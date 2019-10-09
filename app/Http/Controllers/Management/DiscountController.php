@@ -52,16 +52,19 @@ class DiscountController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'max_discount' => 'required|integer',
-            'content' => 'required|string',
-            'place_id' => 'required|integer'
+            'previous'      => 'string',
+            'max_discount'  => 'required|integer',
+            'content'       => 'required|string',
+            'place_id'      => 'required|integer'
         ]);
 
         $discount = Discount::find($id);
 
         $discount->update($request->all());
 
-        return redirect(route('discounts.index'))->with('success', 'Скидки обновлены.');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', 'Скидки обновлены.');
     }
 
     // Удаление скидок

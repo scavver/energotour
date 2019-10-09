@@ -16,6 +16,8 @@
             @csrf
             @method('PUT')
 
+            <input type="hidden" name="previous" value="{{ URL::previous() }}">
+
             <div class="form-group">
                 <div class="row">
                     <div class="col">

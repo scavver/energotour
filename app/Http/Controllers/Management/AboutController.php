@@ -69,6 +69,7 @@ class AboutController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'previous'            => 'string',
             'place_id'            => 'required|integer',
             'description'         => 'nullable|string',
             'rules_of_settlement' => 'nullable|string',
@@ -92,7 +93,9 @@ class AboutController extends Controller
             'children',
         ]));
 
-        return redirect(route('about.index'))->with('success', '🎊 Описание обновлено');
+        $previous = $request->previous;
+
+        return redirect(url($previous))->with('success', '🎊 Описание обновлено');
     }
 
     // Удаление описания
