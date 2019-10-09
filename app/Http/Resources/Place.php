@@ -22,6 +22,7 @@ class Place extends Resource
          * Не лучшая практика использовать функцию map - лучше создать отдельный ресурс.
          */
         return [
+            'enabled' => $this->enabled,
             'name' => $this->name,
             'slug' => $this->slug,
             'type' => $this->type,
