@@ -121,19 +121,19 @@
             getTypes() {
                 axios.get('/api/types')
                     .then(response => {
-                        this.types = response.data.data
+                        this.types = response.data
                     })
             },
             getRegions() {
                 axios.get('/api/regions')
                     .then(response => {
-                        this.regions = response.data.data
+                        this.regions = response.data
                     })
             },
             getProperties() {
                 axios.get('/api/properties')
                     .then(response => {
-                        this.properties = response.data.data
+                        this.properties = response.data
                     })
             },
             onChange() {
