@@ -54,6 +54,12 @@ return [
             'root' => storage_path('images'),
         ],
 
+        // Хранилище документов
+        'docs' => [
+            'driver' => 'local',
+            'root' => storage_path('docs'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

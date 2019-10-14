@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Management;
 
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
-use App\Image;
 use Illuminate\Http\Request;
+use App\Document;
 use App\Place;
 use App\Price;
-use Illuminate\Support\Facades\Storage;
+use App\Image;
 
 class PriceController extends Controller
 {
@@ -34,7 +35,7 @@ class PriceController extends Controller
         $request->validate([
             'min_price' => 'required|integer',
             'place_id' => 'required|integer',
-            'image' => 'nullable|image',
+            'file' => 'nullable|mimes:jpeg,png,gif,pdf',
         ]);
 
         // Добавляем запись в таблицу `prices`
@@ -43,15 +44,28 @@ class PriceController extends Controller
             'place_id'
         ]));
 
-        // Добавляем изображение в хранилище и таблицу
-        if($file = $request->hasFile('image')) {
-            $file_path = $request->image->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
+        // Если в запросе есть провалидированный файл
+        if($request->hasFile('file')) {
+            // Проверяем MIME тип файла
+            if($request->file->getMimeType() == 'application/pdf') {
+                $file_path = $request->file->store('docs'); // Сохраняем документ в хранилище получаем в ответ путь
 
-            $image = new Image(); // Новая запись в таблицу с изображениями
-            $image->path = $file_path; // Передаем путь
-            $image->imageable_id = $price->id; // Полиморфное отношение
-            $image->imageable_type = 'App\Price'; // Полиморфное отношение
-            $image->save();
+                $document = new Document();                 // Новая запись в таблицу с документами
+                $document->path = $file_path;               // Передаем путь
+                $document->documentable_id = $price->id;    // Полиморфное отношение
+                $document->documentable_type = 'App\Price'; // Полиморфное отношение
+                $document->save();
+            }
+            // Если не пдф, то очевидно изображение
+            else {
+                $file_path = $request->file->store('images');   // Сохраняем изображение в хранилище получаем в ответ путь
+
+                $image = new Image();                           // Новая запись в таблицу с изображениями
+                $image->path = $file_path;                      // Передаем путь
+                $image->imageable_id = $price->id;              // Полиморфное отношение
+                $image->imageable_type = 'App\Price';           // Полиморфное отношение
+                $image->save();
+            }
         }
 
         return redirect(route('prices.index'))->with('success', 'Цены добавлены!');
@@ -73,7 +87,7 @@ class PriceController extends Controller
             'previous'  => 'string',
             'min_price' => 'required|integer',
             'place_id'  => 'required|integer',
-            'image'     => 'nullable|image',
+            'file'     => 'nullable|mimes:jpeg,png,gif,pdf',
         ]);
 
         $price = Price::find($id);
@@ -83,21 +97,89 @@ class PriceController extends Controller
             'place_id'
         ]));
 
-        // Если в запросе есть файл изображения
-        if($file = $request->hasFile('image')) {
-            // Находим старую обложку в таблице
-            $old_image = Image::where('imageable_id', $price->id)->where('imageable_type', 'App\Price')->first();
-            // Удаляем ее файл из хранилища
-            Storage::delete($old_image->path);
+        // TODO: Девочки, это какой-то шикардосик
 
-            // Сохраняем новый файл
-            $file_path = $request->image->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
+        // Если в запросе есть провалидированный файл
+        if($request->hasFile('file')) {
+            // Проверяем MIME тип файла
+            if ($request->file->getMimeType() == 'application/pdf') {
+                // Проверка был ли у пдф предшественник
+                if(!empty(Document::where('documentable_id', $price->id)->where('documentable_type', 'App\Price')->first())) {
+                    // Находим старый документ в таблице
+                    $old_document = Document::where('documentable_id', $price->id)->where('documentable_type', 'App\Price')->first();
+                    Storage::delete($old_document->path);           // Удаляем его файл из хранилища
 
-            $old_image->path = $file_path; // Заменяем путь на новый
-            $old_image->save();
+                    $file_path = $request->file->store('docs');     // Сохраняем документ в хранилище получаем в ответ путь
+                    $old_document->path = $file_path;               // Заменяем путь на новый
+                    $old_document->save();                          // Сохраняем запись
+                }
+                // Или картинка
+                elseif (Image::where('imageable_id', $price->id)->where('imageable_type', 'App\Price')->first()) {
+                    // Находим и удаляем старое изоражение в таблице
+                    $old_image = Image::where('imageable_id', $price->id)->where('imageable_type', 'App\Price')->first();
+                    Storage::delete($old_image->path);              // Удаляем его файл из хранилища
+                    $old_image->delete();
+
+                    $file_path = $request->file->store('docs');     // Сохраняем документ в хранилище получаем в ответ путь
+
+                    $document = new Document();                     // Новая запись в таблицу с документами
+                    $document->path = $file_path;                   // Передаем путь
+                    $document->documentable_id = $price->id;        // Полиморфное отношение
+                    $document->documentable_type = 'App\Price';     // Полиморфное отношение
+                    $document->save();
+                }
+                // Или не было ничего
+                else {
+                    $file_path = $request->file->store('docs'); // Сохраняем документ в хранилище получаем в ответ путь
+
+                    $document = new Document();                 // Новая запись в таблицу с документами
+                    $document->path = $file_path;               // Передаем путь
+                    $document->documentable_id = $price->id;    // Полиморфное отношение
+                    $document->documentable_type = 'App\Price'; // Полиморфное отношение
+                    $document->save();
+                }
+            }
+            // Если не пдф, то очевидно изображение
+            else {
+                // Проверка был ли у изображения предшественник
+                if (Image::where('imageable_id', $price->id)->where('imageable_type', 'App\Price')->first()) {
+                    // Находим старое изоражение в таблице
+                    $old_image = Image::where('imageable_id', $price->id)->where('imageable_type', 'App\Price')->first();
+                    Storage::delete($old_image->path);              // Удаляем его файл из хранилища
+
+                    $file_path = $request->file->store('images');   // Сохраняем изображение в хранилище получаем в ответ путь
+                    $old_image->path = $file_path;                  // Заменяем путь на новый
+                    $old_image->save();                             // Сохраняем запись
+                }
+                // Или документ
+                elseif(!empty(Document::where('documentable_id', $price->id)->where('documentable_type', 'App\Price')->first())) {
+                    // Находим старый документ в таблице
+                    $old_document = Document::where('documentable_id', $price->id)->where('documentable_type', 'App\Price')->first();
+                    Storage::delete($old_document->path);           // Удаляем его файл из хранилища
+                    $old_document->delete();
+
+                    $file_path = $request->file->store('images');   // Сохраняем документ в хранилище получаем в ответ путь
+
+                    $document = new Image();                        // Новая запись в таблицу с документами
+                    $document->path = $file_path;                   // Передаем путь
+                    $document->imageable_id = $price->id;           // Полиморфное отношение
+                    $document->imageable_type = 'App\Price';        // Полиморфное отношение
+                    $document->save();
+                }
+                // Или не было ничего
+                else {
+                    $file_path = $request->file->store('images'); // Сохраняем документ в хранилище получаем в ответ путь
+
+                    $document = new Image();                 // Новая запись в таблицу с документами
+                    $document->path = $file_path;               // Передаем путь
+                    $document->imageable_id = $price->id;    // Полиморфное отношение
+                    $document->imageable_type = 'App\Price'; // Полиморфное отношение
+                    $document->save();
+                }
+            }
         }
 
-        $previous = $request->previous;
+        $previous = $request->previous; // Путь из скрытого инпута к предыдущей странице
 
         return redirect(url($previous))->with('success', 'Цены обновлены.');
     }
@@ -107,12 +189,21 @@ class PriceController extends Controller
     {
         // Ищем прайс в таблице и удаляем запись
         $price = Price::find($id);
-        $price->delete();
 
-        // Ищем изображение, удаляем из хранилища и таблицы
-        $image = Image::where('imageable_id', $price->id)->where('imageable_type', 'App\Price')->first();
-        Storage::delete($image->path);
-        $image->delete();
+        // Если есть пдф - удаляем
+        if(!empty(Document::where('documentable_id', $price->id)->where('documentable_type', 'App\Price')->first())) {
+            $old_document = Document::where('documentable_id', $price->id)->where('documentable_type', 'App\Price')->first();
+            Storage::delete($old_document->path);           // Удаляем его файл из хранилища
+            $old_document->delete();
+        }
+        // Если изображение - удаляем
+        elseif (!empty(Image::where('imageable_id', $price->id)->where('imageable_type', 'App\Price')->first())) {
+            $old_image = Image::where('imageable_id', $price->id)->where('imageable_type', 'App\Price')->first();
+            Storage::delete($old_image->path);              // Удаляем его файл из хранилища
+            $old_image->delete();
+        }
+
+        $price->delete();
 
         return redirect(route('prices.index'))->with('success', 'Цены удалены.');
     }
