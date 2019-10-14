@@ -15,6 +15,12 @@ class Price extends Model
         return $this->morphOne('App\Image', 'imageable');
     }
 
+    // Получить документ прайса
+    public function document()
+    {
+        return $this->morphOne('App\Document', 'documentable');
+    }
+
     // Получить место размещения, владеющее прайсом.
     public function place()
     {

@@ -74,7 +74,15 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <a href="{{ asset($place->price->image['path']) }}" title="Открыть оригинал" target="_blank"><img src="{{ asset($place->price->image['path']) }}" width="100%" alt="Цены {{ $place->title }}"></a>
+                                    @if(!empty($place->price->image))
+                                        <a href="{{ asset($place->price->image['path']) }}" title="Открыть оригинал" target="_blank"><img src="{{ asset($place->price->image['path']) }}" width="100%" alt="Цены {{ $place->title }}"></a>
+                                    @elseif(!empty($place->price->document))
+                                        <a href="{{ asset($place->price->document['path']) }}" class="pdf-button-link" target="_blank">
+                                            <div class="pdf-button d-flex align-items-center justify-content-center">
+                                                <span style="font-size: 1.3rem; font-weight: 300;" class="text-uppercase"><i class="fas fa-file-pdf fa-fw pr-2"></i> Открыть .PDF</span>
+                                            </div>
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
