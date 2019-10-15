@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container bg-white">
+    <div class="row d-flex align-items-center justify-content-center" style="height: 400px">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+            <div class="card border-0">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

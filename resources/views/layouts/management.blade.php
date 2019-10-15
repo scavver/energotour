@@ -12,7 +12,7 @@
         <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-fiord shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Панель управления
+                    <i class="fab fa-laravel pr-2"></i> {{ config('app.name', 'Control panel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-home"></i></a>
+                            <a href="{{ route('home') }}" target="_blank" class="nav-link">открыть сайт<i class="fas fa-external-link-alt pl-2"></i></a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
@@ -66,7 +66,7 @@
         <div class="container-fluid">
             <div class="row">
                 <aside class="col-12 p-0 col-sm-12 col-md-2 col-xl-2 order-1 order-sm-1 order-md-0 order-xl-0" id="sidebar">
-                    <div class="sticky-top">
+                    <div class="sticky-top sticky-offset">
                         @include('includes.management.sidebar')
                     </div>
                 </aside>
