@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-primary navbar-dark text-white shadow-sm">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark text-white shadow-sm bg-primary navbar-blur">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('images/logo.svg') }}" height="20" alt="Логотип {{ config('app.name', 'Energotour') }}">
