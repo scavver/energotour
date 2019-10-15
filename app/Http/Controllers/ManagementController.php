@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Storage;
 use App\Document;
 use App\Image;
 use App\Place;
@@ -10,23 +9,21 @@ class ManagementController extends Controller
 {
     public function dashboard()
     {
-        $model = [
-            'places'    => [
+        $models = [
+            'place'    => [
                 'all'       => Place::all()->count(),
                 'enabled'   => Place::all()->where('enabled', '=', '1')->count(),
             ],
-            'images'    => Image::all()->count(),
-            'documents' => Document::all()->count(),
-        ];
-
-        $storage = [
-            'images'    => count(Storage::files('/images/')),
-            'documents' => count(Storage::files('/docs/')),
+            'image'    => [
+                'all' => Image::all()->count(),
+            ],
+            'document' => [
+                'all' => Document::all()->count(),
+            ],
         ];
 
         return view('management.dashboard', [
-            'model' => $model,
-            'storage' => $storage,
+            'models' => $models,
         ]);
     }
 }

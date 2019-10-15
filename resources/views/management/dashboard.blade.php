@@ -23,8 +23,8 @@
                 <i class="fas fa-hotel fa-fw"></i>
                 <span>
                     <strong>Объекты размещения</strong><br>
-                    Активных: {{ $model['places']['all'] }}<br>
-                    Всего: {{ $model['places']['enabled'] }}<br>
+                    Активных: {{ $models['place']['enabled'] }}<br>
+                    Всего: {{ $models['place']['all'] }}<br>
                 </span>
             </div>
         </div>
@@ -34,8 +34,8 @@
                 <i class="fas fa-database fa-fw"></i>
                 <span>
                     <strong>База данных</strong><br>
-                    Изображений: {{ $model['images'] }}<br>
-                    Документов: {{ $model['documents'] }}<br>
+                    Изображений: {{ $models['image']['all'] }}<br>
+                    Документов: {{ $models['document']['all'] }}<br>
                 </span>
             </div>
         </div>
@@ -44,9 +44,9 @@
             <div class="dashboard-block">
                 <i class="fas fa-hdd fa-fw"></i>
                 <span>
-                    <strong>Storage</strong><br>
-                    Изображений: {{ $storage['images'] }}<br>
-                    Документов: {{ $storage['documents'] }}<br>
+                    <strong>--</strong><br>
+                    --
+                    --
                 </span>
             </div>
         </div>
