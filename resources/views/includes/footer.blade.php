@@ -83,16 +83,17 @@
                     </div>
 
                     <div class="d-inline-block" style="font-weight: 200; font-size: 0.8rem;">
-                        Мы в реестре туроператоров<br>
+                        <span class="d-none d-md-inline">Мы в реестре туроператоров<br></span>
                         <span class="d-none d-md-inline">ООО "Туристическая компания "Энерго - Тур"<br></span>
+                        <span class="d-inline d-md-none">Реестровый номер<br></span>
                         РТО 018028
                     </div>
                 </a>
 
-                <div class="ml-auto mr-auto mr-md-0 ml-md-auto d-flex align-items-center" style="font-size: 16px;">
+                <!-- <div class="ml-auto mr-auto mr-md-0 ml-md-auto d-flex align-items-center" style="font-size: 16px;">
                     <a class="d-inline-block" href="https://github.com/scavver/energotour" title="GitHub Repo (MIT)" target="_blank" style="padding: 0.5rem 0.45rem !important;"><i class="fab fa-github-alt"></i></a>
                     {{-- <a class="d-inline-block" href="https://twitter.com/energotour" target="_blank" style="padding: 0.5rem 0.45rem !important;"><i class="fab fa-twitter"></i></a> --}}
-                </div>
+                </div> -->
             </nav>
         </div>
     </div>
