@@ -6,7 +6,7 @@
         </div>
     </div>
 
-    <yandex-map v-else :coords="coords" :scroll-zoom="scroll" :zoom="zoom" class="ymap-class">
+    <yandex-map v-else :coords="coords" :scroll-zoom="scroll" :zoom="zoom" :cluster-options="clusterOptions" class="ymap-class">
         <ymap-marker
                 v-for="place in places.data"
                 :callbacks="callbacks(place)"
@@ -14,6 +14,7 @@
                 :hint-content="place.name"
                 :key="place.name"
                 marker-id="1"
+                cluster-name="1"
         ></ymap-marker>
     </yandex-map>
 </template>
@@ -26,7 +27,14 @@
             coords: [44.96563429952982, 34.418236698025645],
             places: [],
             scroll: false,
-            zoom: 8
+            zoom: 8,
+
+            clusterOptions: {
+                '1': {
+                    clusterDisableClickZoom: true,
+                    clusterOpenBalloonOnClick: false,
+                }
+            }
         }),
         async mounted() {
             await Promise.all([this.getCoords()])
