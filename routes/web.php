@@ -35,6 +35,7 @@ Route::prefix('tourists')->group(function () {
 
 Route::get('/history', 'PageController@history')->name('history');                         // Страница "История компании"
 Route::get('/contacts', 'PageController@contacts')->name('contacts');                      // Страница "Контакты"
+Route::get('/excursions', 'PageController@excursions')->name('excursions');                // Страница "Экскурсии"
 Route::get('/docs', 'PageController@docs')->name('docs');                                  // Страница "Ргеистрационные документы"
 Route::get('/avia', 'PageController@avia')->name('avia');                                  // Страница "Авиабилеты"
 

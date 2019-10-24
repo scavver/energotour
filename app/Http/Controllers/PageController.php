@@ -77,4 +77,16 @@ class PageController extends Controller
     {
         return view('public.pages.docs');
     }
+
+    // Страница "Экскурсии"
+    public function excursions()
+    {
+        return view('public.pages.excursions');
+    }
+
+    // Страница "Авиабилеты"
+    public function avia()
+    {
+        return view('public.pages.avia');
+    }
 }

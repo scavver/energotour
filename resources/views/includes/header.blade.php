@@ -25,17 +25,12 @@
                 <li class="nav-item {{ request()->is('booking') ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('booking') }}">Онлайн бронирование</a>
                 </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="">Авиабилеты</a>
+                <li class="nav-item {{ request()->is('avia') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('avia') }}">Авиабилеты</a>
                 </li>
-                <li class="nav-item dropdown ">
-                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Трансфер
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="">Автобусом в Крым</a>
-                        <a class="dropdown-item" href="#">Трансфер по Крыму</a>
-                    </div>
+                <li class="nav-item ">
+                    <a class="nav-link " href="" data-toggle="modal" data-target="#transfer">Трансфер</a>
+                    {{-- Модальное окно за пределами навбара --}}
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="">Агентствам</a>
@@ -64,3 +59,22 @@
         </div>
     </div>
 </nav>
+
+{{-- Модальное окно трансфер --}}
+<div class="modal fade" id="transfer" tabindex="-1" role="dialog" aria-labelledby="transferLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="transferLabel">Трансфер по Крыму {{ now()->year }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <a href="/docs/transfer.pdf" class="btn btn-primary btn-lg btn-block" target="_blank">
+                    <i class="fas fa-file-pdf fa-fw pr-2"></i> Прайс-лист PDF (174KB)
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

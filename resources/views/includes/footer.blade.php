@@ -9,9 +9,9 @@
                         <li class="heading">Наши услуги</li>
 
                         <li class="item"><a href="/places">Санатории и отели</a></li>
-                        <li class="item"><a href="/pages/avia">Авиабилеты</a></li>
-                        <li class="item"><a href="/pages/excursions">Экскурсии</a></li>
-                        <li class="item"><a href="/pages/transfer">Трансфер</a></li>
+                        <li class="item"><a href="/avia">Авиабилеты</a></li>
+                        <li class="item"><a href="/excursions">Экскурсии</a></li>
+                        <li class="item"><a href="" data-toggle="modal" data-target="#transfer">Трансфер</a></li>
                     </ul>
                 </div>
 

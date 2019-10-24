@@ -20,6 +20,11 @@
   }
 }
 
+.bg-blur {
+  background: #1e2949d6 !important;
+  backdrop-filter: saturate(180%) blur(20px);
+}
+
 .dashboard-block {
   background: #f5f5f6;
   border-radius: 8px;
