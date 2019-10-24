@@ -20,6 +20,21 @@
   }
 }
 
+.dropdown-menu {
+  font-size: 0.81rem !important;
+  font-weight: 300 !important;
+  border-radius: 0 !important;
+}
+
+.navbar-nav {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 0.81rem !important;
+}
+.nav-item.active a {
+    color: $moderate-orange !important;
+}
+
 .bg-blur {
   background: #1e2949d6 !important;
   backdrop-filter: saturate(180%) blur(20px);
@@ -68,7 +83,7 @@
   border-left: 0 !important;
   border-right: 0 !important;
   border-bottom: 0 !important;
-  border-color: #dfdfdf;
+  border-color: #3776b0;
 }
 
 .place-card-button-last {
@@ -77,7 +92,7 @@
   border-left: 0 !important;
   border-right: 0 !important;
   border-bottom: 0 !important;
-  border-color: #dfdfdf;
+  border-color: #3776b0;
 }
 
 .sticky-offset {
@@ -108,8 +123,10 @@
 }
 
 body {
-  padding-top: 3.46rem;
-  background-color: #f5f5f6;
+  padding-top: 3.28rem;
+  // background-color: #f5f5f6;
+  background-color: #3d4761;
+  color: #dce3ef !important;
 }
 .sticky-top {
   // top: 3.46rem;
@@ -338,6 +355,18 @@ main p.content {
   float: left;
   color: gray;
 }
+.card-place .card {
+  background-color: $very-dark-grayish-blue;
+}
+.card {
+  background-color: #292e39 !important;
+}
+.card-body {
+  background-color: $dark-grayish-blue;
+}
+.card-header {
+  background-color: $very-dark-grayish-blue;
+}
 .card-price {
   position: absolute;
   top: 60px;
@@ -377,7 +406,7 @@ main p.content {
 
 // Футер
 footer {
-  border-top: solid 1px #efefef;
+  border-top: solid 1px #3a5b83;
   position: relative;
 }
 .footer {
@@ -385,6 +414,7 @@ footer {
   color: #fff;
 }
 .footer a {
+  font-weight: 300;
   transition: color .15s ease-in-out;
   color: #dee2e6;
 }
@@ -483,16 +513,16 @@ dl.row.footer.last {
 }
 
 .bordered-bottom {
-  border-bottom: solid 1px #ececed;
+  border-bottom: solid 1px #3776b0;
 }
 
 .bordered-top {
-  border-top: solid 1px #ececed;
+  border-top: solid 1px #3776b0;
 }
 
 @media screen and (min-width: 768px) {
   .bordered-right {
-    border-right: solid 1px #ececed;
+    border-right: solid 1px #3776b0;
   }
 }
 

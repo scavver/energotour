@@ -40,7 +40,7 @@
     <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-4">
         {{-- Первый ряд --}}
         <div class="row p-3">
-            <div class="card w-100">
+            <div class="card bg-very-dark-grayish-blue w-100">
                 <div class="card-body p-0 text-center">
                     {{-- Цена от, скидка до --}}
                     <div class="single price-discount m-3">

@@ -1,6 +1,6 @@
 <footer class="container-fluid footer">
     <!-- Footer -->
-    <div class="row bg-shuttle-grey p-3">
+    <div class="row bg-dark-grayish-blue p-3">
         <div class="col px-1 px-md-5 py-5">
             <div class="row mx-1 mx-md-3">
                 <!-- First Column -->
@@ -73,7 +73,7 @@
     <!-- End: Footer -->
 
     <!-- Upper Footer -->
-    <div class="row px-1 px-md-5 bg-fiord">
+    <div class="row px-1 px-md-5 bg-very-dark-grayish-blue">
         <!-- Navigation -->
         <div class="col-12 py-2 d-flex justify-content-center justify-content-sm-center justify-content-md-start justify-content-lg-start justify-content-xl-start align-items-center">
             <nav class="nav nav-fill w-100 px-md-2">

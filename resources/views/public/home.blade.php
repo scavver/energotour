@@ -89,7 +89,7 @@
             </div>
      </div>
 
-    <div class="container-fluid text-eclipse">
+    <div class="container-fluid">
         <div class="container">
             <div class="row pt-3 pb-4">
                 <div class="col text-center">
@@ -213,7 +213,7 @@
 
      <div class="container-fluid bg-white">
          <div class="container p-3 text-center">
-             <h4 class="text-uppercase mb-0">Карта санаториев и отелей</h4>
+             <h4 class="text-uppercase mb-0 text-eclipse">Карта санаториев и отелей</h4>
          </div>
      </div>
 

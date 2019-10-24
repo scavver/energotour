@@ -29,6 +29,10 @@ $driftwood: #b18255; // Dark accent | Another accent color to consider. Not all 
 $cocoa-brown: #352925; // Dark shades | Use as the text color for dark-on-light designs, or as the background for inverted designs.
 $summer-sky: #3490dc;
 $pattens-blue: #dee2e6;
+$very-dark-desaturated-blue: #1c2844;
+$very-dark-grayish-blue: #2f3543;
+$dark-grayish-blue: #383e4e;
+$moderate-orange: #d8993d;
 
 // Custom colors
 $theme-colors: (
@@ -43,7 +47,11 @@ $theme-colors: (
   "cocoa-brown": $cocoa-brown,
   "success": $chelsea-cucumber,
   "primary": $summer-sky,
-  "pattens-blue": $pattens-blue
+  "pattens-blue": $pattens-blue,
+  "very-dark-desaturated-blue": $very-dark-desaturated-blue,
+  "very-dark-grayish-blue": $very-dark-grayish-blue,
+  "dark-grayish-blue": $dark-grayish-blue,
+  "moderate-orange": $moderate-orange,
 );
 
 $spacer: 1rem !default;
