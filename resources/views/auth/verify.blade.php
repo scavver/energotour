@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<main class="container-fluid bg-white py-6 py-md-7">
+<main class="container-fluid py-6 py-md-7">
     <div class="container text-center">
         @if (session('resent'))
             <div class="text-center text-success pb-4" role="alert">

@@ -3,23 +3,23 @@
         <div class="row">
             <!-- Search Filters -->
             <aside class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2 order-2 order-sm-2 order-md-1 p-3">
-                <h4 class="mb-3">Фильтры <small><a class="ml-1" href="/places"><i class="fas fa-retweet fa-fw" title="Сбросить все фильтры"></i></a></small></h4>
+                <h4 class="mb-3" style="font-weight: 300">Фильтры <small><a class="ml-1" href="/places"><i class="fas fa-retweet fa-fw" title="Сбросить все фильтры"></i></a></small></h4>
 
                 <div class="form-group">
-                    <select v-model="t" @change="onChange" class="custom-select" id="type">
+                    <select v-model="t" @change="onChange" class="custom-select shadow-sm" id="type">
                         <option value="" selected>Все типы</option>
                         <option v-for="type in types" :value="type.id">{{ type.name }}</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <select v-model="r" @change="onChange" class="custom-select" id="region">
+                    <select v-model="r" @change="onChange" class="custom-select shadow-sm" id="region">
                         <option value="" selected>Весь Крым</option>
                         <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
                     </select>
                 </div>
 
-                <h4 class="mb-3">Услуги и удобства</h4>
+                <h4 class="mb-3" style="font-weight: 300">Услуги и удобства</h4>
 
                 <div v-for="property in properties" id="property">
                     <input type="checkbox" :id="property.id" v-model="p" :value="property.id" @change="onChange">
@@ -29,7 +29,7 @@
             <!-- End: Search Filters -->
 
             <!-- Places -->
-            <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-1 order-sm-1 order-md-2 min-vh-100 px-0 order-0 order-sm-0 order-md-1 order-xl-1 single p-3">
+            <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-1 order-sm-1 order-md-2 min-vh-100 px-3 px-md-0 order-0 order-sm-0 order-md-1 order-xl-1 single py-3">
                 <template v-if="isLoading">
                     <div class="d-flex justify-content-center">
                         <div class="spinner">
@@ -41,9 +41,9 @@
 
                 <template v-else>
                     <a v-for="place in enabledPlaces" :href="'places/' + place.slug" class="card-place">
-                        <div class="card shadow-sm mb-3">
-                            <div class="card-discount rounded">- {{ place.discount }} <i class="fas fa-percentage fa-fw"></i></div>
-                            <div class="card-price rounded">от {{ place.price }} <i class="fas fa-ruble-sign fa-fw"></i></div>
+                        <div class="card overflow-hidden shadow-sm mb-3">
+                            <div class="card-discount">- {{ place.discount }} <i class="fas fa-percentage fa-fw"></i></div>
+                            <div class="card-price">от {{ place.price }} <i class="fas fa-ruble-sign fa-fw"></i></div>
 
                             <div class="row no-gutters">
                                 <div class="col-md-5" style="height: 189px !important;">
@@ -74,7 +74,9 @@
             <!-- End: Places -->
             <aside class="col-12 col-sm-12 d-md-none d-lg-none d-xl-block col-xl-2 order-3 order-sm-3 order-md-3 p-0">
                 <div class="sticky-top sticky-offset p-3 vh-twitter">
-                    <a class="twitter-timeline" data-height="100%" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
+                    <div class="bg-dark-grayish-blue text-center h-100 overflow-hidden shadow-sm shadow-sm" style="border-radius: 0.5rem;">
+                        <a class="twitter-timeline" data-chrome="noborders nofooter noheader transparent" data-height="101%" data-lang="ru" data-theme="dark" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
+                    </div>
                     <!-- calc(100% - 3.4rem) -->
                 </div>
             </aside>
@@ -192,13 +194,16 @@
     .card-place {
         .card {
             transition: all .15s ease-in-out;
+            border: 1px solid #383E4E;
+            border-radius: 0.5rem;
+            background: #2f3542 !important;
         }
         .card:hover {
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-            border: solid 1px #7e67b8 !important;
+            border: solid 1px #348ad2 !important;
         }
         .card-img {
-            border-radius: calc(0.25rem - 1px) 0 0 calc(0.25rem - 1px);
+            border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
             height: 100%;
             object-fit: cover;
         }
@@ -216,23 +221,25 @@
     }
 
     .card-discount {
+        //border-radius: 0.5rem;
         position: absolute;
-        background-color: #f9811b;
+        background-color: #e54f64;
         color: white;
         font-weight: 600;
         padding: 5px;
         top: 10px;
-        right: -5px;
+        right: 0px;
         left: auto;
         z-index: 5;
     }
 
     .card-price {
+        //border-radius: 0.5rem;
         position: absolute;
-        top: 50px;
-        right: -5px;
+        top: 43px;
+        right: 0px;
         left: auto;
-        background: #7cad64;
+        background: #5ea975;
         color: white;
         padding: 5px;
         z-index: 5;

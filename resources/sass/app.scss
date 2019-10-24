@@ -20,6 +20,27 @@
   }
 }
 
+.custom-select {
+  font-weight: 300;
+  border-radius: 0.5rem;
+  color: #dce3ee;
+  background-color: $dark-grayish-blue;
+  border: 1px solid $very-dark-grayish-blue;
+}
+.custom-select:focus {
+  border-color: #3490dc;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.2);
+}
+
+.modal-content {
+  background-color: #ffffff9c;
+  backdrop-filter: saturate(180%) blur(5px);
+  color: black;
+  border: none;
+  border-radius: 0.5rem;
+}
+
 .dropdown-menu {
   font-size: 0.81rem !important;
   font-weight: 300 !important;
@@ -28,8 +49,8 @@
 
 .navbar-nav {
   font-weight: 300;
-  text-transform: uppercase;
-  font-size: 0.81rem !important;
+  // text-transform: uppercase;
+  font-size: 0.95rem !important;
 }
 .nav-item.active a {
     color: $moderate-orange !important;
@@ -83,7 +104,7 @@
   border-left: 0 !important;
   border-right: 0 !important;
   border-bottom: 0 !important;
-  border-color: #3776b0;
+  border-color: #242831;
 }
 
 .place-card-button-last {
@@ -92,7 +113,7 @@
   border-left: 0 !important;
   border-right: 0 !important;
   border-bottom: 0 !important;
-  border-color: #3776b0;
+  border-color: #242831;
 }
 
 .sticky-offset {
@@ -406,7 +427,8 @@ main p.content {
 
 // Футер
 footer {
-  border-top: solid 1px #3a5b83;
+  // border-top: solid 1px #3a5b83;
+  // box-shadow: #2e364c 0px -10px 40px;
   position: relative;
 }
 .footer {
@@ -513,16 +535,16 @@ dl.row.footer.last {
 }
 
 .bordered-bottom {
-  border-bottom: solid 1px #3776b0;
+  border-bottom: solid 1px #242831;
 }
 
 .bordered-top {
-  border-top: solid 1px #3776b0;
+  border-top: solid 1px #242831;
 }
 
 @media screen and (min-width: 768px) {
   .bordered-right {
-    border-right: solid 1px #3776b0;
+    border-right: solid 1px #242831;
   }
 }
 

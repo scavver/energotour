@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<main class="container-fluid bg-white pt-4 pb-5 pt-md-6 pb-md-7">
+<main class="container-fluid pt-4 pb-5 pt-md-6 pb-md-7">
     <div class="container">
         <h2 class="text-center pb-3"><i class="fas fa-fingerprint pr-3"></i>Авторизация</h2>
         <form method="POST" action="{{ route('login') }}">

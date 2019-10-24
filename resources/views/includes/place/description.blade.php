@@ -41,7 +41,7 @@
         {{-- Первый ряд --}}
         <div class="row p-3">
             <div class="card bg-very-dark-grayish-blue w-100">
-                <div class="card-body p-0 text-center">
+                <div class="card-body bg-very-dark-grayish-blue p-0 text-center">
                     {{-- Цена от, скидка до --}}
                     <div class="single price-discount m-3">
                         от
