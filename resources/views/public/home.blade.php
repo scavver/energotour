@@ -63,7 +63,7 @@
                                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                 </ol>
-                                <div class="carousel-inner rounded shadow-sm">
+                                <div class="carousel-inner shadow-sm" style="border-radius: .5rem">
                                     @foreach($carouselImages as $carouselImage)
                                         <div class="carousel-item @if($loop->first) active @endif">
                                             <img class="d-block w-100 h-100" src="{{ $carouselImage->path }}" class="card-img" alt="{{ $carouselImage->alt }}">
@@ -108,7 +108,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center py-4">
-                    <h1 class="text-eclipse">ПОПУЛЯРНЫЕ НАПРАВЛЕНИЯ</h1>
+                    <h1 class="text-eclipse text-uppercase">Популярные направления</h1>
                 </div>
             </div>
 
@@ -116,7 +116,7 @@
                 @foreach($regions as $region)
                     <div class="col-12 col-sm-12 col-md-3 mb-3 mb-sm-3 mb-md-0">
                         <a href="{{ route('places', ['r' => $region->id, 't' => '', 'p' => '']) }}">
-                            <div class="card border-white">
+                            <div class="card border-0">
                                 <img src="{{ $region->image->path }}" class="cat card-img" alt="{{ $region->name }}">
 
                                 <div class="cat card-img-overlay bg d-flex justify-content-center">

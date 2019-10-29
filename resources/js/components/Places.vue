@@ -51,8 +51,8 @@
                                 </div>
                                 <div class="col-md-7">
                                     <div class="card-body">
-                                        <h5 class="card-title text-white">{{ place.name }}</h5>
-                                        <p class="card-text text-white" style="margin-bottom: 2.65rem !important; opacity: 0.75;">
+                                        <h5 class="card-title">{{ place.name }}</h5>
+                                        <p class="card-text" style="margin-bottom: 2.65rem !important; opacity: 0.75;">
                                             <i class="fas fa-landmark fa-fw mr-2"></i> {{ place.type.name }}<br>
                                             <i class="fas fa-map-marker-alt fa-fw mr-2"></i> {{ place.region.name }}
                                         </p>
@@ -74,8 +74,8 @@
             <!-- End: Places -->
             <aside class="col-12 col-sm-12 d-md-none d-lg-none d-xl-block col-xl-2 order-3 order-sm-3 order-md-3 p-0">
                 <div class="sticky-top sticky-offset p-3 vh-twitter">
-                    <div class="bg-dark-grayish-blue text-center h-100 overflow-hidden shadow-sm shadow-sm" style="border-radius: 0.5rem;">
-                        <a class="twitter-timeline" data-chrome="noborders nofooter noheader transparent" data-height="101%" data-lang="ru" data-theme="dark" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
+                    <div class="bg-white text-center h-100 overflow-hidden shadow-sm shadow-sm" style="border-top: solid 3px #e6a117">
+                        <a class="twitter-timeline" data-chrome="noborders nofooter noheader transparent" data-height="101%" data-lang="ru" data-theme="light" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
                     </div>
                     <!-- calc(100% - 3.4rem) -->
                 </div>
@@ -173,16 +173,16 @@
             // left: 0;
             top: auto;
             bottom: auto;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgb(127, 127, 127);
             transition: color 0.2s ease-in-out;
         }
 
         label:hover {
-            color: rgba(255, 255, 255, 0.75);
+            color: rgb(228, 154, 5);
         }
 
         :checked + label {
-            color: #d8993d;
+            color: orange;
         }
 
         input {
@@ -194,16 +194,18 @@
     .card-place {
         .card {
             transition: all .15s ease-in-out;
-            border: 1px solid #383E4E;
-            border-radius: 0.5rem;
-            background: #2f3542 !important;
+            border-top: 3px solid orange;
+            border-radius: 0;
+            background: white !important;
         }
         .card:hover {
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-            border: solid 1px #348ad2 !important;
+            border: 0 !important;
+            border-top: 3px solid orange !important;
         }
         .card-img {
-            border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
+            // border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
+            border-radius: 0;
             height: 100%;
             object-fit: cover;
         }

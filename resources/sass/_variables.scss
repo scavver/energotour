@@ -34,6 +34,11 @@ $very-dark-grayish-blue: #2f3543;
 $dark-grayish-blue: #383e4e;
 $moderate-orange: #d8993d;
 
+$primary: #e6a117;
+$pantone: #7C7D7F;
+$vulcan: #373B41;
+$ebony: #303338;
+
 // Custom colors
 $theme-colors: (
   "eclipse": $eclipse,
@@ -46,12 +51,16 @@ $theme-colors: (
   "driftwood": $driftwood,
   "cocoa-brown": $cocoa-brown,
   "success": $chelsea-cucumber,
-  "primary": $summer-sky,
+  // "primary": $summer-sky,
   "pattens-blue": $pattens-blue,
   "very-dark-desaturated-blue": $very-dark-desaturated-blue,
   "very-dark-grayish-blue": $very-dark-grayish-blue,
   "dark-grayish-blue": $dark-grayish-blue,
   "moderate-orange": $moderate-orange,
+  "primary": $primary,
+  "vulcan": $vulcan,
+  "pantone": $pantone,
+  "ebony": $ebony,
 );
 
 $spacer: 1rem !default;

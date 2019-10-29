@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-very-dark-desaturated-blue" style="background-color: rgba(34, 50, 74, 0.85) !important; backdrop-filter: blur(20px); border-bottom: 1px solid #324d79;">
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white" style="border-top: solid 3px #e6a117">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('images/logo.svg') }}" height="20" alt="Логотип {{ config('app.name', 'Energotour') }}">
