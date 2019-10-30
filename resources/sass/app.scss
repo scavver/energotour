@@ -159,8 +159,8 @@ body {
 }
 
 ::selection {
-  background: #ffd3b4;
-  color: #fff9f4;
+  background: #ffc864;
+  color: #fff8eb;
 }
 
 main p {
@@ -354,10 +354,14 @@ main p.content {
 .cat.card-img-overlay.bg {
   transition: all .25s ease-in-out;
   cursor: pointer;
-  background: #1b93f99e;
+  background: #ffa5007d;
+  backdrop-filter: saturate(250%);
   color: white;
   // filter: contrast(130%);
   border-radius: 0.25rem;
+}
+.nav-item.active a {
+  color: orange !important;
 }
 .cat.card-img-overlay:hover {
   background: none;
