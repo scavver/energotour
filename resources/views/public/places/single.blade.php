@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.left-callback")
 
 @section("title")
     {{ $place->title }}
@@ -43,7 +43,7 @@
         </aside>
 
         {{-- Контент --}}
-        <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-2 order-sm-2 order-md-2 shadow-sm bg-white min-vh-100 px-0 order-0 order-sm-0 order-md-1 order-xl-1" style="margin-top: 1rem; margin-bottom: 1rem; border-top: 3px solid #e6a017; border-bottom-right-radius: .5rem; border-bottom-left-radius: .5rem">
+        <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-2 order-sm-2 order-md-2 shadow-sm bg-white min-vh-100 px-0 order-0 order-sm-0 order-md-1 order-xl-1" style="margin-top: 1rem; margin-bottom: 1rem; border-top: 3px solid orange; border-bottom-right-radius: .5rem; border-bottom-left-radius: .5rem">
             <h3 class="px-3 pt-3 pb-3 mb-0 bordered-bottom">{{ $place->name }}<small> / {{ $place->type->name }} / {{ $place->region->name }}</small></h3>
 
             <div class="tab-content" id="v-pills-tabContent">

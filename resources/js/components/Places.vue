@@ -74,7 +74,7 @@
             <!-- End: Places -->
             <aside class="col-12 col-sm-12 d-md-none d-lg-none d-xl-block col-xl-2 order-3 order-sm-3 order-md-3 p-0">
                 <div class="sticky-top sticky-offset p-3 vh-twitter">
-                    <div class="bg-white text-center h-100 overflow-hidden shadow-sm shadow-sm" style="border-radius: .5rem">
+                    <div class="bg-white text-center h-100 overflow-hidden custom-shadow" style="border-radius: .5rem">
                         <a class="twitter-timeline" data-chrome="noborders nofooter noheader transparent" data-height="101%" data-lang="ru" data-theme="light" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
                     </div>
                     <!-- calc(100% - 3.4rem) -->
@@ -202,7 +202,7 @@
             border-top: 3px solid orange;
         }
         .card-img {
-            border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
+            border-radius: calc(0.4rem - 1px) 0 0 calc(0.4rem - 1px);
             height: 100%;
             object-fit: cover;
         }
