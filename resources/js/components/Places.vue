@@ -74,7 +74,7 @@
             <!-- End: Places -->
             <aside class="col-12 col-sm-12 d-md-none d-lg-none d-xl-block col-xl-2 order-3 order-sm-3 order-md-3 p-0">
                 <div class="sticky-top sticky-offset p-3 vh-twitter">
-                    <div class="bg-white text-center h-100 overflow-hidden shadow-sm shadow-sm" style="border-top: solid 3px #e6a117">
+                    <div class="bg-white text-center h-100 overflow-hidden shadow-sm shadow-sm" style="border-radius: .5rem">
                         <a class="twitter-timeline" data-chrome="noborders nofooter noheader transparent" data-height="101%" data-lang="ru" data-theme="light" href="https://twitter.com/energotour?ref_src=twsrc%5Etfw">Tweets by energotour</a>
                     </div>
                     <!-- calc(100% - 3.4rem) -->
@@ -195,17 +195,14 @@
         .card {
             transition: all .15s ease-in-out;
             border-top: 3px solid orange;
-            border-radius: 0;
             background: white !important;
         }
         .card:hover {
-            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-            border: 0 !important;
-            border-top: 3px solid orange !important;
+            border: 1px solid orange;
+            border-top: 3px solid orange;
         }
         .card-img {
-            // border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
-            border-radius: 0;
+            border-radius: calc(0.5rem - 1px) 0 0 calc(0.5rem - 1px);
             height: 100%;
             object-fit: cover;
         }
@@ -222,28 +219,29 @@
         text-decoration: none;
     }
 
-    .card-discount {
-        //border-radius: 0.5rem;
+    .card-price {
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
         position: absolute;
-        background-color: #e54f64;
-        color: white;
-        font-weight: 600;
-        padding: 5px;
         top: 10px;
         right: 0px;
         left: auto;
+        background: #98bd88;
+        color: white;
+        padding: 5px;
         z-index: 5;
     }
 
-    .card-price {
-        //border-radius: 0.5rem;
+    .card-discount {
+        border-bottom-left-radius: .5rem;
         position: absolute;
+        background-color: #f9876d;
+        color: white;
+        font-weight: 600;
+        padding: 5px;
         top: 43px;
         right: 0px;
         left: auto;
-        background: #5ea975;
-        color: white;
-        padding: 5px;
         z-index: 5;
     }
 </style>

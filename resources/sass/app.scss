@@ -104,7 +104,7 @@
   border-left: 0 !important;
   border-right: 0 !important;
   border-bottom: 0 !important;
-  border-color: #242831;
+  border-color: #dddddd;
 }
 
 .place-card-button-last {
@@ -113,7 +113,7 @@
   border-left: 0 !important;
   border-right: 0 !important;
   border-bottom: 0 !important;
-  border-color: #242831;
+  border-color: #dddddd;
 }
 
 .sticky-offset {
@@ -145,18 +145,21 @@
 
 body {
   padding-top: 3.68rem;
-  background-color: #e7ecee;
+  background-color: #eeece7;
   color: #373B41 !important;
 }
 .sticky-top {
   // top: 3.46rem;
 }
 
+.nav-link-single {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
 ::selection {
   background: #ffd3b4;
-}
-::-moz-selection {
-  background: #ffb52d;
+  color: #fff9f4;
 }
 
 main p {
@@ -361,6 +364,14 @@ main p.content {
   .card-title {
     color: #ffffffb5;
   }
+}
+
+.card {
+  border-radius: .5rem !important;
+}
+
+.nav-pills .nav-link {
+  border-radius: .6rem;
 }
 
 .card-discount {

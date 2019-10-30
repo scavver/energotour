@@ -13,24 +13,24 @@
     <div class="row">
         {{-- Левый сайдбар --}}
         <aside class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2 order-1 order-sm-1 order-md-1 px-0">
-            <div class="sticky-top sticky-offset p-3">
+            <div class="sticky-top sticky-offset py-3 pl-3">
                 {{-- Боковое меню --}}
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="text-center text-md-right nav-link active" id="v-pills-description-tab" data-toggle="pill" href="#v-pills-description" role="tab" aria-controls="v-pills-description" aria-selected="true">Описание</a>
+                    <a class="text-center text-md-right nav-link nav-link-single active" id="v-pills-description-tab" data-toggle="pill" href="#v-pills-description" role="tab" aria-controls="v-pills-description" aria-selected="true">Описание</a>
                     @if(count($rooms) > 0)
-                        <a class="text-center text-md-right nav-link" id="v-pills-rooms-tab" data-toggle="pill" href="#v-pills-rooms" role="tab" aria-controls="v-pills-rooms" aria-selected="false">Номерной фонд</a>
+                        <a class="text-center text-md-right nav-link nav-link-single" id="v-pills-rooms-tab" data-toggle="pill" href="#v-pills-rooms" role="tab" aria-controls="v-pills-rooms" aria-selected="false">Номерной фонд</a>
                     @endif
                     @if(count($infrastructure) > 0)
-                        <a class="text-center text-md-right nav-link" id="v-pills-infrastructure-tab" data-toggle="pill" href="#v-pills-infrastructure" role="tab" aria-controls="v-pills-infrastructure" aria-selected="false">Инфраструктура</a>
+                        <a class="text-center text-md-right nav-link nav-link-single" id="v-pills-infrastructure-tab" data-toggle="pill" href="#v-pills-infrastructure" role="tab" aria-controls="v-pills-infrastructure" aria-selected="false">Инфраструктура</a>
                     @endif
                     @if(count($place->galleries) >= 2)
-                        <a class="text-center text-md-right nav-link" id="v-pills-photo-tab" data-toggle="pill" href="#v-pills-photo" role="tab" aria-controls="v-pills-photo" aria-selected="false">Фотографии</a>
+                        <a class="text-center text-md-right nav-link nav-link-single" id="v-pills-photo-tab" data-toggle="pill" href="#v-pills-photo" role="tab" aria-controls="v-pills-photo" aria-selected="false">Фотографии</a>
                     @endif
                     @if(count($treatment) > 0)
-                        <a class="text-center text-md-right nav-link" id="v-pills-treatment-tab" data-toggle="pill" href="#v-pills-treatment" role="tab" aria-controls="v-pills-treatment" aria-selected="false">Лечение</a>
+                        <a class="text-center text-md-right nav-link nav-link-single" id="v-pills-treatment-tab" data-toggle="pill" href="#v-pills-treatment" role="tab" aria-controls="v-pills-treatment" aria-selected="false">Лечение</a>
                     @endif
                     @if(count($food) > 0)
-                        <a class="text-center text-md-right nav-link" id="v-pills-food-tab" data-toggle="pill" href="#v-pills-food" role="tab" aria-controls="v-pills-food" aria-selected="false">Питание</a>
+                        <a class="text-center text-md-right nav-link nav-link-single" id="v-pills-food-tab" data-toggle="pill" href="#v-pills-food" role="tab" aria-controls="v-pills-food" aria-selected="false">Питание</a>
                     @endif
                 </div>
 
@@ -43,7 +43,7 @@
         </aside>
 
         {{-- Контент --}}
-        <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-2 order-sm-2 order-md-2 shadow-sm bg-white min-vh-100 px-0 order-0 order-sm-0 order-md-1 order-xl-1" style="margin-top: 1rem; border-top: 3px solid #e6a017">
+        <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-2 order-sm-2 order-md-2 shadow-sm bg-white min-vh-100 px-0 order-0 order-sm-0 order-md-1 order-xl-1" style="margin-top: 1rem; margin-bottom: 1rem; border-top: 3px solid #e6a017; border-bottom-right-radius: .5rem; border-bottom-left-radius: .5rem">
             <h3 class="px-3 pt-3 pb-3 mb-0 bordered-bottom">{{ $place->name }}<small> / {{ $place->type->name }} / {{ $place->region->name }}</small></h3>
 
             <div class="tab-content" id="v-pills-tabContent">

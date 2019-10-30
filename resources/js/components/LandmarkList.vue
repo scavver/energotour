@@ -58,31 +58,3 @@
         }
     }
 </script>
-
-<style lang="scss">
-    .card-place {
-        .card {
-            transition: all .15s ease-in-out;
-        }
-        .card:hover {
-            box-shadow: 0 0.25rem 0.25rem rgba(0, 0, 0, 0.075) !important;
-            border: solid 1px #a0a0a0;
-        }
-        .card-img {
-            border-radius: calc(0.25rem - 1px) 0 0 calc(0.25rem - 1px);
-            height: 100%;
-            object-fit: cover;
-        }
-        h5 {
-            color: black;
-            text-decoration: none;
-        }
-        p {
-            color: black;
-            text-decoration: none;
-        }
-    }
-    a.card-place:hover {
-        text-decoration: none;
-    }
-</style>

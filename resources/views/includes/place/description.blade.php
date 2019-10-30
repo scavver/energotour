@@ -13,7 +13,7 @@
                         </li>
                     @endfor
                 </ol>
-                <div class="carousel-inner rounded">
+                <div class="carousel-inner" style="border-radius: .5rem">
                     @foreach($slides as $slide)
                         <div class="carousel-item @if($loop->first) active @endif">
                             <img class="d-block w-100 h-100" src="{{ asset($slide->path) }}" class="card-img" alt="{{ $slide->alt }}">
@@ -40,8 +40,8 @@
     <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-4">
         {{-- Первый ряд --}}
         <div class="row p-3">
-            <div class="card bg-very-dark-grayish-blue w-100">
-                <div class="card-body bg-very-dark-grayish-blue p-0 text-center">
+            <div class="card border-0 w-100" style="box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1) !important">
+                <div class="card-body p-0 text-center">
                     {{-- Цена от, скидка до --}}
                     <div class="single price-discount m-3">
                         от
@@ -117,7 +117,7 @@
                     </a>
 
                     {{-- Показать на карте --}}
-                    <button type="button" class="btn btn-outline-primary btn-block my-0 place-card-button-last" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#mapModal">
+                    <button type="button" class="btn btn-outline-primary btn-block my-0 place-card-button-last" style="text-align: left !important; padding-left: 1rem; border-radius: .45rem" data-toggle="modal" data-target="#mapModal">
                         <i class="fas fa-drafting-compass mr-2 fa-fw"></i> Показать на карте
                     </button>
 
