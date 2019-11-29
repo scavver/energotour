@@ -108,7 +108,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center py-4">
-                    <h1 class="text-eclipse text-uppercase">Популярные направления</h1>
+                    <h1 class="text-eclipse">Популярные направления</h1>
                 </div>
             </div>
 
@@ -138,7 +138,7 @@
     @if (count($hot) > 0)
     <div class="container special-offers">
         <div class="row px-3 py-4 header">
-            <h2 class="text-uppercase w-100">Лучшие предложения</h2>
+            <h2 class="w-100">Лучшие предложения</h2>
             <a href="{{ route('places', ['r' => '', 't' => '', 'p' => 1]) }}">Показать все <i class="fas fa-angle-right"></i></a>
         </div>
 
@@ -169,7 +169,7 @@
 
      <div class="container special-offers">
          <div class="row px-3 pb-4 header">
-             <h2 class="text-uppercase w-100">Популярные категории</h2>
+             <h2 class="w-100">Популярные категории</h2>
          </div>
 
          <div class="row">
@@ -213,7 +213,7 @@
 
      <div class="container-fluid bg-white">
          <div class="container p-3 text-center">
-             <h4 class="text-uppercase mb-0 text-eclipse">Карта санаториев и отелей</h4>
+             <h4 class="mb-0 text-eclipse">Отели на карте</h4>
          </div>
      </div>
 

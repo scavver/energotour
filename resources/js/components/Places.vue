@@ -178,70 +178,16 @@
         }
 
         label:hover {
-            color: rgb(228, 154, 5);
+            color: #333;
         }
 
         :checked + label {
-            color: orange;
+            color: #FF5722;
         }
 
         input {
             opacity: 0;
             z-index: -1;
         }
-    }
-
-    .card-place {
-        .card {
-            transition: all .15s ease-in-out;
-            border-top: 3px solid orange;
-            background: white !important;
-        }
-        .card:hover {
-            border: 1px solid orange;
-            border-top: 3px solid orange;
-        }
-        .card-img {
-            border-radius: calc(0.4rem - 1px) 0 0 calc(0.4rem - 1px);
-            height: 100%;
-            object-fit: cover;
-        }
-        h5 {
-            color: black;
-            text-decoration: none;
-        }
-        p {
-            color: black;
-            text-decoration: none;
-        }
-    }
-    a.card-place:hover {
-        text-decoration: none;
-    }
-
-    .card-price {
-        border-top-left-radius: .5rem;
-        border-bottom-left-radius: .5rem;
-        position: absolute;
-        top: 10px;
-        right: 0px;
-        left: auto;
-        background: #98bd88;
-        color: white;
-        padding: 5px;
-        z-index: 5;
-    }
-
-    .card-discount {
-        border-bottom-left-radius: .5rem;
-        position: absolute;
-        background-color: #f9876d;
-        color: white;
-        font-weight: 600;
-        padding: 5px;
-        top: 43px;
-        right: 0px;
-        left: auto;
-        z-index: 5;
     }
 </style>

@@ -1,8 +1,13 @@
-<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white custom-shadow">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary-color custom-shadow">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}">
+        {{--<a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('images/logo.svg') }}" height="20" alt="Логотип {{ config('app.name', 'Energotour') }}">
+        </a>--}}
+
+        <a class="navbar-brand" href="{{ url('/') }}">
+            <i class="fas fa-globe-europe pr-2"></i> Энерготур
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>

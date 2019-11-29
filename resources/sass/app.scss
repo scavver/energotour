@@ -1,23 +1,191 @@
-// Шрифты
+/* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&display=swap&subset=cyrillic,cyrillic-ext');
 @import "~@fortawesome/fontawesome-free/css/all.css";
 @import "~ekko-lightbox/dist/ekko-lightbox.css";
 @import "~summernote/dist/summernote-bs4.css";
 
-// Переменные
+/* Variables */
 @import 'variables';
 
-// Bootstrap
+/* Bootstrap */
 @import '~bootstrap/scss/bootstrap';
 
-// Глобальные
+/* Spinner */
+.spinner {
+  margin: 100px auto;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.cube1, .cube2 {
+  background-color: $secondary-color;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+  animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+
+.cube2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+@-webkit-keyframes sk-cubemove {
+  25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
+  50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
+  75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
+  100% { -webkit-transform: rotate(-360deg) }
+}
+
+@keyframes sk-cubemove {
+  25% {
+    transform: translateX(42px) rotate(-90deg) scale(0.5);
+    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+  } 50% {
+      transform: translateX(42px) translateY(42px) rotate(-179deg);
+      -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+    } 50.1% {
+        transform: translateX(42px) translateY(42px) rotate(-180deg);
+        -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+      } 75% {
+          transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+          -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+        } 100% {
+            transform: rotate(-360deg);
+            -webkit-transform: rotate(-360deg);
+          }
+}
+
+/* Custom bootstrap elements */
+.nav-pills .nav-link {
+  border-radius: .6rem;
+}
+
+.nav-pills .nav-link.active {
+  background-color: $primary-color;
+}
+
+a {
+  color: $primary-color;
+}
+
+a:hover {
+  color: $primary-color-dark;
+}
+
+/* Extra */
+.bordered-bottom {
+  border-bottom: solid 1px $divider-color;
+}
+
+.bordered-top {
+  border-top: solid 1px $divider-color;
+}
+
 @media screen and (min-width: 768px) {
-  body {
-    // padding-top: 3.81rem !important;
+  .bordered-right {
+    border-right: solid 1px $divider-color;
   }
-  .sticky-top {
-    // top: 3.46rem !important; // 46
+  .bordered-right-primary {
+    border-right: solid 1px $primary-color;
   }
+  .bordered-right-white {
+    border-right: solid 1px #ffffffa1;
+  }
+}
+
+/* Styles */
+body {
+  padding-top: 3.53rem;
+  background-color: #f5f5f6;
+  color: $primary-text-color;
+}
+
+::selection {
+  background: #ffc864;
+  color: #fff8eb;
+}
+
+main p {
+  font-size: 1rem !important;
+  font-weight: 300 !important;
+}
+
+main ul,ol {
+  font-size: 1rem !important;
+  font-weight: 300 !important;
+}
+
+.card-place {
+  .card {
+    transition: all .15s ease-in-out;
+    border-top: 3px solid $primary-color;
+    background: white !important;
+  }
+  .card:hover {
+    border: 1px solid $primary-color;
+    border-top: 3px solid $primary-color;
+  }
+  .card-img {
+    border-radius: calc(0.4rem - 1px) 0 0 calc(0.4rem - 1px);
+    height: 100%;
+    object-fit: cover;
+  }
+  h5 {
+    color: black;
+    text-decoration: none;
+  }
+  p {
+    color: black;
+    text-decoration: none;
+  }
+}
+a.card-place:hover {
+  text-decoration: none;
+}
+
+.card-price {
+  border-top-left-radius: .5rem;
+  border-bottom-left-radius: .5rem;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  left: auto;
+  background: $primary-color;
+  color: white;
+  padding: 5px;
+  z-index: 5;
+}
+
+.card-discount {
+  border-bottom-left-radius: .5rem;
+  position: absolute;
+  background-color: $custom-pink;
+  color: white;
+  font-weight: 600;
+  padding: 5px;
+  top: 43px;
+  right: 0px;
+  left: auto;
+  z-index: 5;
+}
+
+.single-content {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-top: 3px solid $primary-color;
+  border-bottom-right-radius: .5rem;
+  border-bottom-left-radius: .5rem
+}
+
+.nav-link-single {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 .custom-select {
@@ -34,9 +202,9 @@
 }
 
 .modal-content {
-  background-color: #ffffff9c;
-  backdrop-filter: saturate(180%) blur(5px);
-  color: black;
+  background-color: #fff;
+  // backdrop-filter: saturate(180%) blur(5px);
+  color: #333;
   border: none;
   border-radius: 0.5rem;
 }
@@ -118,7 +286,7 @@
 }
 
 .sticky-offset {
-  top: 3.53rem;
+  top: 3.5rem;
 }
 
 .vh-twitter {
@@ -144,35 +312,6 @@
   align-items: center;
 }
 
-body {
-  padding-top: 3.53rem;
-  background-color: #f5f5f6;
-  color: #333;
-}
-.sticky-top {
-  // top: 3.46rem;
-}
-
-.nav-link-single {
-  border-top-right-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-}
-
-::selection {
-  background: #ffc864;
-  color: #fff8eb;
-}
-
-main p {
-  font-size: 1rem !important;
-  font-weight: 300 !important;
-}
-
-main ul,ol {
-  font-size: 1rem !important;
-  font-weight: 300 !important;
-}
-
 // Tabs
 .nav-link {
   padding: 0.5rem 0.75rem !important;
@@ -182,56 +321,7 @@ main p.content {
   white-space: pre-wrap;
 }
 
-// Спиннер
-.spinner {
-  margin: 100px auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
-}
 
-.cube1, .cube2 {
-  background-color: $primary;
-  width: 15px;
-  height: 15px;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
-  animation: sk-cubemove 1.8s infinite ease-in-out;
-}
-
-.cube2 {
-  -webkit-animation-delay: -0.9s;
-  animation-delay: -0.9s;
-}
-
-@-webkit-keyframes sk-cubemove {
-  25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
-  50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }
-  75% { -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5) }
-  100% { -webkit-transform: rotate(-360deg) }
-}
-
-@keyframes sk-cubemove {
-  25% {
-    transform: translateX(42px) rotate(-90deg) scale(0.5);
-    -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
-  } 50% {
-      transform: translateX(42px) translateY(42px) rotate(-179deg);
-      -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
-    } 50.1% {
-        transform: translateX(42px) translateY(42px) rotate(-180deg);
-        -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
-      } 75% {
-          transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
-          -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
-        } 100% {
-            transform: rotate(-360deg);
-            -webkit-transform: rotate(-360deg);
-          }
-}
 
 // Место размещения
 .ekko-lightbox-nav-overlay a {
@@ -254,7 +344,7 @@ main p.content {
   .discount {
     font-weight: 600;
     color: #fff;
-    background-color: #ff9133;
+    background-color: $custom-pink;
     padding: 3px;
     border-radius: 4px;
   }
@@ -354,14 +444,11 @@ main p.content {
 .cat.card-img-overlay.bg {
   transition: all .25s ease-in-out;
   cursor: pointer;
-  background: #ffa5007d;
-  backdrop-filter: saturate(250%);
+  background: rgba(0, 0, 0, 0.18);
+  // backdrop-filter: saturate(250%);
   color: white;
   // filter: contrast(130%);
   border-radius: 0.25rem;
-}
-.nav-item.active a {
-  color: orange !important;
 }
 .cat.card-img-overlay:hover {
   background: none;
@@ -375,31 +462,9 @@ main p.content {
   border-radius: .5rem !important;
 }
 
-.nav-pills .nav-link {
-  border-radius: .6rem;
-}
-
-.card-discount {
-  position: absolute;
-  background-color: #ff6a00;
-  color: white;
-  font-weight: 600;
-  padding: 5px;
-  top: 20px;
-  left: -5px;
-}
 .card-properties {
   float: left;
   color: gray;
-}
-.card-price {
-  position: absolute;
-  top: 60px;
-  left: -5px;
-  background: rgb(88,163,78);
-  background: linear-gradient(90deg, rgba(88,163,78,1) 0%, rgba(120,205,109,1) 100%);
-  color: white;
-  padding: 5px;
 }
 
 .card-bottom-wrapper {
@@ -413,6 +478,7 @@ main p.content {
   left: auto;
   right: 0;
 }
+
 
 // Компонент Яндекс Карт
 .ymap-class {
@@ -437,12 +503,12 @@ footer {
 }
 .footer {
   font-size: 0.85rem;
-  color: #d6d6d6;
+  color: #fff;
 }
 .footer a {
   font-weight: 300;
   transition: color .15s ease-in-out;
-  color: #b1b1b1;
+  color: rgba(255, 255, 255, 0.75);
 }
 .footer a:hover {
   color: #fff;
@@ -539,20 +605,6 @@ dl.row.footer.last {
 
 .room dt {
   font-weight: 400 !important;
-}
-
-.bordered-bottom {
-  border-bottom: solid 1px #dddddd;
-}
-
-.bordered-top {
-  border-top: solid 1px #dddddd;
-}
-
-@media screen and (min-width: 768px) {
-  .bordered-right {
-    border-right: solid 1px #dddddd;
-  }
 }
 
 .iframe

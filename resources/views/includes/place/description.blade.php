@@ -59,7 +59,7 @@
 
                     @if(!empty($place->price))
                     {{-- Официальные цены --}}
-                    <button type="button" class="btn btn-outline-primary btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#priceModal">
+                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#priceModal">
                         <i class="fas fa-money-check-alt mr-2 fa-fw"></i> Прайс-лист
                     </button>
 
@@ -89,7 +89,7 @@
 
                     {{-- Наши скидки --}}
                     @if(!empty($place->discount))
-                    <button type="button" class="btn btn-outline-primary btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#discountModal">
+                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#discountModal">
                         <i class="fas fa-percentage mr-2 fa-fw"></i> Наши скидки
                     </button>
 
@@ -112,12 +112,12 @@
                     @endif
 
                     {{-- Онлайн бронирование --}}
-                    <a class="btn btn-outline-primary btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" href="{{ url('booking') }}" target="_blank">
+                    <a class="btn btn-outline-primary-dark btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" href="{{ url('booking') }}" target="_blank">
                         <i class="fas fa-calendar-check mr-2 fa-fw"></i> Онлайн бронирование
                     </a>
 
                     {{-- Показать на карте --}}
-                    <button type="button" class="btn btn-outline-primary btn-block my-0 place-card-button-last" style="text-align: left !important; padding-left: 1rem; border-radius: .45rem" data-toggle="modal" data-target="#mapModal">
+                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 place-card-button-last" style="text-align: left !important; padding-left: 1rem; border-radius: .45rem" data-toggle="modal" data-target="#mapModal">
                         <i class="fas fa-drafting-compass mr-2 fa-fw"></i> Показать на карте
                     </button>
 

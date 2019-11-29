@@ -1,6 +1,6 @@
 <footer class="container-fluid footer">
     <!-- Footer -->
-    <div class="row bg-vulcan p-3">
+    <div class="row bg-primary-color p-3">
         <div class="col px-1 px-md-5 py-5">
             <div class="row mx-1 mx-md-3">
                 <!-- First Column -->
@@ -9,8 +9,8 @@
                         <li class="heading">Наши услуги</li>
 
                         <li class="item"><a href="/places">Санатории и отели</a></li>
+                        <li class="item"><a href="/booking">Онлайн бронирование</a></li>
                         <li class="item"><a href="/avia">Авиабилеты</a></li>
-                        <li class="item"><a href="/excursions">Экскурсии</a></li>
                         <li class="item"><a href="" data-toggle="modal" data-target="#transfer">Трансфер</a></li>
                     </ul>
                 </div>
@@ -73,12 +73,12 @@
     <!-- End: Footer -->
 
     <!-- Upper Footer -->
-    <div class="row px-1 px-md-5 bg-ebony">
+    <div class="row px-1 px-md-5 bg-primary-dark-color">
         <!-- Navigation -->
         <div class="col-12 py-2 d-flex justify-content-center justify-content-sm-center justify-content-md-start justify-content-lg-start justify-content-xl-start align-items-center">
             <nav class="nav nav-fill w-100 px-md-2">
                 <a class="nav-link d-flex align-items-center" href="https://www.russiatourism.ru/operators/show.php?id=113303" target="_blank">
-                    <div class="d-inline-block bordered-right pr-3 mr-0 mr-md-3">
+                    <div class="d-inline-block bordered-right-white pr-3 mr-0 mr-md-3">
                         <img src="/images/russian-federation.svg" height="65px" alt="">
                     </div>
 
