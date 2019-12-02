@@ -182,7 +182,7 @@
         }
 
         :checked + label {
-            color: #FF5722;
+            color: #4e46de;
         }
 
         input {

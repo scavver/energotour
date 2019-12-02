@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-     <div class="container-fluid pt-md-4 px-0">
+     <div class="container-fluid bg-primary-dark-color pt-md-4 px-0">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-sm-12 col-md-4 px-0 mb-3 mb-md-0 d-flex align-items-center">
@@ -89,11 +89,11 @@
             </div>
      </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid bg-primary-dark-color">
         <div class="container">
             <div class="row pt-3 pb-4">
                 <div class="col text-center">
-                    <p id="about" class="mb-0">ООО «Туристическая компания Энерго-Тур» является оптовым покупателем услуг объектов размещения в Крыму. Мы работаем в сфере туризма с 2004 г. Приобретая квоты мест, наша компания гарантирует получение заказанных услуг в полном объеме.
+                    <p id="about" class="mb-0" style="color: white; opacity: .85">ООО «Туристическая компания Энерго-Тур» является оптовым покупателем услуг объектов размещения в Крыму. Мы работаем в сфере туризма с 2004 г. Приобретая квоты мест, наша компания гарантирует получение заказанных услуг в полном объеме.
                         Наша специализация - это
                         отдых и лечение в лучших отелях, пансионатах и санаториях Крыма;
                         обслуживание семинаров и конференций;

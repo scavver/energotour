@@ -48,7 +48,7 @@
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $place->id }}</th>
                     <td class="text-center align-middle">
-                        <i class="fas fa-toggle-{{ $place['enabled'] == 1 ? 'on' : 'off' }}"></i>
+                        <i class="fas fa-{{ $place['enabled'] == 1 ? 'eye text-success' : 'eye-slash text-danger' }}"></i>
                     </td>
                     <td class="align-middle"><a href="{{ asset('management/places/' . $place->id . '/edit') }}">{{ $place->name }}</a></td>
                     <td class="text-center align-middle">{{ $place->type->name }}</td>
