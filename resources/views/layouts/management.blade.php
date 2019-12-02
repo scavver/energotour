@@ -9,10 +9,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-fiord shadow-sm">
+        <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-primary-color shadow-sm">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="fab fa-laravel pr-2"></i> {{ config('app.name', 'Control panel') }}
+                    <i class="fab fa-laravel pr-2"></i> Управление сайтом
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a href="{{ route('home') }}" target="_blank" class="nav-link">открыть сайт<i class="fas fa-external-link-alt pl-2"></i></a>
+                            <a href="{{ route('home') }}" target="_blank" class="nav-link">{{ config('app.name', 'открыть сайт') }}<i class="fas fa-external-link-alt pl-2"></i></a>
                         </li>
                         <!-- Authentication Links -->
                         @guest

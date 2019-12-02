@@ -240,7 +240,7 @@ a.card-place:hover {
 }
 .dashboard-block i {
   font-size: 4.5rem;
-  color: #5fb1f5;
+  color: $secondary-color;
   padding-right: 1rem;
   display: inline-block;
 }
@@ -566,8 +566,8 @@ dl.row.footer.last {
 }
 
 #sidebar .nav-pills .nav-link.active {
-  background: #3490dc;
-  background: linear-gradient(90deg, #3490dc 60%, #5fb1f5 100%);
+  background: $secondary-color;
+  // background: linear-gradient(90deg, #3490dc 60%, #5fb1f5 100%);
 }
 
 // Навигация
