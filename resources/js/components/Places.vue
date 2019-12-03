@@ -42,8 +42,10 @@
                 <template v-else>
                     <a v-for="place in enabledPlaces" :href="'places/' + place.slug" class="card-place">
                         <div class="card overflow-hidden shadow-sm mb-3">
-                            <div class="card-discount">- {{ place.discount }} <i class="fas fa-percentage fa-fw"></i></div>
-                            <div class="card-price">от {{ place.price }} <i class="fas fa-ruble-sign fa-fw"></i></div>
+                            <template v-if="place.price !== null && place.discount !== null">
+                                <div class="card-discount">- {{ place.discount }} <i class="fas fa-percentage fa-fw"></i></div>
+                                <div class="card-price">от {{ place.price }} <i class="fas fa-ruble-sign fa-fw"></i></div>
+                            </template>
 
                             <div class="row no-gutters">
                                 <div class="col-md-5" style="height: 189px !important;">

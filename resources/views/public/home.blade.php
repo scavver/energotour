@@ -151,7 +151,7 @@
                         <div class="content-container text-center">
                             <div class="place-name">{{ $place->name }}</div>
                             <div class="region-type">{{ $place->region->name }} | {{ $place->type->name }}</div>
-                            <div class="price-discount"><s class="pr-1">{{ $place->price->min_price }}</s> {{ intval($place->price->min_price - ($place->price->min_price * ($place->discount->max_discount / 100))) }} руб. <span class="pl-3">-{{ $place->discount->max_discount }}%</span></div>
+                            @if(!empty($place->price))<div class="price-discount"><s class="pr-1">{{ $place->price->min_price }}</s> {{ intval($place->price->min_price - ($place->price->min_price * ($place->discount->max_discount / 100))) }} руб. <span class="pl-3">-{{ $place->discount->max_discount }}%</span></div>@endif
                         </div>
                     </div>
                 </a>

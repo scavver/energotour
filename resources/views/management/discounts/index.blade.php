@@ -33,8 +33,10 @@
             <thead>
             <tr>
                 <th scope="col" class="column-id pl-3 text-center">ID</th>
-                <th scope="col">PlaceID</th>
-                <th scope="col">Max Discount</th>
+                <th scope="col">Объект размещения</th>
+                <th scope="col" class="text-center">Стоимость от</th>
+                <th scope="col" class="text-center">Скидка до</th>
+                <th scope="col" class="text-center">Итоговая стоимость от</th>
                 <th scope="col" class="column-actions text-right pr-3"><a href="{{ action('Management\DiscountController@create') }}" class="btn btn-sm btn-outline-secondary"><i class="fas fa-plus mx-3"></i></a></th>
             </tr>
             </thead>
@@ -42,8 +44,10 @@
             @foreach($discounts as $discount)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $discount->id }}</th>
-                    <td class="align-middle">{{ $discount->place_id }}</td>
-                    <td class="align-middle">{{ $discount->max_discount }}</td>
+                    <td class="align-middle"><a href="{{ asset('management/discounts/' . $discount->place->id . '/edit') }}">{{ $discount->place->name }}</a></td>
+                    <td class="align-middle text-center">@if(!empty($discount->place->price->min_price)){{ $discount->place->price->min_price }}@else – @endif</td>
+                    <td class="align-middle text-center">{{ $discount->max_discount }}</td>
+                    <td class="align-middle text-center">@if(!empty($discount->place->price->min_price)){{ intval($discount->place->price->min_price - ($discount->place->price->min_price * ($discount->max_discount / 100))) }}@else – @endif</td>
                     <td class="text-center align-middle pr-3">
                         <form action="{{ action('Management\DiscountController@destroy', $discount->id) }}" method="post">
                             @csrf

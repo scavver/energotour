@@ -3,7 +3,7 @@
     <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 bordered-right">
         {{-- Слайдер --}}
         @if (!empty($slides))
-            <div id="carouselExampleIndicators" class="carousel slide my-3" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left: -15px; margin-right: -15px">
                 <ol class="carousel-indicators">
                     @for($i = 0; $i < count($slides); $i++)
                         <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="
@@ -13,7 +13,7 @@
                         </li>
                     @endfor
                 </ol>
-                <div class="carousel-inner" style="border-radius: .5rem">
+                <div class="carousel-inner">
                     @foreach($slides as $slide)
                         <div class="carousel-item @if($loop->first) active @endif">
                             <img class="d-block w-100 h-100" src="{{ asset($slide->path) }}" class="card-img" alt="{{ $slide->alt }}">
@@ -43,7 +43,7 @@
             <div class="card border-0 w-100" style="box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1) !important">
                 <div class="card-body p-0 text-center">
                     {{-- Цена от, скидка до --}}
-                    <div class="single price-discount m-3">
+                    @if(!empty($place->price) && !empty($place->discount))<div class="single price-discount m-3">
                         от
                         <span class="price px-1">
                             <s class="pr-1">{{ $place->price['min_price'] }}</s>
@@ -55,7 +55,7 @@
                             -{{ $place->discount['max_discount'] }}%
                         </span>
                         @endif
-                    </div>
+                    </div>@endif
 
                     @if(!empty($place->price))
                     {{-- Официальные цены --}}
