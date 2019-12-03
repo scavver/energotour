@@ -45,7 +45,7 @@
                     <th scope="row" class="align-middle text-center pl-3">{{ $price->id }}</th>
                     <td class="align-middle"><a href="{{ asset('management/prices/' . $price->place->id . '/edit') }}">{{ $price->place->name }}</a></td>
                     <td class="align-middle text-center">{{ $price->min_price }}</td>
-                    <td class="align-middle text-center">@if(!empty($price->document->path)) <a href="{{ $price->document->path }}" target="_blank">Открыть PDF</a> @elseif(!empty($price->image->path)) <a href="{{ $price->image->path }}" target="_blank">Открыть изображение</a> @endif</td>
+                    <td class="align-middle text-center">@if(!empty($price->document->path)) <a href="{{ asset($price->document->path) }}" target="_blank">Открыть PDF</a> @elseif(!empty($price->image->path)) <a href="{{ asset($price->image->path) }}" target="_blank">Открыть изображение</a> @endif</td>
                     <td class="text-center align-middle pr-3">
                         <form action="{{ action('Management\PriceController@destroy', $price->id) }}" method="post">
                             @csrf
