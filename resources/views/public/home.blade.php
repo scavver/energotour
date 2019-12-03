@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Путевки в Крым
+Скидки на отдых в Крыму
 @endsection
 
 @section('description')
@@ -211,11 +211,11 @@
          </div>
      </div>
 
-     <div class="container-fluid bg-white">
+     {{--<div class="container-fluid bg-white">
          <div class="container p-3 text-center">
              <h4 class="mb-0 text-eclipse">Отели на карте</h4>
          </div>
-     </div>
+     </div>--}}
 
     <accommodation-markers></accommodation-markers>
 

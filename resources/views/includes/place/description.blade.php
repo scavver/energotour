@@ -3,7 +3,7 @@
     <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 bordered-right">
         {{-- Слайдер --}}
         @if (!empty($slides))
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left: -15px; margin-right: -15px">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-left: -16px; margin-right: -15px">
                 <ol class="carousel-indicators">
                     @for($i = 0; $i < count($slides); $i++)
                         <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="

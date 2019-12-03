@@ -44,9 +44,9 @@
             @foreach($discounts as $discount)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $discount->id }}</th>
-                    <td class="align-middle"><a href="{{ asset('management/discounts/' . $discount->place->id . '/edit') }}">{{ $discount->place->name }}</a></td>
+                    <td class="align-middle"><a href="{{ asset('management/discounts/' . $discount->id . '/edit') }}">{{ $discount->place->name }}</a></td>
                     <td class="align-middle text-center">@if(!empty($discount->place->price->min_price)){{ $discount->place->price->min_price }}@else – @endif</td>
-                    <td class="align-middle text-center">{{ $discount->max_discount }}</td>
+                    <td class="align-middle text-center">-{{ $discount->max_discount }}%</td>
                     <td class="align-middle text-center">@if(!empty($discount->place->price->min_price)){{ intval($discount->place->price->min_price - ($discount->place->price->min_price * ($discount->max_discount / 100))) }}@else – @endif</td>
                     <td class="text-center align-middle pr-3">
                         <form action="{{ action('Management\DiscountController@destroy', $discount->id) }}" method="post">
