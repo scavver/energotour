@@ -42,10 +42,6 @@ class LandmarkController extends Controller
             'image' => 'nullable|image',
         ]);
 
-        $region = Region::create($request->only([
-            'name'
-        ]));
-
         $landmark = Landmark::create(
             array_merge(
                 $request->only([
