@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PlacesQueryString extends FormRequest
+class HotelsQueryString extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,7 +17,7 @@ class PlacesQueryString extends FormRequest
     }
 
     /**
-     * Places Query String Validation
+     * Hotels Query String Validation
      *
      * @return array
      */

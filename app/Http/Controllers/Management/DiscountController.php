@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Management;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Discount;
-use App\Place;
+use App\Hotel;
 
 class DiscountController extends Controller
 {
@@ -20,9 +20,9 @@ class DiscountController extends Controller
     // Страница добавления новых скидок
     public function create()
     {
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.discounts.create', ['places' => $places]);
+        return view('management.discounts.create', ['hotels' => $hotels]);
     }
 
     // Сохранение новых скидок
@@ -31,7 +31,7 @@ class DiscountController extends Controller
         $request->validate([
             'max_discount' => 'required|integer',
             'content' => 'required|string',
-            'place_id' => 'required|integer'
+            'hotel_id' => 'required|integer'
         ]);
 
         $discount = Discount::create($request->all());
@@ -43,9 +43,9 @@ class DiscountController extends Controller
     public function edit($id)
     {
         $discounts = Discount::all()->where('id', $id);
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.discounts.edit', ['discounts' => $discounts, 'places' => $places]);
+        return view('management.discounts.edit', ['discounts' => $discounts, 'hotels' => $hotels]);
     }
 
     // Обновление скидок
@@ -55,7 +55,7 @@ class DiscountController extends Controller
             'previous'      => 'string',
             'max_discount'  => 'required|integer',
             'content'       => 'required|string',
-            'place_id'      => 'required|integer'
+            'hotel_id'      => 'required|integer'
         ]);
 
         $discount = Discount::find($id);

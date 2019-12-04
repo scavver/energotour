@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Place;
+use App\Hotel;
 use App\About;
 
 class AboutController extends Controller
@@ -20,9 +20,9 @@ class AboutController extends Controller
     // Страница добавления нового описания
     public function create()
     {
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.about.create', ['places' => $places]);
+        return view('management.about.create', ['hotels' => $hotels]);
     }
 
     // Сохранение нового описания
@@ -30,7 +30,7 @@ class AboutController extends Controller
     {
         // Валидация данных из запроса
         $request->validate([
-            'place_id'            => 'required|integer',
+            'hotel_id'            => 'required|integer',
             'description'         => 'nullable|string',
             'rules_of_settlement' => 'nullable|string',
             'included_services'   => 'nullable|string',
@@ -42,7 +42,7 @@ class AboutController extends Controller
 
         // Сохраняем только определенные прошедшие валидацию данные
         $about = About::create($request->only([
-            'place_id',
+            'hotel_id',
             'description',
             'rules_of_settlement',
             'included_services',
@@ -60,9 +60,9 @@ class AboutController extends Controller
     public function edit($id)
     {
         $about = About::find($id);
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.about.edit', ['about' => $about, 'places' => $places]);
+        return view('management.about.edit', ['about' => $about, 'hotels' => $hotels]);
     }
 
     // Обновление описания
@@ -70,7 +70,7 @@ class AboutController extends Controller
     {
         $request->validate([
             'previous'            => 'string',
-            'place_id'            => 'required|integer',
+            'hotel_id'            => 'required|integer',
             'description'         => 'nullable|string',
             'rules_of_settlement' => 'nullable|string',
             'included_services'   => 'nullable|string',
@@ -83,7 +83,7 @@ class AboutController extends Controller
         $about = About::find($id);
 
         $about->update($request->only([
-            'place_id',
+            'hotel_id',
             'description',
             'rules_of_settlement',
             'included_services',

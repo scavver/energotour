@@ -8,7 +8,7 @@
 
     <main v-else class="container pb-4">
         <h3 class="pt-3 pb-3 mb-3 bordered-bottom">Достопримечательности</h3>
-        <a v-for="landmark in landmarks.data" :href="'landmarks/' + landmark.slug" class="card-place">
+        <a v-for="landmark in landmarks.data" :href="'landmarks/' + landmark.slug" class="card-hotel">
             <div class="card mb-3">
 
                 <div class="row no-gutters">

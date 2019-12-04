@@ -17,11 +17,11 @@
         <div class="form-group">
             <div class="row">
                 <div class="col">
-                    <label for="place_id">Place</label>
+                    <label for="hotel_id">hotel</label>
 
-                    <select class="form-control" id="place_id" name="place_id">
-                        @foreach($places as $place)
-                            <option value="{{ $place->id }}">{{ $place->name }}</option>
+                    <select class="form-control" id="hotel_id" name="hotel_id">
+                        @foreach($hotels as $hotel)
+                            <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
                         @endforeach
                     </select>
                 </div>

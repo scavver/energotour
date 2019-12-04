@@ -13,9 +13,9 @@ class Type extends Model
     public $timestamps = false;
 
     // Получить места типа.
-    public function places()
+    public function hotels()
     {
-        return $this->hasMany('App\Place');
+        return $this->hasMany('App\Hotel');
     }
 
 }

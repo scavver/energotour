@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Requests\PlacesQueryString;
-use App\Http\Resources\PlaceCollection;
+use App\Http\Requests\HotelsQueryString;
+use App\Http\Resources\HotelCollection;
 use App\Http\Controllers\Controller;
-use App\Place;
+use App\Hotel;
 
-class PlaceController extends Controller
+class HotelController extends Controller
 {
-    public function get_places(PlacesQueryString $request)
+    public function get_hotels(HotelsQueryString $request)
     {
-        // Places Query String
+        // Hotels Query String
         if($request->has(['t', 'r', 'p'])) {
            // Присваиваем провалидированные данные из запроса одноименным переменным
            $type        = $request->query('t');     // Nullable|Integer
@@ -25,7 +25,7 @@ class PlaceController extends Controller
            }
 
            // Строим запрос на основе имеющихся, обработанных данных из $request
-           $places = Place::with('properties')->with('image')
+           $hotels = Hotel::with('properties')->with('image')
                ->when($type, function ($query, $type) {
                    return $query->where('type_id', $type);
                })
@@ -41,18 +41,18 @@ class PlaceController extends Controller
 
            /**
             * Возвращаем коллекцию объектов в кастомном JSON шаблоне
-            * `app/Http/Resources/Place.php` (API Resources)
+            * `app/Http/Resources/Hotel.php` (API Resources)
             */
-           return new PlaceCollection($places);
+           return new HotelCollection($hotels);
        }
 
         /**
-         * В случае если URL не содержит Query String (/places)
+         * В случае если URL не содержит Query String (/hotels)
          * возвращаем коллекцию всех объектов в кастомном JSON шаблоне
-         * `app/Http/Resources/Place.php` (API Resources)
+         * `app/Http/Resources/Hotel.php` (API Resources)
          */
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return new PlaceCollection($places);
+        return new HotelCollection($hotels);
     }
 }

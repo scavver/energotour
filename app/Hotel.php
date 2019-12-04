@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Place extends Model
+class Hotel extends Model
 {
     // Атрибуты, для которых разрешено массовое назначение.
     protected $fillable = ['enabled', 'name', 'title', 'description', 'type_id', 'region_id', 'slug', 'lat', 'lng'];
@@ -12,7 +12,7 @@ class Place extends Model
     // Характеристики, принадлежащие месту.
     public function properties()
     {
-        return $this->belongsToMany('App\Property', 'place_property', 'place_id', 'property_id');
+        return $this->belongsToMany('App\Property', 'hotel_property', 'hotel_id', 'property_id');
     }
 
     // Получить тип, владеющий местом.

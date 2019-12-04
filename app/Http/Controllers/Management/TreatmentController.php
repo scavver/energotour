@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Management;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Treatment;
-use App\Place;
+use App\Hotel;
 
 class TreatmentController extends Controller
 {
@@ -20,9 +20,9 @@ class TreatmentController extends Controller
     // Страница добавления лечения
     public function create()
     {
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.treatment.create', ['places' => $places]);
+        return view('management.treatment.create', ['hotels' => $hotels]);
     }
 
     // Сохранение записи с лечением
@@ -30,14 +30,14 @@ class TreatmentController extends Controller
     {
         // Валидация данных из запроса
         $request->validate([
-            'place_id' => 'required|integer',
+            'hotel_id' => 'required|integer',
             'profiles' => 'nullable|string',
             'types'    => 'nullable|string',
         ]);
 
         // Сохраняем только определенные прошедшие валидацию данные
         $treatment = Treatment::create($request->only([
-            'place_id',
+            'hotel_id',
             'profiles',
             'types',
         ]));
@@ -50,9 +50,9 @@ class TreatmentController extends Controller
     public function edit($id)
     {
         $treatment = Treatment::find($id);
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.treatment.edit', ['treatment' => $treatment, 'places' => $places]);
+        return view('management.treatment.edit', ['treatment' => $treatment, 'hotels' => $hotels]);
     }
 
     // Обновление лечения
@@ -60,7 +60,7 @@ class TreatmentController extends Controller
     {
         $request->validate([
             'previous' => 'string',
-            'place_id' => 'required|integer',
+            'hotel_id' => 'required|integer',
             'profiles' => 'nullable|string',
             'types'    => 'nullable|string',
         ]);
@@ -68,7 +68,7 @@ class TreatmentController extends Controller
         $treatment = Treatment::find($id);
 
         $treatment->update($request->only([
-            'place_id',
+            'hotel_id',
             'profiles',
             'types',
         ]));

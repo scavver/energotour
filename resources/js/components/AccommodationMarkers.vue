@@ -8,11 +8,11 @@
 
     <yandex-map v-else :coords="coords" :scroll-zoom="scroll" :zoom="zoom" :cluster-options="clusterOptions" class="ymap-class">
         <ymap-marker
-                v-for="place in places.data"
-                :callbacks="callbacks(place)"
-                :coords="place.coords"
-                :hint-content="place.name"
-                :key="place.name"
+                v-for="hotel in hotels.data"
+                :callbacks="callbacks(hotel)"
+                :coords="hotel.coords"
+                :hint-content="hotel.name"
+                :key="hotel.name"
                 marker-id="1"
                 cluster-name="1"
         ></ymap-marker>
@@ -25,7 +25,7 @@
             isLoading: true,        // Bootstrap spinner
             /* - - - - - - - - - - - - - - - - - - - - - - - - - */
             coords: [44.96563429952982, 34.418236698025645],
-            places: [],
+            hotels: [],
             scroll: false,
             zoom: 8,
 
@@ -43,15 +43,15 @@
             this.getCoords();
         },
         methods: {
-            callbacks(place) {
-                return { click: function() { window.location.replace('/places/' + place.slug) } } // API Link: /api/coords
+            callbacks(hotel) {
+                return { click: function() { window.location.replace('/hotels/' + hotel.slug) } } // API Link: /api/coords
             },
             getCoords() {
                 this.isLoading = true;
 
                 axios.get('/api/coords/')
                     .then(response => {
-                        this.places = response.data
+                        this.hotels = response.data
                     })
                     .finally(() => {
                         this.isLoading = false;

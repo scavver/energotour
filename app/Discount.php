@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class Discount extends Model
 {
     // Атрибуты, для которых разрешено массовое назначение.
-    protected $fillable = ['content', 'max_discount', 'place_id'];
+    protected $fillable = ['content', 'max_discount', 'hotel_id'];
 
     // Получить место размещения, владеющее скидкой.
-    public function place()
+    public function hotel()
     {
-        return $this->belongsTo('App\Place');
+        return $this->belongsTo('App\Hotel');
     }
 
 }

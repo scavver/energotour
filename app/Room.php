@@ -9,13 +9,13 @@ class Room extends Model
     // Атрибуты, для которых разрешено массовое назначение.
     protected $fillable = [
         'name',
-        'place_id',
+        'hotel_id',
         'gallery_id',
         'number_of_rooms',
         'category',
         'view',
-        'number_of_places',
-        'number_of_extra_places',
+        'number_of_hotels',
+        'number_of_extra_hotels',
         'area',
         'furniture',
         'equipment',
@@ -24,9 +24,9 @@ class Room extends Model
     ];
 
     // Получить объект размещения, владеющий номером.
-    public function place()
+    public function hotel()
     {
-        return $this->belongsTo('App\Place');
+        return $this->belongsTo('App\Hotel');
     }
 
     // Получить галерею номера.

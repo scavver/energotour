@@ -1,6 +1,6 @@
 <div class="row px-3 pb-3 pt-0">
-    @if (count($place->galleries) > 0)
-        @foreach($place->galleries as $gallery)
+    @if (count($hotel->galleries) > 0)
+        @foreach($hotel->galleries as $gallery)
             @if($gallery->is_main != 1)
                 <h4 class="pl-3 py-3">{{ $gallery->name }}</h4>
 
@@ -17,7 +17,7 @@
         @endforeach
     @else
         <div class="d-flex justify-content-center text-center m-3">
-            <span class="text-danger">Не удалось загрузить коллекцию галерей<br>views.public.places.single | app/Http/Controllers/PlaceController</span>
+            <span class="text-danger">Не удалось загрузить коллекцию галерей<br>views.public.hotels.single | app/Http/Controllers/HotelController</span>
         </div>
     @endif
 </div>

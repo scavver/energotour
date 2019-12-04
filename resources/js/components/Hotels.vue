@@ -3,7 +3,7 @@
         <div class="row">
             <!-- Search Filters -->
             <aside class="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-2 order-2 order-sm-2 order-md-1 p-3">
-                <h4 class="mb-3" style="font-weight: 300">Фильтры <small><a class="ml-1" href="/places"><i class="fas fa-retweet fa-fw" title="Сбросить все фильтры"></i></a></small></h4>
+                <h4 class="mb-3" style="font-weight: 300">Фильтры <small><a class="ml-1" href="/hotels"><i class="fas fa-retweet fa-fw" title="Сбросить все фильтры"></i></a></small></h4>
 
                 <div class="form-group">
                     <select v-model="t" @change="onChange" class="custom-select shadow-sm" id="type">
@@ -28,7 +28,7 @@
             </aside>
             <!-- End: Search Filters -->
 
-            <!-- Places -->
+            <!-- Hotels -->
             <main class="col-12 col-sm-12 col-md-9 col-lg-9 col-xl-8 order-1 order-sm-1 order-md-2 min-vh-100 px-3 px-md-0 order-0 order-sm-0 order-md-1 order-xl-1 single py-3">
                 <template v-if="isLoading">
                     <div class="d-flex justify-content-center">
@@ -40,31 +40,31 @@
                 </template>
 
                 <template v-else>
-                    <a v-for="place in enabledPlaces" :href="'places/' + place.slug" class="card-place">
+                    <a v-for="hotel in enabledHotels" :href="'hotels/' + hotel.slug" class="card-hotel">
                         <div class="card overflow-hidden shadow-sm mb-3">
-                            <template v-if="place.price !== null && place.discount !== null">
-                                <div class="card-discount">- {{ place.discount }} <i class="fas fa-percentage fa-fw"></i></div>
-                                <div class="card-price">от {{ place.price }} <i class="fas fa-ruble-sign fa-fw"></i></div>
+                            <template v-if="hotel.price !== null && hotel.discount !== null">
+                                <div class="card-discount">- {{ hotel.discount }} <i class="fas fa-percentage fa-fw"></i></div>
+                                <div class="card-price">от {{ hotel.price }} <i class="fas fa-ruble-sign fa-fw"></i></div>
                             </template>
 
                             <div class="row no-gutters">
                                 <div class="col-md-5" style="height: 189px !important;">
-                                    <img :src="place.image" class="card-img" alt="">
+                                    <img :src="hotel.image" class="card-img" alt="">
                                 </div>
                                 <div class="col-md-7">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ place.name }}</h5>
+                                        <h5 class="card-title">{{ hotel.name }}</h5>
                                         <p class="card-text" style="margin-bottom: 2.65rem !important; opacity: 0.75;">
-                                            <i class="fas fa-landmark fa-fw mr-2"></i> {{ place.type.name }}<br>
-                                            <i class="fas fa-map-marker-alt fa-fw mr-2"></i> {{ place.region.name }}
+                                            <i class="fas fa-landmark fa-fw mr-2"></i> {{ hotel.type.name }}<br>
+                                            <i class="fas fa-map-marker-alt fa-fw mr-2"></i> {{ hotel.region.name }}
                                         </p>
 
                                         <div class="d-flex">
                                             <div class="card-properties align-self-center">
-                                                <i v-for="property in place.properties" :class="property.class" class="fa-fw mr-1" :title="property.title"></i>
+                                                <i v-for="property in hotel.properties" :class="property.class" class="fa-fw mr-1" :title="property.title"></i>
                                             </div>
 
-                                            <!-- <a :href="'places/' + place.slug" class="btn btn-outline-primary align-self-center ml-auto">Подробнее</a> -->
+                                            <!-- <a :href="'hotels/' + hotel.slug" class="btn btn-outline-primary align-self-center ml-auto">Подробнее</a> -->
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                     </a>
                 </template>
             </main>
-            <!-- End: Places -->
+            <!-- End: Hotels -->
             <aside class="col-12 col-sm-12 d-md-none d-lg-none d-xl-block col-xl-2 order-3 order-sm-3 order-md-3 p-0">
                 <div class="sticky-top sticky-offset p-3 vh-twitter">
                     <div class="bg-white text-center h-100 overflow-hidden custom-shadow" style="border-radius: .5rem">
@@ -99,23 +99,23 @@
             t: '',          // Selected Type
             p: [],          // Checked Properties
             /* - - - - - - - - - - - - - - - - - - - - - - - - - */
-            places: []              // Mounted API (+ URL Query) Places Array
+            hotels: []              // Mounted API (+ URL Query) Hotels Array
         }),
         watch: {
             '$route': function() {
-                this.getPlaces()
+                this.getHotels()
             }
         },
         computed : {
-          enabledPlaces: function() {
-              return this.places.filter(place => place.enabled)
+          enabledHotels: function() {
+              return this.hotels.filter(hotel => hotel.enabled)
           }
         },
         async mounted() {
             await Promise.all([this.getTypes(), this.getRegions(), this.getProperties()])
                 .catch( () => { this.isLoading = false; });
 
-            this.getPlaces();
+            this.getHotels();
 
             let twitterScript = document.createElement('script');
             twitterScript.setAttribute('src', 'https://platform.twitter.com/widgets.js');
@@ -149,12 +149,12 @@
                 };
                 this.$router.push({ query: queryParams });
             },
-            getPlaces() {
+            getHotels() {
                 this.isLoading = true;
 
                 axios.get('/api' + this.$route.fullPath)
                     .then(response => {
-                        this.places = response.data.data
+                        this.hotels = response.data.data
                     })
                     .finally(() => {
                     this.isLoading = false;

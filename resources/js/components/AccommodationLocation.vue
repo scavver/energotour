@@ -16,7 +16,7 @@
         data: () => ({
             isLoading: true,        // Bootstrap spinner
             /* - - - - - - - - - - - - - - - - - - - - - - - - - */
-            places: [],
+            hotels: [],
             name: '',
             coords: [],
             zoom: 16
@@ -31,15 +31,15 @@
             getCoords() {
                 this.isLoading = true;
 
-                let slug = this.$route.fullPath.match("[^\/]+$"); // - /places/crimea-breeze -> crimea-breeze
+                let slug = this.$route.fullPath.match("[^\/]+$"); // - /hotels/crimea-breeze -> crimea-breeze
 
                 axios.get('/api/coords/' + slug)
                     .then(response => {
-                        this.places = response.data
+                        this.hotels = response.data
                     })
                     .finally(() => {
-                        this.name = this.places.data[0].name;
-                        this.coords = this.places.data[0].coords;
+                        this.name = this.hotels.data[0].name;
+                        this.coords = this.hotels.data[0].coords;
                         this.isLoading = false;
                     });
             }

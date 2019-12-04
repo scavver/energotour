@@ -10,11 +10,11 @@ class About extends Model
     protected $table = 'about';
 
     // Атрибуты, для которых разрешено массовое назначение.
-    protected $fillable = ['place_id', 'description', 'rules_of_settlement', 'included_services', 'address', 'territory', 'reconstruction', 'children'];
+    protected $fillable = ['hotel_id', 'description', 'rules_of_settlement', 'included_services', 'address', 'territory', 'reconstruction', 'children'];
 
     // Получить отель, владеющий этим описанием.
-    public function place()
+    public function hotel()
     {
-        return $this->belongsTo('App\Place');
+        return $this->belongsTo('App\Hotel');
     }
 }

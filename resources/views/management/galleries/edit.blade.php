@@ -41,19 +41,19 @@
                         @enderror
                     </div>
                     <div class="col">
-                        <label for="place_id">Place</label>
+                        <label for="hotel_id">Hotel</label>
 
-                        <select class="form-control" id="place_id" name="place_id">
-                            @if($gallery->place_id == null)
+                        <select class="form-control" id="hotel_id" name="hotel_id">
+                            @if($gallery->hotel_id == null)
                                 <option value="" selected="selected">Без привязки к месту</option>
                             @else
                                 <option value="">Без привязки к месту</option>
                             @endif
 
-                            @foreach($places as $place)
-                            <option value="{{ $place->id }}"
-                                    @if($place->id == $gallery->place_id) selected="selected" @endif>
-                                {{ $place->name }}
+                            @foreach($hotels as $hotel)
+                            <option value="{{ $hotel->id }}"
+                                    @if($hotel->id == $gallery->hotel_id) selected="selected" @endif>
+                                {{ $hotel->name }}
                             </option>
                             @endforeach
                         </select>

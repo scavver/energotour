@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Management;
 
 use App\Gallery;
-use App\Place;
+use App\Hotel;
 use App\Room;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -21,10 +21,10 @@ class RoomController extends Controller
     // Страница добавления новой комнаты
     public function create()
     {
-        $places = Place::all();
+        $hotels = Hotel::all();
         $galleries = Gallery::where('is_room', '=', '1')->get();
 
-        return view('management.rooms.create', ['places' => $places, 'galleries' => $galleries]);
+        return view('management.rooms.create', ['hotels' => $hotels, 'galleries' => $galleries]);
     }
 
     // Сохранение комнаты
@@ -32,13 +32,13 @@ class RoomController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'place_id' => 'integer',
+            'hotel_id' => 'integer',
             'gallery_id' => 'nullable|integer',
             'number_of_rooms' => 'nullable|string',
             'category' => 'required|string',
             'view' => 'nullable|string',
-            'number_of_places' => 'required|integer',
-            'number_of_extra_places' => 'nullable|integer',
+            'number_of_hotels' => 'required|integer',
+            'number_of_extra_hotels' => 'nullable|integer',
             'area' => 'nullable|string',
             'furniture' => 'nullable|string',
             'equipment' => 'nullable|string',
@@ -48,13 +48,13 @@ class RoomController extends Controller
 
         $room = Room::create($request->only([
             'name',
-            'place_id',
+            'hotel_id',
             'gallery_id',
             'number_of_rooms',
             'category',
             'view',
-            'number_of_places',
-            'number_of_extra_places',
+            'number_of_hotels',
+            'number_of_extra_hotels',
             'area',
             'furniture',
             'equipment',
@@ -69,10 +69,10 @@ class RoomController extends Controller
     public function edit($id)
     {
         $room = Room::find($id);
-        $places = Place::all();
+        $hotels = Hotel::all();
         $galleries = Gallery::where('is_room', '=', '1')->get();
 
-        return view('management.rooms.edit', ['room' => $room, 'places' => $places, 'galleries' => $galleries]);
+        return view('management.rooms.edit', ['room' => $room, 'hotels' => $hotels, 'galleries' => $galleries]);
     }
 
     // Обновление комнаты
@@ -81,13 +81,13 @@ class RoomController extends Controller
         $request->validate([
             'previous'                  => 'string',
             'name'                      => 'required|string',
-            'place_id'                  => 'integer',
+            'hotel_id'                  => 'integer',
             'gallery_id'                => 'nullable|integer',
             'number_of_rooms'           => 'nullable|string',
             'category'                  => 'required|string',
             'view'                      => 'nullable|string',
-            'number_of_places'          => 'required|integer',
-            'number_of_extra_places'    => 'nullable|integer',
+            'number_of_hotels'          => 'required|integer',
+            'number_of_extra_hotels'    => 'nullable|integer',
             'area'                      => 'nullable|string',
             'furniture'                 => 'nullable|string',
             'equipment'                 => 'nullable|string',
@@ -99,13 +99,13 @@ class RoomController extends Controller
 
         $room->update($request->only([
             'name',
-            'place_id',
+            'hotel_id',
             'gallery_id',
             'number_of_rooms',
             'category',
             'view',
-            'number_of_places',
-            'number_of_extra_places',
+            'number_of_hotels',
+            'number_of_extra_hotels',
             'area',
             'furniture',
             'equipment',

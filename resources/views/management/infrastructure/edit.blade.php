@@ -18,13 +18,13 @@
         <input type="hidden" name="previous" value="{{ URL::previous() }}">
 
         <div class="form-group">
-            <label for="place_id">Объект размещения</label>
+            <label for="hotel_id">Объект размещения</label>
 
-            <select class="form-control" id="place_id" name="place_id">
-                @foreach($places as $place)
-                    <option value="{{ $place->id }}"
-                            @if($place->id == $infrastructure->place_id) selected="selected" @endif>
-                        {{ $place->name }}
+            <select class="form-control" id="hotel_id" name="hotel_id">
+                @foreach($hotels as $hotel)
+                    <option value="{{ $hotel->id }}"
+                            @if($hotel->id == $infrastructure->hotel_id) selected="selected" @endif>
+                        {{ $hotel->name }}
                     </option>
                 @endforeach
             </select>

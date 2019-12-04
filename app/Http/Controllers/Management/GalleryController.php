@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Gallery;
 use App\Image;
-use App\Place;
+use App\Hotel;
 use Illuminate\Support\Facades\Storage;
 
 class GalleryController extends Controller
@@ -22,9 +22,9 @@ class GalleryController extends Controller
     // Страница добавления новой галереи
     public function create()
     {
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.galleries.create', ['places' => $places]);
+        return view('management.galleries.create', ['hotels' => $hotels]);
     }
 
     // Добавление новой галереи
@@ -32,7 +32,7 @@ class GalleryController extends Controller
     {
         $request->validate([
             'name'      => 'required|string|max:100',
-            'place_id'  => 'nullable|integer',
+            'hotel_id'  => 'nullable|integer',
             'is_main'   => 'boolean',
             'is_room'   => 'boolean'
         ]);
@@ -47,9 +47,9 @@ class GalleryController extends Controller
     {
         $galleries = Gallery::all()->where('id', $id);
         $images = Image::all()->where('gallery_id', $id);
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.galleries.edit', ['galleries' => $galleries, 'images' => $images, 'places' => $places]);
+        return view('management.galleries.edit', ['galleries' => $galleries, 'images' => $images, 'hotels' => $hotels]);
     }
 
     // Обновление галереи
@@ -58,7 +58,7 @@ class GalleryController extends Controller
         $request->validate([
             'previous'  => 'string',
             'name'      => 'required|string|max:100',
-            'place_id'  => 'nullable|integer',
+            'hotel_id'  => 'nullable|integer',
             'is_main'   => 'boolean',
             'is_room'   => 'boolean'
         ]);

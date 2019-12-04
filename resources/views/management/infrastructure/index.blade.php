@@ -41,7 +41,7 @@
             @foreach($infrastructure_list as $infrastructure)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $infrastructure->id }}</th>
-                    <td class="align-middle">{{ $infrastructure->place->name }}</td>
+                    <td class="align-middle">{{ $infrastructure->hotel->name }}</td>
                     <td class="text-center align-middle pr-3">
                         <form action="{{ action('Management\InfrastructureController@destroy', $infrastructure->id) }}" method="post">
                             @csrf

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Region;
 use App\Gallery;
-use App\Place;
+use App\Hotel;
 use App\Page;
 
 class PageController extends Controller
@@ -12,17 +12,15 @@ class PageController extends Controller
     // Главная страница
     public function home()
     {
-        $carouselImages = Gallery::find(1)->images;
-
+        $slides = Gallery::find(1)->images;
         $regions = Region::all();
+        $popular = Hotel::whereHas('properties', function($q) { $q->where('id', 1); })->take(3)->get();
 
-        $hot = Place::whereHas('properties', function($q) { $q->where('id', 1); })->take(3)->get();
+        $sanatorium = Hotel::whereHas('region', function($q) { $q->where('id', 1); })->get();
+        $pool = Hotel::whereHas('properties', function($q) { $q->where('id', 2); })->where('id', '<>', 1)->get();
+        $family = Hotel::whereHas('properties', function($q) { $q->where('id', 7); })->where('id', '<>', 1)->get();
 
-        $sanatorium = Place::whereHas('region', function($q) { $q->where('id', 1); })->get();
-        $pool = Place::whereHas('properties', function($q) { $q->where('id', 2); })->where('id', '<>', 1)->get();
-        $family = Place::whereHas('properties', function($q) { $q->where('id', 7); })->where('id', '<>', 1)->get();
-
-        return view('public.home', ['carouselImages' => $carouselImages, 'regions' => $regions, 'hot' => $hot, 'sanatorium' => $sanatorium, 'pool' => $pool, 'family' => $family]);
+        return view('public.home', ['slides' => $slides, 'regions' => $regions, 'popular' => $popular, 'sanatorium' => $sanatorium, 'pool' => $pool, 'family' => $family]);
     }
 
     // Кастомные страницы (Контакты, О компании, и т.д.)

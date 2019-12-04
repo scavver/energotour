@@ -3,16 +3,16 @@ namespace App\Http\Controllers;
 
 use App\Document;
 use App\Image;
-use App\Place;
+use App\Hotel;
 
 class ManagementController extends Controller
 {
     public function dashboard()
     {
         $models = [
-            'place'    => [
-                'all'       => Place::all()->count(),
-                'enabled'   => Place::all()->where('enabled', '=', '1')->count(),
+            'hotel'    => [
+                'all'       => Hotel::all()->count(),
+                'enabled'   => Hotel::all()->where('enabled', '=', '1')->count(),
             ],
             'image'    => [
                 'all' => Image::all()->count(),

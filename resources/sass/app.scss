@@ -121,7 +121,7 @@ main ul,ol {
   font-weight: 300 !important;
 }
 
-.card-place {
+.card-hotel {
   .card {
     transition: all .15s ease-in-out;
     border-top: 3px solid $primary-color;
@@ -145,7 +145,7 @@ main ul,ol {
     text-decoration: none;
   }
 }
-a.card-place:hover {
+a.card-hotel:hover {
   text-decoration: none;
 }
 
@@ -268,7 +268,7 @@ a.card-place:hover {
   text-decoration: none !important;
 }
 
-.place-card-button {
+.hotel-card-button {
   border-radius: 0 !important;
   border-left: 0 !important;
   border-right: 0 !important;
@@ -276,7 +276,7 @@ a.card-place:hover {
   border-color: #dddddd;
 }
 
-.place-card-button-last {
+.hotel-card-button-last {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
   border-left: 0 !important;
@@ -382,7 +382,7 @@ main p.content {
 }
 
 // Главная страница
-.place-container {
+.hotel-container {
   position: relative;
   margin-bottom: 30px;
 
@@ -402,7 +402,7 @@ main p.content {
     z-index: 10;
     color: #FFF;
 
-    .place-name {
+    .hotel-name {
       font-size: 24px;
       font-weight: 700;
     }
@@ -421,7 +421,7 @@ main p.content {
     }
   }
 }
-.place-container:before {
+.hotel-container:before {
   content: '';
   position: absolute;
   z-index: 1;

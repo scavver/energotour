@@ -44,7 +44,7 @@
             @foreach($galleries as $gallery)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $gallery->id }}</th>
-                    <td class="align-middle">{{ $gallery->place['name'] }}</td>
+                    <td class="align-middle">{{ $gallery->hotel['name'] }}</td>
                     <td class="align-middle">{{ $gallery->name }}</td>
                     <td class="text-center align-middle">{{ $gallery->created_at->format('d.m.Y H:i:s') }}</td>
                     <td class="text-center align-middle">{{ $gallery->updated_at->format('d.m.Y H:i:s') }}</td>

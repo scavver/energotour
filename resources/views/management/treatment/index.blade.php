@@ -41,7 +41,7 @@
             @foreach($treatment_list as $treatment)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $treatment->id }}</th>
-                    <td class="align-middle">{{ $treatment->place->name }}</td>
+                    <td class="align-middle">{{ $treatment->hotel->name }}</td>
                     <td class="text-center align-middle pr-3">
                         <form action="{{ action('Management\TreatmentController@destroy', $treatment->id) }}" method="post">
                             @csrf

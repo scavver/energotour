@@ -28,12 +28,12 @@
                     @enderror
                 </div>
                 <div class="col">
-                    <label for="place_id">Place</label>
+                    <label for="hotel_id">Hotel</label>
 
-                    <select class="form-control" id="place_id" name="place_id">
+                    <select class="form-control" id="hotel_id" name="hotel_id">
                         <option value="">Без привязки к месту</option>
-                        @foreach($places as $place)
-                            <option value="{{ $place->id }}">{{ $place->name }}</option>
+                        @foreach($hotels as $hotel)
+                            <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
                         @endforeach
                     </select>
                 </div>

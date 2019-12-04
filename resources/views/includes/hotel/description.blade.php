@@ -31,7 +31,7 @@
             </div>
         @else
             <div class="d-flex justify-content-center text-center m-3">
-                <span class="text-danger">Не удалось загрузить коллекцию изображений слайдера<br>views.public.places.single | app/Http/Controllers/PlaceController</span>
+                <span class="text-danger">Не удалось загрузить коллекцию изображений слайдера<br>views.public.hotels.single | app/Http/Controllers/HotelController</span>
             </div>
         @endif
     </div>
@@ -43,23 +43,23 @@
             <div class="card border-0 w-100" style="box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1) !important">
                 <div class="card-body p-0 text-center">
                     {{-- Цена от, скидка до --}}
-                    <div class="single price-discount m-3">@if(!empty($place->price) && !empty($place->discount))
+                    <div class="single price-discount m-3">@if(!empty($hotel->price) && !empty($hotel->discount))
                         от
                         <span class="price px-1">
-                            <s class="pr-1">{{ $place->price['min_price'] }}</s>
-                            <strong>{{ intval($place->price['min_price'] - ($place->price['min_price'] * ($place->discount['max_discount'] / 100))) }} руб.</strong>
+                            <s class="pr-1">{{ $hotel->price['min_price'] }}</s>
+                            <strong>{{ intval($hotel->price['min_price'] - ($hotel->price['min_price'] * ($hotel->discount['max_discount'] / 100))) }} руб.</strong>
                         </span>
 
-                        @if(!empty($place->discount))
+                        @if(!empty($hotel->discount))
                         <span class="discount">
-                            -{{ $place->discount['max_discount'] }}%
+                            -{{ $hotel->discount['max_discount'] }}%
                         </span>
                         @endif
                         @else Чтобы уточнить стоимость пожалуйста свяжитесь с нашим менеджером. @endif</div>
 
-                    @if(!empty($place->price))
+                    @if(!empty($hotel->price))
                     {{-- Официальные цены --}}
-                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#priceModal">
+                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 hotel-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#priceModal">
                         <i class="fas fa-money-check-alt mr-2 fa-fw"></i> Прайс-лист
                     </button>
 
@@ -74,10 +74,10 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    @if(!empty($place->price->image))
-                                        <a href="{{ asset($place->price->image['path']) }}" title="Открыть оригинал" target="_blank"><img src="{{ asset($place->price->image['path']) }}" width="100%" alt="Цены {{ $place->title }}"></a>
-                                    @elseif(!empty($place->price->document))
-                                        <a href="{{ asset($place->price->document['path']) }}" class="btn btn-primary btn-lg btn-block" target="_blank">
+                                    @if(!empty($hotel->price->image))
+                                        <a href="{{ asset($hotel->price->image['path']) }}" title="Открыть оригинал" target="_blank"><img src="{{ asset($hotel->price->image['path']) }}" width="100%" alt="Цены {{ $hotel->title }}"></a>
+                                    @elseif(!empty($hotel->price->document))
+                                        <a href="{{ asset($hotel->price->document['path']) }}" class="btn btn-primary btn-lg btn-block" target="_blank">
                                             <i class="fas fa-file-pdf fa-fw pr-2"></i> Открыть .PDF
                                         </a>
                                     @endif
@@ -88,8 +88,8 @@
                     @endif
 
                     {{-- Наши скидки --}}
-                    @if(!empty($place->discount))
-                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#discountModal">
+                    @if(!empty($hotel->discount))
+                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 hotel-card-button" style="text-align: left !important; padding-left: 1rem;" data-toggle="modal" data-target="#discountModal">
                         <i class="fas fa-percentage mr-2 fa-fw"></i> Наши скидки
                     </button>
 
@@ -104,7 +104,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    {!! $place->discount->content !!}
+                                    {!! $hotel->discount->content !!}
                                 </div>
                             </div>
                         </div>
@@ -112,12 +112,12 @@
                     @endif
 
                     {{-- Онлайн бронирование --}}
-                    <a class="btn btn-outline-primary-dark btn-block my-0 place-card-button" style="text-align: left !important; padding-left: 1rem;" href="{{ url('booking') }}" target="_blank">
+                    <a class="btn btn-outline-primary-dark btn-block my-0 hotel-card-button" style="text-align: left !important; padding-left: 1rem;" href="{{ url('booking') }}" target="_blank">
                         <i class="fas fa-calendar-check mr-2 fa-fw"></i> Онлайн бронирование
                     </a>
 
                     {{-- Показать на карте --}}
-                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 place-card-button-last" style="text-align: left !important; padding-left: 1rem; border-radius: .45rem" data-toggle="modal" data-target="#mapModal">
+                    <button type="button" class="btn btn-outline-primary-dark btn-block my-0 hotel-card-button-last" style="text-align: left !important; padding-left: 1rem; border-radius: .45rem" data-toggle="modal" data-target="#mapModal">
                         <i class="fas fa-drafting-compass mr-2 fa-fw"></i> Показать на карте
                     </button>
 
@@ -126,7 +126,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="mapModalLabel">{{ $place->title }}</h5>
+                                    <h5 class="modal-title" id="mapModalLabel">{{ $hotel->title }}</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -147,8 +147,8 @@
             <h5>Услуги и удобства в отеле</h5>
 
             <div class="single-tags">
-                @foreach($place->properties as $property)
-                    <a href="{{ url("places?selectedCategory=&selectedType=&checkedProperties=" . $property->id) }}" target="_blank" class="single-tags">#{{ $property->title }}</a>
+                @foreach($hotel->properties as $property)
+                    <a href="{{ url("hotels?selectedCategory=&selectedType=&checkedProperties=" . $property->id) }}" target="_blank" class="single-tags">#{{ $property->title }}</a>
                 @endforeach
             </div>
         </div>
@@ -159,71 +159,71 @@
 
 
 {{-- Описание --}}
-@if(!empty($place->about->description))
+@if(!empty($hotel->about->description))
 <div class="row pt-3">
     <div class="col">
         <h4>Описание</h4>
-        {!! $place->about->description !!}
+        {!! $hotel->about->description !!}
     </div>
 </div>
 @endif
 
 {{-- Правила заселения --}}
-@if(!empty($place->about->rules_of_settlement))
+@if(!empty($hotel->about->rules_of_settlement))
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Правила заселения</h4>
-            <p class="content">{{ $place->about->rules_of_settlement }}</p>
+            <p class="content">{{ $hotel->about->rules_of_settlement }}</p>
         </div>
     </div>
 @endif
 
 {{-- Дети --}}
-@if(!empty($place->about->children))
+@if(!empty($hotel->about->children))
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Дети</h4>
-            <p class="content">{{ $place->about->children }}</p>
+            <p class="content">{{ $hotel->about->children }}</p>
         </div>
     </div>
 @endif
 
 {{-- Услуги включенные в стоимость --}}
-@if(!empty($place->about->included_services))
+@if(!empty($hotel->about->included_services))
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Услуги включенные в стоимость</h4>
-            <p class="content">{{ $place->about->included_services }}</p>
+            <p class="content">{{ $hotel->about->included_services }}</p>
         </div>
     </div>
 @endif
 
 {{-- Адрес --}}
-@if(!empty($place->about->address))
+@if(!empty($hotel->about->address))
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Адрес</h4>
-            <p class="content">{{ $place->about->address }}</p>
+            <p class="content">{{ $hotel->about->address }}</p>
         </div>
     </div>
 @endif
 
 {{-- Территория --}}
-@if(!empty($place->about->territory))
+@if(!empty($hotel->about->territory))
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Территория</h4>
-            <p class="content">{{ $place->about->territory }}</p>
+            <p class="content">{{ $hotel->about->territory }}</p>
         </div>
     </div>
 @endif
 
 {{-- Реконструкция --}}
-@if(!empty($place->about->reconstruction))
+@if(!empty($hotel->about->reconstruction))
     <div class="row pt-3 bordered-top">
         <div class="col">
             <h4>Реконструкция</h4>
-            <p class="content">{{ $place->about->reconstruction }}</p>
+            <p class="content">{{ $hotel->about->reconstruction }}</p>
         </div>
     </div>
 @endif

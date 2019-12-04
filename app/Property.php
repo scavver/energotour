@@ -15,8 +15,8 @@ class Property extends Model
     public $timestamps = false;
 
     // Места, принадлежащие характеристике.
-    public function places()
+    public function hotels()
     {
-        return $this->belongsToMany('App\Place', 'place_property', 'property_id', 'place_id');
+        return $this->belongsToMany('App\Hotel', 'hotel_property', 'property_id', 'hotel_id');
     }
 }

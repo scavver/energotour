@@ -13,9 +13,9 @@ class Region extends Model
     public $timestamps = false;
 
     // Получить места размещения категории.
-    public function places()
+    public function hotels()
     {
-        return $this->hasMany('App\Place');
+        return $this->hasMany('App\Hotel');
     }
 
     // Получить достопримечательности

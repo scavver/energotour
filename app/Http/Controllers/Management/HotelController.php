@@ -7,19 +7,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Property;
 use App\Region;
-use App\Place;
+use App\Hotel;
 use App\Image;
 use App\Type;
 
-class PlaceController extends Controller
+class HotelController extends Controller
 {
     // Список всех мест размещения
     public function index()
     {
-        $places = Place::paginate(15);
-        $places_total = count(Place::all());
+        $hotels = Hotel::paginate(15);
+        $hotels_total = count(Hotel::all());
 
-        return view('management.places.index', ['places' => $places, 'places_total' => $places_total]);
+        return view('management.hotels.index', ['hotels' => $hotels, 'hotels_total' => $hotels_total]);
     }
 
     // Страница добавления нового места размещения
@@ -29,7 +29,7 @@ class PlaceController extends Controller
         $properties = Property::all();
         $regions = Region::all();
 
-        return view('management.places.create', ['types' => $types, 'properties' => $properties,'regions' => $regions]);
+        return view('management.hotels.create', ['types' => $types, 'properties' => $properties,'regions' => $regions]);
     }
 
     // Сохранение места размещения
@@ -42,13 +42,13 @@ class PlaceController extends Controller
             'description' => 'required|string|max:155',
             'type_id' => 'required|integer',
             'region_id' => 'required|integer',
-            'slug' => 'required|string|max:100|unique:places',
+            'slug' => 'required|string|max:100|unique:hotels',
             'image' => 'nullable|image',
             'lat' => 'nullable',
             'lng' => 'nullable'
         ]);
 
-        $place = Place::create($request->only([
+        $hotel = Hotel::create($request->only([
             'enabled',
             'name',
             'title',
@@ -60,7 +60,7 @@ class PlaceController extends Controller
             'lng'
         ]));
 
-        $place->properties()->sync($request->property); // Синхронизация чекбоксов с Pivot таблицей
+        $hotel->properties()->sync($request->property); // Синхронизация чекбоксов с Pivot таблицей
 
         // Добавляем изображение в хранилище и таблицу
         if($file = $request->hasFile('image')) {
@@ -68,23 +68,23 @@ class PlaceController extends Controller
 
             $image = new Image(); // Новая запись в таблицу с изображениями
             $image->path = $file_path; // Передаем путь
-            $image->imageable_id = $place->id; // Полиморфное отношение
-            $image->imageable_type = 'App\Place'; // Полиморфное отношение
+            $image->imageable_id = $hotel->id; // Полиморфное отношение
+            $image->imageable_type = 'App\Hotel'; // Полиморфное отношение
             $image->save();
         }
 
-        return redirect(url('management/places'))->with('success', 'Новое место успешно добавлено!');
+        return redirect(url('management/hotels'))->with('success', 'Новое место успешно добавлено!');
     }
 
     // Страница редактирования места размещения
     public function edit($id)
     {
-        $places = Place::all()->where('id', $id);
+        $hotels = Hotel::all()->where('id', $id);
         $properties = Property::all();
         $regions = Region::all();
         $types = Type::all();
 
-        return view('management.places.edit', ['places' => $places, 'properties' => $properties, 'regions' => $regions, 'types' => $types]);
+        return view('management.hotels.edit', ['hotels' => $hotels, 'properties' => $properties, 'regions' => $regions, 'types' => $types]);
     }
 
     // Обновление места размещения
@@ -104,9 +104,9 @@ class PlaceController extends Controller
             'lng' => 'nullable'
         ]);
 
-        $place = Place::find($id);
+        $hotel = Hotel::find($id);
 
-        $place->update($request->only([
+        $hotel->update($request->only([
             'enabled',
             'name',
             'title',
@@ -118,12 +118,12 @@ class PlaceController extends Controller
             'lng'
         ]));
 
-        $place->properties()->sync($request->property);
+        $hotel->properties()->sync($request->property);
 
         // Если в запросе есть файл изображения
         if($file = $request->hasFile('image')) {
             // Пытаемся найти старую обложку в таблице
-            $old_image = Image::where('imageable_id', $place->id)->where('imageable_type', 'App\Place')->first();
+            $old_image = Image::where('imageable_id', $hotel->id)->where('imageable_type', 'App\Hotel')->first();
 
             if(!empty($old_image)) {
                 // Удаляем ее файл из хранилища
@@ -140,8 +140,8 @@ class PlaceController extends Controller
 
                 $image = new Image(); // Новая запись в таблицу с изображениями
                 $image->path = $file_path; // Передаем путь
-                $image->imageable_id = $place->id; // Полиморфное отношение
-                $image->imageable_type = 'App\Place'; // Полиморфное отношение
+                $image->imageable_id = $hotel->id; // Полиморфное отношение
+                $image->imageable_type = 'App\Hotel'; // Полиморфное отношение
                 $image->save();
             }
 
@@ -155,14 +155,14 @@ class PlaceController extends Controller
     // Удаление места размещения
     public function destroy($id)
     {
-        $place = Place::find($id);
-        $place->delete();
+        $hotel = Hotel::find($id);
+        $hotel->delete();
 
         // Ищем изображение, удаляем из хранилища и таблицы
-        $image = Image::where('imageable_id', $place->id)->where('imageable_type', 'App\Place')->first();
+        $image = Image::where('imageable_id', $hotel->id)->where('imageable_type', 'App\Hotel')->first();
         Storage::delete($image->path);
         $image->delete();
 
-        return redirect(url('management/places'))->with('success', 'Место успешно удалено.');
+        return redirect(url('management/hotels'))->with('success', 'Место успешно удалено.');
     }
 }

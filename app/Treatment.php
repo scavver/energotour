@@ -10,11 +10,11 @@ class Treatment extends Model
     protected $table = 'treatment';
 
     // Атрибуты, для которых разрешено массовое назначение.
-    protected $fillable = ['place_id', 'profiles', 'types'];
+    protected $fillable = ['hotel_id', 'profiles', 'types'];
 
     // Получить отель, владеющий этой информацией по лечению.
-    public function place()
+    public function hotel()
     {
-        return $this->belongsTo('App\Place');
+        return $this->belongsTo('App\Hotel');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Document;
-use App\Place;
+use App\Hotel;
 use App\Price;
 use App\Image;
 
@@ -23,9 +23,9 @@ class PriceController extends Controller
     // Страница добавления нового прайса
     public function create()
     {
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.prices.create', ['places' => $places]);
+        return view('management.prices.create', ['hotels' => $hotels]);
     }
 
     // Сохранение прайса
@@ -34,14 +34,14 @@ class PriceController extends Controller
         // Валидация запроса
         $request->validate([
             'min_price' => 'required|integer',
-            'place_id' => 'required|integer',
+            'hotel_id' => 'required|integer',
             'file' => 'nullable|mimes:jpeg,png,gif,pdf',
         ]);
 
         // Добавляем запись в таблицу `prices`
         $price = Price::create($request->only([
             'min_price',
-            'place_id'
+            'hotel_id'
         ]));
 
         // Если в запросе есть провалидированный файл
@@ -75,9 +75,9 @@ class PriceController extends Controller
     public function edit($id)
     {
         $prices = Price::all()->where('id', $id);
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.prices.edit', ['prices' => $prices, 'places' => $places]);
+        return view('management.prices.edit', ['prices' => $prices, 'hotels' => $hotels]);
     }
 
     // Обновление прайса
@@ -86,7 +86,7 @@ class PriceController extends Controller
         $request->validate([
             'previous'  => 'string',
             'min_price' => 'required|integer',
-            'place_id'  => 'required|integer',
+            'hotel_id'  => 'required|integer',
             'file'     => 'nullable|mimes:jpeg,png,gif,pdf',
         ]);
 
@@ -94,7 +94,7 @@ class PriceController extends Controller
 
         $price->update($request->only([
             'min_price',
-            'place_id'
+            'hotel_id'
         ]));
 
         // TODO: Девочки, это какой-то шикардосик

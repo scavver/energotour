@@ -15,12 +15,12 @@ class RegionController extends Controller
         return $regions;
     }
 
-    public function get_places_ids($id)
+    public function get_hotels_ids($id)
     {
         // Передаем идентификатор региона
-        $places = Place::where('region_id', $id)->select('id')->get();
+        $hotels = Hotel::where('region_id', $id)->select('id')->get();
 
         // Возвращаем JSON массив идентификаторов объектов размещения в определенном регионе
-        return $places;
+        return $hotels;
     }
 }

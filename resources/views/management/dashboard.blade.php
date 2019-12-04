@@ -23,8 +23,8 @@
                 <i class="fas fa-hotel fa-fw"></i>
                 <span>
                     <strong>Объекты размещения</strong><br>
-                    Активных: {{ $models['place']['enabled'] }}<br>
-                    Всего: {{ $models['place']['all'] }}<br>
+                    Активных: {{ $models['hotel']['enabled'] }}<br>
+                    Всего: {{ $models['hotel']['all'] }}<br>
                 </span>
             </div>
         </div>

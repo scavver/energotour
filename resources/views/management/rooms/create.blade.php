@@ -17,11 +17,11 @@
         <div class="form-group">
             <div class="row">
                 <div class="col">
-                    <label for="place_id">Объект размещения</label>
+                    <label for="hotel_id">Объект размещения</label>
 
-                    <select class="form-control" id="place_id" name="place_id">
-                        @foreach($places as $place)
-                            <option value="{{ $place->id }}">{{ $place->name }}</option>
+                    <select class="form-control" id="hotel_id" name="hotel_id">
+                        @foreach($hotels as $hotel)
+                            <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -32,7 +32,7 @@
                     <select class="form-control" id="gallery_id" name="gallery_id">
                         <option value="">Без галереи</option>
                         @foreach($galleries as $gallery)
-                            <option value="{{ $gallery->id }}">{{ $gallery->place->name . ' ➜ ' . $gallery->name }}</option>
+                            <option value="{{ $gallery->id }}">{{ $gallery->hotel->name . ' ➜ ' . $gallery->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -94,11 +94,11 @@
         <div class="form-group">
             <div class="row">
                 <div class="col">
-                    <label for="number_of_places">Кол-во основных мест</label>
+                    <label for="number_of_hotels">Кол-во основных мест</label>
 
-                    <input id="number_of_places" type="text" class="form-control @error('number_of_places') is-invalid @enderror" name="number_of_places" value="{{ old('number_of_places') }}" required autocomplete="number_of_places">
+                    <input id="number_of_hotels" type="text" class="form-control @error('number_of_hotels') is-invalid @enderror" name="number_of_hotels" value="{{ old('number_of_hotels') }}" required autocomplete="number_of_hotels">
 
-                    @error('number_of_places')
+                    @error('number_of_hotels')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -106,11 +106,11 @@
                 </div>
 
                 <div class="col">
-                    <label for="number_of_extra_places">Кол-во дополнительных мест</label>
+                    <label for="number_of_extra_hotels">Кол-во дополнительных мест</label>
 
-                    <input id="number_of_extra_places" type="text" class="form-control @error('number_of_extra_places') is-invalid @enderror" name="number_of_extra_places" value="{{ old('number_of_extra_places') }}" required autocomplete="number_of_extra_places">
+                    <input id="number_of_extra_hotels" type="text" class="form-control @error('number_of_extra_hotels') is-invalid @enderror" name="number_of_extra_hotels" value="{{ old('number_of_extra_hotels') }}" required autocomplete="number_of_extra_hotels">
 
-                    @error('number_of_extra_places')
+                    @error('number_of_extra_hotels')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

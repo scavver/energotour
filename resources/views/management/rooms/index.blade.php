@@ -43,7 +43,7 @@
             @foreach($rooms as $room)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $room->id }}</th>
-                    <td class="align-middle">{{ $room->place->name }}</td>
+                    <td class="align-middle">{{ $room->hotel->name }}</td>
                     <td class="align-middle">{{ $room->name }}</td>
                     <td class="align-middle">{{ $room->category }}</td>
                     <td class="text-center align-middle pr-3">

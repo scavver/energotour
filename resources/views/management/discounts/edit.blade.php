@@ -21,13 +21,13 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="place_id">Place</label>
+                        <label for="hotel_id">hotel</label>
 
-                        <select class="form-control" id="place_id" name="place_id">
-                            @foreach($places as $place)
-                                <option value="{{ $place->id }}"
-                                        @if($place->id == $discount->place_id) selected="selected" @endif>
-                                    {{ $place->name }}
+                        <select class="form-control" id="hotel_id" name="hotel_id">
+                            @foreach($hotels as $hotel)
+                                <option value="{{ $hotel->id }}"
+                                        @if($hotel->id == $discount->hotel_id) selected="selected" @endif>
+                                    {{ $hotel->name }}
                                 </option>
                             @endforeach
                         </select>

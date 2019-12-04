@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Price extends Model
 {
     // Атрибуты, для которых разрешено массовое назначение.
-    protected $fillable = ['min_price', 'place_id'];
+    protected $fillable = ['min_price', 'hotel_id'];
 
     // Получить изображение прайса
     public function image()
@@ -22,9 +22,9 @@ class Price extends Model
     }
 
     // Получить место размещения, владеющее прайсом.
-    public function place()
+    public function hotel()
     {
-        return $this->belongsTo('App\Place');
+        return $this->belongsTo('App\Hotel');
     }
 
 }

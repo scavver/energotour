@@ -17,9 +17,9 @@ Route::get('/pages/{slug}', 'PageController@page');     // Кастомные с
 Auth::routes(['verify' => true, 'register' => false]);  // Laravel Authorization, Блокировка регистрации
 
 // Public
-Route::prefix('places')->group(function () {
-    Route::get('/', 'PlaceController@index')->name('places');                 // Список всех мест размещения - "Санатории и отели"
-    Route::get('/{slug}', 'PlaceController@single')->name('places.single');   // Страница санатория или отеля
+Route::prefix('hotels')->group(function () {
+    Route::get('/', 'HotelController@index')->name('hotels');                 // Список всех мест размещения - "Санатории и отели"
+    Route::get('/{slug}', 'HotelController@single')->name('hotels.single');   // Страница санатория или отеля
 });
 
 Route::prefix('landmarks')->group(function () {
@@ -56,7 +56,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('/food', 'Management\FoodController')->except(['show']);                            // Питание
         Route::resource('/infrastructure', 'Management\InfrastructureController')->except(['show']);        // Инфраструктура
         Route::resource('/treatment', 'Management\TreatmentController')->except(['show']);                  // Лечение
-        Route::resource('/places', 'Management\PlaceController')->except(['show']);                         // Места
+        Route::resource('/hotels', 'Management\HotelController')->except(['show']);                         // Места
         Route::resource('/prices', 'Management\PriceController')->except(['show']);                         // Прайсы
         Route::resource('/discounts', 'Management\DiscountController')->except(['show']);                   // Скидки
         Route::resource('/users', 'Management\UserController')->except(['show']);                           // Пользователи

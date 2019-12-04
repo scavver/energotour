@@ -10,11 +10,11 @@ class Food extends Model
     protected $table = 'food';
 
     // Атрибуты, для которых разрешено массовое назначение.
-    protected $fillable = ['place_id', 'included', 'extra'];
+    protected $fillable = ['hotel_id', 'included', 'extra'];
 
     // Получить отель, владеющий этой информацией по питанию.
-    public function place()
+    public function hotel()
     {
-        return $this->belongsTo('App\Place');
+        return $this->belongsTo('App\Hotel');
     }
 }

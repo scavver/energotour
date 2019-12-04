@@ -1,8 +1,8 @@
 <?php
 
-use \App\Place;
+use \App\Hotel;
 use Illuminate\Http\Request;
-use \App\Http\Resources\Place as PlaceResource;
+use \App\Http\Resources\Hotel as HotelResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,19 +27,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * Достопримечатнльностей.
  */
 
-Route::get('places', 'API\PlaceController@get_places');
+Route::get('hotels', 'API\HotelController@get_hotels');
 
 Route::get('types', 'API\TypeController@get_types');
-Route::get('types/{id}', 'API\TypeController@get_place_ids');
+Route::get('types/{id}', 'API\TypeController@get_hotel_ids');
 
 Route::get('regions', 'API\RegionController@get_regions');
-Route::get('regions/{id}', 'API\RegionController@get_places_ids');
+Route::get('regions/{id}', 'API\RegionController@get_hotels_ids');
 
 Route::get('properties', 'API\PropertyController@get_properties');
-Route::get('properties/{id}', 'API\PropertyController@get_place_ids');
+Route::get('properties/{id}', 'API\PropertyController@get_hotel_ids');
 
 Route::get('coords', 'API\CoordController@get_coords');
-Route::get('coords/{slug}', 'API\CoordController@get_place_coords');
+Route::get('coords/{slug}', 'API\CoordController@get_hotel_coords');
 
 // Достопримечательности
 

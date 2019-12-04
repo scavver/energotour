@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Management;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Infrastructure;
-use App\Place;
+use App\Hotel;
 
 class InfrastructureController extends Controller
 {
@@ -20,9 +20,9 @@ class InfrastructureController extends Controller
     // Страница добавления инфраструктуры
     public function create()
     {
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.infrastructure.create', ['places' => $places]);
+        return view('management.infrastructure.create', ['hotels' => $hotels]);
     }
 
     // Сохранение записи с инфраструктурой
@@ -30,7 +30,7 @@ class InfrastructureController extends Controller
     {
         // Валидация данных из запроса
         $request->validate([
-            'place_id'       => 'required|integer',
+            'hotel_id'       => 'required|integer',
             'pool'           => 'nullable|string',
             'beach'          => 'nullable|string',
             'entertainments' => 'nullable|string',
@@ -42,7 +42,7 @@ class InfrastructureController extends Controller
 
         // Сохраняем только определенные прошедшие валидацию данные
         $infrastructure = Infrastructure::create($request->only([
-            'place_id',
+            'hotel_id',
             'pool',
             'beach',
             'entertainments',
@@ -60,9 +60,9 @@ class InfrastructureController extends Controller
     public function edit($id)
     {
         $infrastructure = Infrastructure::find($id);
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.infrastructure.edit', ['infrastructure' => $infrastructure, 'places' => $places]);
+        return view('management.infrastructure.edit', ['infrastructure' => $infrastructure, 'hotels' => $hotels]);
     }
 
     // Обновление инфраструктуры
@@ -70,7 +70,7 @@ class InfrastructureController extends Controller
     {
         $request->validate([
             'previous'       => 'string',
-            'place_id'       => 'required|integer',
+            'hotel_id'       => 'required|integer',
             'pool'           => 'nullable|string',
             'beach'          => 'nullable|string',
             'entertainments' => 'nullable|string',
@@ -83,7 +83,7 @@ class InfrastructureController extends Controller
         $infrastructure = Infrastructure::find($id);
 
         $infrastructure->update($request->only([
-            'place_id',
+            'hotel_id',
             'pool',
             'beach',
             'entertainments',

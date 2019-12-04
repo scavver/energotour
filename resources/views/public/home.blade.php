@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="col-12 col-sm-12 col-md-8 col-xl-8 pr-md-0 d-flex align-items-center">
-                        @if (count($carouselImages) > 0)
+                        @if (count($slides) > 0)
                             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">
                                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -64,9 +64,9 @@
                                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                                 </ol>
                                 <div class="carousel-inner shadow-sm" style="border-radius: .5rem">
-                                    @foreach($carouselImages as $carouselImage)
+                                    @foreach($slides as $slide)
                                         <div class="carousel-item @if($loop->first) active @endif">
-                                            <img class="d-block w-100 h-100" src="{{ $carouselImage->path }}" class="card-img" alt="{{ $carouselImage->alt }}">
+                                            <img class="d-block w-100 h-100" src="{{ $slide->path }}" class="card-img" alt="{{ $slide->alt }}">
                                         </div>
                                     @endforeach
                                 </div>
@@ -115,7 +115,7 @@
             <div class="row pb-md-5">
                 @foreach($regions as $region)
                     <div class="col-12 col-sm-12 col-md-3 mb-3 mb-sm-3 mb-md-0">
-                        <a href="{{ route('places', ['r' => $region->id, 't' => '', 'p' => '']) }}">
+                        <a href="{{ route('hotels', ['r' => $region->id, 't' => '', 'p' => '']) }}">
                             <div class="card border-0">
                                 <img src="{{ $region->image->path }}" class="cat card-img" alt="{{ $region->name }}">
 
@@ -135,23 +135,23 @@
         </div>
     @endif
 
-    @if (count($hot) > 0)
+    @if (count($popular) > 0)
     <div class="container special-offers">
         <div class="row px-3 py-4 header">
             <h2 class="w-100">Лучшие предложения</h2>
-            <a href="{{ route('places', ['r' => '', 't' => '', 'p' => 1]) }}">Показать все <i class="fas fa-angle-right"></i></a>
+            <a href="{{ route('hotels', ['r' => '', 't' => '', 'p' => 1]) }}">Показать все <i class="fas fa-angle-right"></i></a>
         </div>
 
         <div class="row">
-            @foreach($hot as $place)
+            @foreach($popular as $hotel)
             <div class="col-12 col-sm-12 col-md-4">
-                <a href="{{ url('places/' . $place->slug) }}">
-                    <div class="place-container">
-                        <img src="{{ $place->image->path }}" class="image-container" alt="{{ $place->name }}">
+                <a href="{{ url('hotels/' . $hotel->slug) }}">
+                    <div class="hotel-container">
+                        <img src="{{ $hotel->image->path }}" class="image-container" alt="{{ $hotel->name }}">
                         <div class="content-container text-center">
-                            <div class="place-name">{{ $place->name }}</div>
-                            <div class="region-type">{{ $place->region->name }} | {{ $place->type->name }}</div>
-                            @if(!empty($place->price))<div class="price-discount"><s class="pr-1">{{ $place->price->min_price }}</s> {{ intval($place->price->min_price - ($place->price->min_price * ($place->discount->max_discount / 100))) }} руб. <span class="pl-3">-{{ $place->discount->max_discount }}%</span></div>@endif
+                            <div class="hotel-name">{{ $hotel->name }}</div>
+                            <div class="region-type">{{ $hotel->region->name }} | {{ $hotel->type->name }}</div>
+                            @if(!empty($hotel->price))<div class="price-discount"><s class="pr-1">{{ $hotel->price->min_price }}</s> {{ intval($hotel->price->min_price - ($hotel->price->min_price * ($hotel->discount->max_discount / 100))) }} руб. <span class="pl-3">-{{ $hotel->discount->max_discount }}%</span></div>@endif
                         </div>
                     </div>
                 </a>
@@ -174,11 +174,11 @@
 
          <div class="row">
              <div class="col-12 col-sm-12 col-md-4">
-                 <a href="{{ route('places', ['r' => '', 't' => 1, 'p' => '']) }}">
-                     <div class="place-container">
-                         <img src="{{ $place->where('id', 17)->first()->image->path }}" class="image-container" alt="Санатории Крыма">
+                 <a href="{{ route('hotels', ['r' => '', 't' => 1, 'p' => '']) }}">
+                     <div class="hotel-container">
+                         <img src="{{ $hotel->where('id', 17)->first()->image->path }}" class="image-container" alt="Санатории Крыма">
                          <div class="content-container text-center">
-                             <div class="place-name">Санатории</div>
+                             <div class="hotel-name">Санатории</div>
                              <div class="region-type">{{ count($sanatorium) }} Предложений</div>
                          </div>
                      </div>
@@ -186,11 +186,11 @@
              </div>
 
              <div class="col-12 col-sm-12 col-md-4">
-                 <a href="{{ route('places', ['r' => '', 't' => 1, 'p' => 7]) }}">
-                     <div class="place-container">
-                         <img src="{{ $place->where('id', 13)->first()->image->path }}" class="image-container" alt="Отдых с детьми в Крыму">
+                 <a href="{{ route('hotels', ['r' => '', 't' => 1, 'p' => 7]) }}">
+                     <div class="hotel-container">
+                         <img src="{{ $hotel->where('id', 13)->first()->image->path }}" class="image-container" alt="Отдых с детьми в Крыму">
                          <div class="content-container text-center">
-                             <div class="place-name">Отдых с детьми</div>
+                             <div class="hotel-name">Отдых с детьми</div>
                              <div class="region-type">{{ count($family) }} Предложений</div>
                          </div>
                      </div>
@@ -198,11 +198,11 @@
              </div>
 
              <div class="col-12 col-sm-12 col-md-4">
-                 <a href="{{ route('places', ['r' => '', 't' => '', 'p' => 2]) }}">
-                     <div class="place-container">
-                         <img src="{{ $place->where('id', 8)->first()->image->path }}" class="image-container" alt="Санатории и отели с бассейном в Крыму">
+                 <a href="{{ route('hotels', ['r' => '', 't' => '', 'p' => 2]) }}">
+                     <div class="hotel-container">
+                         <img src="{{ $hotel->where('id', 8)->first()->image->path }}" class="image-container" alt="Санатории и отели с бассейном в Крыму">
                          <div class="content-container text-center">
-                             <div class="place-name">С бассейном</div>
+                             <div class="hotel-name">С бассейном</div>
                              <div class="region-type">{{ count($pool) }} Предложений</div>
                          </div>
                      </div>

@@ -41,7 +41,7 @@
             @foreach($about_list as $about)
                 <tr>
                     <th scope="row" class="align-middle text-center pl-3">{{ $about->id }}</th>
-                    <td class="align-middle">{{ $about->place->name }}</td>
+                    <td class="align-middle">{{ $about->hotel->name }}</td>
                     <td class="text-center align-middle pr-3">
                         <form action="{{ action('Management\AboutController@destroy', $about->id) }}" method="post">
                             @csrf

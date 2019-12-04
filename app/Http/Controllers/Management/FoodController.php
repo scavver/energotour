@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Place;
+use App\Hotel;
 use App\Food;
 
 class FoodController extends Controller
@@ -20,9 +20,9 @@ class FoodController extends Controller
     // Страница добавления питания
     public function create()
     {
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.food.create', ['places' => $places]);
+        return view('management.food.create', ['hotels' => $hotels]);
     }
 
     // Сохранение записи с питанием
@@ -30,14 +30,14 @@ class FoodController extends Controller
     {
         // Валидация данных из запроса
         $request->validate([
-            'place_id' => 'required|integer',
+            'hotel_id' => 'required|integer',
             'included' => 'required|string',
             'extra'    => 'nullable|string',
         ]);
 
         // Сохраняем только определенные прошедшие валидацию данные
         $food = Food::create($request->only([
-            'place_id',
+            'hotel_id',
             'included',
             'extra',
         ]));
@@ -50,9 +50,9 @@ class FoodController extends Controller
     public function edit($id)
     {
         $food = Food::find($id);
-        $places = Place::all();
+        $hotels = Hotel::all();
 
-        return view('management.food.edit', ['food' => $food, 'places' => $places]);
+        return view('management.food.edit', ['food' => $food, 'hotels' => $hotels]);
     }
 
     // Обновление питания
@@ -60,7 +60,7 @@ class FoodController extends Controller
     {
         $request->validate([
             'previous' => 'string',
-            'place_id' => 'required|integer',
+            'hotel_id' => 'required|integer',
             'included' => 'required|string',
             'extra'    => 'nullable|string',
         ]);
@@ -68,7 +68,7 @@ class FoodController extends Controller
         $food = Food::find($id);
 
         $food->update($request->only([
-            'place_id',
+            'hotel_id',
             'included',
             'extra',
         ]));

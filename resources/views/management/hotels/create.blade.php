@@ -8,10 +8,10 @@
 
     <h3 class="m-3">
         Новый объект размещения
-        <small class="text-muted">New place</small>
+        <small class="text-muted">New hotel</small>
     </h3>
 
-    <form action="{{ action('Management\PlaceController@store') }}" method="post" enctype="multipart/form-data" class="mx-3">
+    <form action="{{ action('Management\HotelController@store') }}" method="post" enctype="multipart/form-data" class="mx-3">
         @csrf
 
         <div class="form-group">
@@ -140,7 +140,7 @@
             </div>
         </div>
 
-        <a href="{{ route('places.index') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Назад</a>
+        <a href="{{ route('hotels.index') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Назад</a>
         <button class="btn btn-primary" type="submit">Добавить объект</button>
     </form>
     <br>
