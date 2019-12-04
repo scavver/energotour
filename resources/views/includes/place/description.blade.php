@@ -43,7 +43,7 @@
             <div class="card border-0 w-100" style="box-shadow: 0 0.2rem .5rem rgba(0, 0, 0, 0.1) !important">
                 <div class="card-body p-0 text-center">
                     {{-- Цена от, скидка до --}}
-                    @if(!empty($place->price) && !empty($place->discount))<div class="single price-discount m-3">
+                    <div class="single price-discount m-3">@if(!empty($place->price) && !empty($place->discount))
                         от
                         <span class="price px-1">
                             <s class="pr-1">{{ $place->price['min_price'] }}</s>
@@ -55,7 +55,7 @@
                             -{{ $place->discount['max_discount'] }}%
                         </span>
                         @endif
-                    </div>@endif
+                        @else Чтобы уточнить стоимость пожалуйста свяжитесь с нашим менеджером. @endif</div>
 
                     @if(!empty($place->price))
                     {{-- Официальные цены --}}
@@ -131,7 +131,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body" style="padding: 0px !important; overflow: hidden; border-bottom-left-radius: .5rem; border-bottom-right-radius: .5rem;">
                                     <accommodation-location></accommodation-location>
                                 </div>
                             </div>

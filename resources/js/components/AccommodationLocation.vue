@@ -19,7 +19,7 @@
             places: [],
             name: '',
             coords: [],
-            zoom: 9
+            zoom: 16
         }),
         async mounted() {
             await Promise.all([this.getCoords()])

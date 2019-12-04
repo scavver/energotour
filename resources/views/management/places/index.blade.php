@@ -34,6 +34,7 @@
             <tr>
                 <th scope="col" class="column-id pl-3 text-center">ID</th>
                 <th scope="col">Статус</th>
+                <th scope="col">Прайс</th>
                 <th scope="col">Название</th>
                 <th scope="col" class="text-center">Тип</th>
                 <th scope="col" class="text-center">Регион</th>
@@ -49,6 +50,9 @@
                     <th scope="row" class="align-middle text-center pl-3">{{ $place->id }}</th>
                     <td class="text-center align-middle">
                         <i class="fas fa-{{ $place['enabled'] == 1 ? 'eye text-success' : 'eye-slash text-danger' }}"></i>
+                    </td>
+                    <td class="text-center align-middle">
+                        <i class="fas fa-{{ !empty($place->price) ? 'file-invoice-dollar text-success' : 'file-invoice-dollar text-danger' }}"></i>
                     </td>
                     <td class="align-middle"><a href="{{ asset('management/places/' . $place->id . '/edit') }}">{{ $place->name }}</a></td>
                     <td class="text-center align-middle">{{ $place->type->name }}</td>

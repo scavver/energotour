@@ -11,8 +11,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-primary-color shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="fab fa-laravel pr-2"></i> Управление сайтом
+                <a class="navbar-brand" href="{{ url('/management') }}">
+                    <i class="fas fa-snowflake pr-2 text-primary"></i> Управление сайтом
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
