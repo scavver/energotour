@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Landmark;
+use App\Region;
 use Illuminate\Http\Request;
 
 class LandmarkController extends Controller
@@ -17,9 +18,10 @@ class LandmarkController extends Controller
     public function single($slug)
     {
         $landmark = Landmark::where('slug', $slug)->first();
+        $regions = Region::all();
 
         if ( empty($landmark) ) { return abort(404); } // Типо грибы
 
-        return view('public.landmarks.single', ['landmark' => $landmark]);
+        return view('public.landmarks.single', ['landmark' => $landmark, 'regions' => $regions]);
     }
 }
