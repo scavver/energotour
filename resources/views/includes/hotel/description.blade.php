@@ -113,13 +113,18 @@
 
                     {{-- Онлайн бронирование --}}
                     <a class="btn btn-outline-primary-dark btn-block my-0 hotel-card-button" style="text-align: left !important; padding-left: 1rem;" href="{{ url('booking') }}" target="_blank">
-                        <i class="fas fa-calendar-check mr-2 fa-fw"></i> Онлайн бронирование
+                        <i class="fas fa-calendar-check mr-2 fa-fw"></i> Забронировать
                     </a>
 
                     {{-- Показать на карте --}}
                     <button type="button" class="btn btn-outline-primary-dark btn-block my-0 hotel-card-button-last" style="text-align: left !important; padding-left: 1rem; border-radius: .45rem" data-toggle="modal" data-target="#mapModal">
                         <i class="fas fa-drafting-compass mr-2 fa-fw"></i> Показать на карте
                     </button>
+
+                    {{-- Трансфер, модальное окно за пределами вкладок --}}
+                    <a class="btn btn-outline-primary-dark btn-block my-0 hotel-card-button" style="text-align: left !important; padding-left: 1rem;" href="#" data-toggle="modal" data-target="#transfer">
+                        <i class="fas fa-car-side mr-2 fa-fw"></i> Трансфер
+                    </a>
 
                     {{-- Модальное окно с картой --}}
                     <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
@@ -140,6 +145,8 @@
 
                 </div>
             </div>
+            {{-- Модальное окно трансфера --}}
+            @include("includes.transfer-modal")
         </div>
 
         {{-- Второй ряд --}}

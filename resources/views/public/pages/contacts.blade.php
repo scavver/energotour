@@ -29,7 +29,7 @@
                     <p>График работы:</p>
                     <ul>
                         <li>пн-пт: 09:00 - 18:00</li>
-                        <li>сб: 10:00 - 14:00</li>
+                        <li>сб: 10:00 - 14:00 (1 мая – 30 сен)</li>
                         <li>вс: выходной</li>
                     </ul>
                     <p>e-mail: <a href="mailto:zakaz@energotour.com">zakaz@energotour.com</a></p>

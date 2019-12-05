@@ -71,9 +71,9 @@ class PageController extends Controller
     }
 
     // Страница "Регистрационные документы"
-    public function docs()
+    public function documents()
     {
-        return view('public.pages.docs');
+        return view('public.pages.documents');
     }
 
     // Страница "Экскурсии"

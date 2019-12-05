@@ -20,9 +20,9 @@
                     <ul>
                         <li class="heading">Туристам</li>
 
+                        <li class="item"><a href="/tourists/how-to-pay">Как оплатить</a></li>
                         <li class="item"><a href="/tourists/faq">Вопрос-ответ</a></li>
                         <li class="item"><a href="/pages/notes">Памятка туристам</a></li>
-                        <li class="item"><a href="/pages/events">Афиша Крыма</a></li>
                         <li class="item"><a href="/landmarks">Достопримечательности Крыма</a></li>
                     </ul>
                 </div>
@@ -34,8 +34,8 @@
 
                         <li class="item"><a href="/contacts">Контакты</a></li>
                         <li class="item"><a href="/history">История компании</a></li>
-                        <li class="item"><a href="/docs">Регистрационные документы</a></li>
-                        <li class="item"><a href="/pages/privacy-policy">Защита персональных данных</a></li>
+                        <li class="item"><a href="/documents">Регистрационные документы</a></li>
+                        <li class="item"><a href="/pages/privacy-policy">Обработка персональных данных</a></li>
                     </ul>
                 </div>
 

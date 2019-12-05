@@ -13,35 +13,35 @@
         <div class="container pb-3">
             <h3 class="pt-3 pb-3 mb-3 bordered-bottom">Как оплатить</h3>
 
-            <div class="card">
+            <div class="card" style="border-radius: 0rem !important;">
                 <div class="card-header">
                     <ul class="nav nav-pills card-header-pills" style="font-weight: 400 !important;">
                         <li class="nav-item">
-                            <a class="nav-link active" id="pills-cash-tab" data-toggle="pill" href="#pills-cash" role="tab" aria-controls="pills-cash" aria-selected="true">Наличными</a>
+                            <a class="nav-link custom active" id="pills-cash-tab" data-toggle="pill" href="#pills-cash" role="tab" aria-controls="pills-cash" aria-selected="true">Наличными</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-account-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account" aria-selected="false">На расчетный счет</a>
+                            <a class="nav-link custom" id="pills-account-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account" aria-selected="false">На расчетный счет</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-card-tab" data-toggle="pill" href="#pills-card" role="tab" aria-controls="pills-card" aria-selected="false">Картой</a>
+                            <a class="nav-link custom" id="pills-card-tab" data-toggle="pill" href="#pills-card" role="tab" aria-controls="pills-card" aria-selected="false">Картой</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-pay-travel-tab" data-toggle="pill" href="#pills-pay-travel" role="tab" aria-controls="pills-pay-travel" aria-selected="false">Терминалы Pay.Travel</a>
+                            <a class="nav-link custom" id="pills-pay-travel-tab" data-toggle="pill" href="#pills-pay-travel" role="tab" aria-controls="pills-pay-travel" aria-selected="false">Терминалы Pay.Travel</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-qiwi-tab" data-toggle="pill" href="#pills-qiwi" role="tab" aria-controls="pills-qiwi" aria-selected="false">QIWI</a>
+                            <a class="nav-link custom" id="pills-qiwi-tab" data-toggle="pill" href="#pills-qiwi" role="tab" aria-controls="pills-qiwi" aria-selected="false">QIWI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-megafon-tab" data-toggle="pill" href="#pills-megafon" role="tab" aria-controls="pills-megafon" aria-selected="false">Салоны Мегафон</a>
+                            <a class="nav-link custom" id="pills-megafon-tab" data-toggle="pill" href="#pills-megafon" role="tab" aria-controls="pills-megafon" aria-selected="false">Салоны Мегафон</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-prom-tab" data-toggle="pill" href="#pills-prom" role="tab" aria-controls="pills-prom" aria-selected="false">ПромСвязьБанк</a>
+                            <a class="nav-link custom" id="pills-prom-tab" data-toggle="pill" href="#pills-prom" role="tab" aria-controls="pills-prom" aria-selected="false">ПромСвязьБанк</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-mkb-tab" data-toggle="pill" href="#pills-mkb" role="tab" aria-controls="pills-mkb" aria-selected="false">МКБ</a>
+                            <a class="nav-link custom" id="pills-mkb-tab" data-toggle="pill" href="#pills-mkb" role="tab" aria-controls="pills-mkb" aria-selected="false">МКБ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+                            <a class="nav-link custom" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
                         </li>
                     </ul>
                 </div>

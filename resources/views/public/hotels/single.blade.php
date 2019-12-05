@@ -32,6 +32,8 @@
                     @if(count($food) > 0)
                         <a class="text-center text-md-right nav-link nav-link-single" id="v-pills-food-tab" data-toggle="pill" href="#v-pills-food" role="tab" aria-controls="v-pills-food" aria-selected="false">Питание</a>
                     @endif
+                    {{-- Кнопка забронировать --}}
+                    <a class="text-center text-md-right nav-link nav-link-single" href="/booking" target="_blank">Забронировать</a>
                 </div>
 
                 {{-- Баннер --}}
