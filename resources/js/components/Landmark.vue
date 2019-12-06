@@ -1,59 +1,54 @@
 <template>
-    <div v-if="isLoading" class="vh-100 d-flex justify-content-center">
-        <div class="spinner align-self-center">
-            <div class="cube1"></div>
-            <div class="cube2"></div>
-        </div>
-    </div>
-
-    <main v-else class="container pb-4">
-        <h3 class="pt-3 pb-3 bordered-bottom mb-3"><small class="d-none d-md-inline pl-3 pr-2"><a href="/landmarks"><i class="fas fa-arrow-left fa-fw"></i></a></small> {{ landmark.data.title }}</h3>
-
-        <template v-if="landmark.data.gallery !== null">
-
-            <div class="photo-gallery">
-                <div class="row photos">
-                    <template v-for="path in landmark.data.gallery.images">
-                        <div class="col-sm-6 col-md-4 col-lg-3 item"><a :href="'/' + path" data-toggle="lightbox" data-gallery="0"><img class="img-fluid" :src="'/' + path" style="height: 150px; object-fit: cover;"></a></div>
-                    </template>
-                </div>
+    <section>
+        <div v-if="loading" class="vh-100 d-flex justify-content-center">
+            <div class="spinner align-self-center">
+                <div class="cube1"></div>
+                <div class="cube2"></div>
             </div>
+        </div>
 
-        </template>
+        <main v-if="!loading && landmark" class="container pb-4">
+            <h3 class="pt-3 pb-3 bordered-bottom mb-3"><small class="d-none d-md-inline pl-3 pr-2"><a href="/landmarks"><i class="fas fa-arrow-left fa-fw"></i></a></small> {{ landmark.title }}</h3>
 
-        <div class="landmark-content" v-html="landmark.data.content"></div>
-    </main>
+            <template v-if="landmark.gallery">
+
+                <div class="photo-gallery">
+                    <div class="row photos">
+                        <a v-for="path in landmark.gallery.images" :href="'https://x.energotour.com/' + path" data-toggle="lightbox" :data-gallery="landmark.slug" class="col-sm-6 col-md-4 col-lg-3 item">
+                            <img class="img-fluid" :src="'https://x.energotour.com/' + path" style="height: 150px; width: 100%; object-fit: cover;">
+                        </a>
+                    </div>
+                </div>
+
+            </template>
+
+            <div class="landmark-content" v-html="landmark.content"></div>
+        </main>
+    </section>
 </template>
 
 <script>
     export default {
         data: () => ({
-            isLoading: true,        // Bootstrap spinner
-            landmark: {},           // Mounted API Array
+            loading: true,  // Bootstrap spinner
+            landmark: {},   // Object from API
         }),
-        async mounted() {
-            await Promise.all(this.getLandmark())
-                .catch( () => { this.isLoading = false; });
-
-            this.getLandmark();
+        mounted() {
+            this.getLandmark()
         },
         methods: {
             getLandmark() {
-                this.isLoading = true;
+                this.loading = true;
 
                 axios.get('/api' + this.$route.fullPath)
                     .then(response => {
-                        this.landmark = response.data
+                        this.landmark = response.data.data
                     })
                     .finally(() => {
-                        this.isLoading = false;
+                        this.loading = false;
                     })
 
             }
         }
     }
 </script>
-
-<style lang="scss">
-
-</style>
