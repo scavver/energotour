@@ -68,23 +68,36 @@
             </div>
         </div>
 
+        <div class="form-group mt-3">
+            <div class="row">
+                <div class="col">
+                    <label for="image">Обложка</label>
+                    <div class="input-group" id="image">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputFile" name="image">
+                            <label class="custom-file-label" for="inputFile">800x400px</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <label for="gallery">Галлерея</label>
+                    <select class="form-control" id="gallery" name="gallery">
+                        <option value="">Нету</option>
+                        @foreach($galleries as $gallery)
+                            <option value="{{ $gallery->id }}">{{ $gallery->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             <label for="editor">Материал</label>
             <textarea class="form-control" id="editor" name="content" rows="15" required></textarea>
 
             @error('content')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
-
-        <div class="form-group">
-            <label for="image">Обложка (800x400)</label>
-            <input type="file" class="form-control-file" id="image" name="image">
-
-            @error('image')
-            <span class="text-danger">
                 <strong>{{ $message }}</strong>
             </span>
             @enderror

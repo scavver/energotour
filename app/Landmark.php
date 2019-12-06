@@ -26,4 +26,12 @@ class Landmark extends Model
     {
         return $this->morphOne('App\Image', 'imageable');
     }
+
+    /**
+     * Get the landmark's gallery.
+     */
+    public function gallery()
+    {
+        return $this->morphOne('App\Gallery', 'galleriable', 'type', 'type_id');
+    }
 }

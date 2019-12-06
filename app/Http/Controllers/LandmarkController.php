@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gallery;
 use App\Landmark;
 use App\Region;
 use Illuminate\Http\Request;

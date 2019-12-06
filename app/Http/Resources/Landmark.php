@@ -23,6 +23,9 @@ class Landmark extends JsonResource
                 'name' => $this->region->name,
             ],
             'image' => $this->image['path'],
+            'gallery' => [
+                'images' => empty($this->gallery->images) ? null : $this->gallery->images->pluck('path')->all(),
+            ],
         ];
     }
 }

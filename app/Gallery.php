@@ -9,6 +9,14 @@ class Gallery extends Model
     // Атрибуты, для которых разрешено массовое назначение.
     protected $fillable = ['name', 'hotel_id', 'is_main', 'is_room'];
 
+    /**
+     * Get the owning galleriable model.
+     */
+    public function galleriable()
+    {
+        return $this->morphTo();
+    }
+
     // Получить картинки галереи.
     public function images()
     {

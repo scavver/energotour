@@ -13,7 +13,7 @@ class PageController extends Controller
     public function home()
     {
         $slides = Gallery::find(1)->images;
-        $regions = Region::all();
+        $regions = Region::take(4)->get();
         $popular = Hotel::whereHas('properties', function($q) { $q->where('id', 1); })->take(3)->get();
 
         $sanatorium = Hotel::whereHas('region', function($q) { $q->where('id', 1); })->get();

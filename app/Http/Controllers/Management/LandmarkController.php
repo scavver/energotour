@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Management;
 
+use App\Gallery;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
@@ -24,8 +25,9 @@ class LandmarkController extends Controller
     public function create()
     {
         $regions = Region::all();
+        $galleries = Gallery::all();
 
-        return view('management.landmarks.create', ['regions' => $regions]);
+        return view('management.landmarks.create', ['regions' => $regions, 'galleries' => $galleries]);
     }
 
     // Сохранить новую достопримечательность
@@ -40,6 +42,7 @@ class LandmarkController extends Controller
             'slug' => 'required|string|max:100|unique:landmarks',
             'region_id' => 'required|integer',
             'image' => 'nullable|image',
+            'gallery' => 'nullable|integer',
         ]);
 
         $landmark = Landmark::create(
@@ -54,6 +57,18 @@ class LandmarkController extends Controller
                 ['user_id' => $user->id]
             )
         );
+
+        if(is_null($request->gallery)) {
+            $gallery = Gallery::find($landmark->gallery->id);
+            $gallery->type_id = 0;
+            $gallery->type = NULL;
+            $gallery->save();
+        } elseif (is_int((int) $request->gallery)) {
+            $gallery = Gallery::find($request->gallery);
+            $gallery->type_id = $landmark->id;
+            $gallery->type = 'App\Landmark';
+            $gallery->save();
+        }
 
         // Добавляем изображение в хранилище и таблицу
         if($file = $request->hasFile('image')) {
@@ -73,9 +88,10 @@ class LandmarkController extends Controller
     public function edit($id)
     {
         $landmark = Landmark::find($id);
+        $galleries = Gallery::all();
         $regions = Region::all();
 
-        return view('management.landmarks.edit', ['landmark' => $landmark, 'regions' => $regions]);
+        return view('management.landmarks.edit', ['landmark' => $landmark, 'galleries' => $galleries, 'regions' => $regions]);
     }
 
     // Обновить достопримечательность
@@ -88,6 +104,7 @@ class LandmarkController extends Controller
             'slug' => 'required|string|max:100',
             'region_id' => 'required|integer',
             'image' => 'nullable|image',
+            'gallery' => 'nullable|integer',
         ]);
 
         $landmark = Landmark::find($id); // Определяем достопримечательность с которой работаем
@@ -99,6 +116,18 @@ class LandmarkController extends Controller
             'slug',
             'region_id',
         ]));
+
+        if(is_null($request->gallery)) {
+            $gallery = Gallery::find($landmark->gallery->id);
+            $gallery->type_id = 0;
+            $gallery->type = NULL;
+            $gallery->save();
+        } elseif (is_int((int) $request->gallery)) {
+            $gallery = Gallery::find($request->gallery);
+            $gallery->type_id = $landmark->id;
+            $gallery->type = 'App\Landmark';
+            $gallery->save();
+        }
 
         // Если в запросе есть файл изображения
         if($file = $request->hasFile('image')) {
