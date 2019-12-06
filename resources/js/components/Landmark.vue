@@ -13,9 +13,9 @@
             <div class="row px-3 pb-3 pt-0">
                 <div class="gallery card-columns px-3 my-0 py-0">
                     <template v-for="path in landmark.data.gallery.images">
-                        <a :href="path" data-toggle="lightbox" data-gallery="0">
+                        <a :href="'/' + path" data-toggle="lightbox" data-gallery="0">
                             <div class="card border-0">
-                                <img :src="path" class="card-img rounded-0" alt="">
+                                <img :src="'/' + path" class="card-img rounded-0" alt="">
                             </div>
                         </a>
                     </template>
