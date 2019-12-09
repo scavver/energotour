@@ -37,7 +37,7 @@ class HotelController extends Controller
                        $query->whereIn('property_id', $properties);
                    }, '>=', count($properties)); // Строгое соответствие всем выбранным параметрам
                })
-               ->orderBy('priority', 'desc')->get();
+               ->orderBy('priority', 'asc')->get();
 
            /**
             * Возвращаем коллекцию объектов в кастомном JSON шаблоне
@@ -51,7 +51,7 @@ class HotelController extends Controller
          * возвращаем коллекцию всех объектов в кастомном JSON шаблоне
          * `app/Http/Resources/Hotel.php` (API Resources)
          */
-        $hotels = Hotel::all();
+        $hotels = Hotel::orderBy('priority', 'desc')->get();
 
         return new HotelCollection($hotels);
     }
