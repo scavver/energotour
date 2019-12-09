@@ -211,6 +211,7 @@
         <div class="col">
             <h4>Адрес</h4>
             <p class="content">{{ $hotel->about->address }}</p>
+            <p>Билеты на самолет можно приобрести по <a href="{{ route('avia') }}" target="_blank"><strong>ссылке</strong></a>.</p>
         </div>
     </div>
 @endif
