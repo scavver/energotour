@@ -37,7 +37,7 @@ class HotelController extends Controller
                        $query->whereIn('property_id', $properties);
                    }, '>=', count($properties)); // Строгое соответствие всем выбранным параметрам
                })
-               ->get();
+               ->orderBy('priority', 'desc')->get();
 
            /**
             * Возвращаем коллекцию объектов в кастомном JSON шаблоне

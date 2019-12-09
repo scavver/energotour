@@ -14,7 +14,7 @@ class PageController extends Controller
     {
         $slides = Gallery::find(1)->images;
         $regions = Region::take(4)->get();
-        $popular = Hotel::whereHas('properties', function($q) { $q->where('id', 1); })->take(3)->get();
+        $popular = Hotel::whereHas('properties', function($q) { $q->where('id', 1); })->take(3)->orderBy('priority', 'desc')->get();
 
         $sanatorium = Hotel::whereHas('region', function($q) { $q->where('id', 1); })->get();
         $pool = Hotel::whereHas('properties', function($q) { $q->where('id', 2); })->where('id', '<>', 1)->get();
