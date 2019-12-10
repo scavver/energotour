@@ -38,11 +38,10 @@
                     {{-- Модальное окно за пределами навбара --}}
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ (request()->is('agencies') || request()->is('agencies/*')) ? 'active' : '' }}" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ (request()->is('agencies') || request()->is('agencies/*')) ? 'active' : '' }}" href="/agencies/" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Агентствам
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/agencies/">Форма отчета агента</a>
                         <a class="dropdown-item" href="/agencies/">Договора</a>
                     </div>
                 </li>
@@ -52,6 +51,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/tourists/how-to-booking">Как забронировать тур</a>
+                        <a class="dropdown-item" href="/tourists/public-offer">Публичная оферта</a>
                         <a class="dropdown-item" href="/tourists/how-to-pay">Как оплатить</a>
                     </div>
                 </li>

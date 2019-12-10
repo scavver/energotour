@@ -30,8 +30,11 @@ Route::prefix('landmarks')->group(function () {
 Route::prefix('tourists')->group(function () {
     Route::get('/how-to-booking', 'PageController@howToBooking')->name('tourists.howToBooking');    // Страница "Как забронировать тур"
     Route::get('/how-to-pay', 'PageController@howToPay')->name('tourists.howToPay');                // Страница "Как оплатить"
+    Route::get('/public-offer', 'PageController@publicOffer')->name('tourists.publicOffer');        // Страница "Как оплатить"
     Route::get('/faq', 'PageController@faq')->name('tourists.faq');                                 // Страница "Вопрос ответ"
 });
+
+Route::get('/agencies', 'PageController@agencies')->name('agencies.docs');                 // Страница "Как оплатить"
 
 Route::get('/history', 'PageController@history')->name('history');                         // Страница "История компании"
 Route::get('/contacts', 'PageController@contacts')->name('contacts');                      // Страница "Контакты"

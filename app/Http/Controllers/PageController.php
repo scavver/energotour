@@ -44,6 +44,18 @@ class PageController extends Controller
         return view('public.pages.howToBooking');
     }
 
+    // Страница "Публичная оферта"
+    public function publicOffer()
+    {
+        return view('public.pages.public-offer');
+    }
+
+    // Страница "Агентствам"
+    public function agencies()
+    {
+        return view('public.pages.agencies');
+    }
+
     // Страница "Как оплатить"
     public function howToPay()
     {
