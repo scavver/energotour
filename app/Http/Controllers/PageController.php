@@ -71,7 +71,7 @@ class PageController extends Controller
     // Страница "История компании"
     public function history()
     {
-        $galleries = Gallery::whereBetween('id', [52, 62])->get();
+        $galleries = Gallery::whereIn('id', [52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 365])->get();
 
         return view('public.pages.history', ['galleries' => $galleries]);
     }

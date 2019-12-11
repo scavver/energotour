@@ -59,10 +59,10 @@ class LandmarkController extends Controller
         );
 
         if(is_null($request->gallery)) {
-            $gallery = Gallery::find($landmark->gallery->id);
+            /*$gallery = Gallery::find($landmark->gallery->id);
             $gallery->type_id = 0;
             $gallery->type = NULL;
-            $gallery->save();
+            $gallery->save();*/
         } elseif (is_int((int) $request->gallery)) {
             $gallery = Gallery::find($request->gallery);
             $gallery->type_id = $landmark->id;
@@ -118,10 +118,10 @@ class LandmarkController extends Controller
         ]));
 
         if(is_null($request->gallery)) {
-            $gallery = Gallery::find($landmark->gallery->id);
+            /*$gallery = Gallery::find($landmark->gallery->id);
             $gallery->type_id = 0;
             $gallery->type = NULL;
-            $gallery->save();
+            $gallery->save();*/
         } elseif (is_int((int) $request->gallery)) {
             $gallery = Gallery::find($request->gallery);
             $gallery->type_id = $landmark->id;

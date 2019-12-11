@@ -17,38 +17,38 @@
 
             <h4 class="py-3">2008 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 52)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                    @foreach($gallery->images as $image)
-                        <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                            <div class="card border-0">
-                                <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                            </div>
-                        </a>
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 52)
+                                @foreach($gallery->images as $image)
+                                    <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                        <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                    </a>
+                                @endforeach
+                        @endif
                     @endforeach
-                    </div>
-                @endif
-            @endforeach
+                </div>
+            </div>
 
             <p>После 4-х лет сложной и скрупулёзный работы по созданию позитивного имиджа фирмы в 2008 году наша компания стала обладателем диплома в номинации «Лучший туроператор 2008» 9- го республиканского конкурса «Крымская жемчужина» учрежденным Министерством курортов и туризма АР Крым.</p>
             <p>Также 2008- ой год стал для нас особым после вручения грамоты из рук мэра г. Саки, Клюя О.В., за добросовестный труд, высокий профессионализм, значительный вклад в развитие рекреационной отрасли города Саки.</p>
 
             <h4 class="py-3">2009 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 53)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 53)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <p>Мы рады вам сообщить, что 2009 год, несмотря на мировой финансовый кризис, стал еще успешнее предыдущего, и наша компания была награждена почётной грамотой Совета Министров АР Крым, за значительный вклад в развитие туристической и санаторно- курортной отраслей АР Крым, высокий профессионализм и добросовестный труд из рук председателя Совета министров АР Крым Плакиды В.Т.</p>
             <p>Второй год подряд по итогам 10- го республиканского конкурса «Крымская Жемчужина» мы были награждены Дипломом в номинации «Лучший туроператор 2009».</p>
@@ -56,19 +56,19 @@
 
             <h4 class="py-3">2010 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 54)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 54)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <p>В 2010 году мы 2-й год подряд становимся обладателями дипломов "Лучший туроператор" санатория «Черноморье» п.Ливадия г.Ялта, санатория «Полтава-Крым» г.Саки, пансионата «Демерджи» г.Алушта.</p>
             <p>К этому почетному перечню крымских здравниц, которые отметили работу с нашей компанией, как с лучшим туроператором, в 2010 году добавились две замечательных алуштинских здравницы - санаторий «Золотой Колос» и санаторий «Алуштинский».</p>
@@ -76,19 +76,19 @@
 
             <h4 class="py-3">2011 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 55)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 55)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <p>В 2011 году наша компания по итогам Национального рейтинга качества товаров и услуг получило статус «Лучшее туристическое агентство региона 2011» и знак отличия «Звезда качества 2011»</p>
             <p>Также наша компания 3-й год подряд становится обладателем дипломов «Лучший партнер» от санатория «Черноморье» пгт. Ливадия и пансионата «Демерджи» г. Алушта.</p>
@@ -98,19 +98,19 @@
 
             <h4 class="py-3">2012 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 56)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 56)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <p>2012 год – год активной работы и новых достижений.</p>
             <p><strong>Нашу компанию отметили:</strong></p>
@@ -126,19 +126,19 @@
 
             <h4 class="py-3">2013 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 57)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 57)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <p>Директор компании «Энерготур» избран председателем Ассоциации Лидеров Турбизнеса Крыма.</p>
             <p><strong>Нашу компанию отметили:</strong></p>
@@ -157,19 +157,19 @@
 
             <h4 class="py-3">2014 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 58)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 58)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <p><strong>ФК "Шахтер" Донецк - прeмиум партнерство</strong></p>
             <img src="https://shakhtar.com/assets/images/global/logo.svg" width="100px" class="pt-1 pb-3">
@@ -190,19 +190,19 @@
 
             <h4 class="py-3">2015 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 59)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 59)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <p>Директор компании "Энерготур" избран Председателем Профсоюза работников тур-индустрии Республики Крым.</p>
 
@@ -223,19 +223,19 @@
 
             <h4 class="py-3">2016 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 60)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 60)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <ul>
                 <li>Санаторий "Мисхор" пгт. Кореиз - диплом "Надежный партнер 2016 года"</li>
@@ -253,19 +253,19 @@
 
             <h4 class="py-3">2017 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 61)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 61)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <ul>
                 <li>Отель "Петр" г. Евпатория - диплом "Лучший туроператор 2017"</li>
@@ -284,19 +284,19 @@
 
             <h4 class="py-3">2018 год</h4>
 
-            @foreach ($galleries as $gallery)
-                @if($gallery->id == 62)
-                    <div class="gallery card-columns px-3 mb-3 py-0">
-                        @foreach($gallery->images as $image)
-                            <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}">
-                                <div class="card border-0">
-                                    <img src="{{ asset($image->path_sm) }}" class="card-img rounded-0" alt="{{ $image->alt }}">
-                                </div>
-                            </a>
-                        @endforeach
-                    </div>
-                @endif
-            @endforeach
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 62)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
 
             <ul>
                 <li>Санаторий "Полтава-Крым" г. Саки - диплом "Партнер 2018 года"</li>
@@ -309,7 +309,31 @@
                 <li>Санаторий "Курпаты" п. Гаспра - благодарность "За плодотворное сотрудничество и существенный вклад в развитие санатория в 2018 году"</li>
             </ul>
 
-            <p>Мы искренне делаем все необходимое для того, чтобы поддерживать репутацию ведущего туроператора Крыма. Мы уверены, что стабильность работы и профессионализм- залог успеха. Желаем туристам хорошего отдыха, а партнерам успешных продаж</p>
+            <h4 class="py-3">2019 год</h4>
+
+            <div class="photo-gallery">
+                <div class="row photos">
+                    @foreach ($galleries as $gallery)
+                        @if($gallery->id == 365)
+                            @foreach($gallery->images as $image)
+                                <a href="{{ asset($image->path) }}" data-toggle="lightbox" data-gallery="{{ $gallery->id }}" class="col-6 col-sm-6 col-md-3 col-lg-2 item">
+                                    <img class="img-fluid" src="{{ asset($image->path) }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                </a>
+                            @endforeach
+                        @endif
+                    @endforeach
+                </div>
+            </div>
+
+            <ul>
+                <li>Санаторий "Полтава-Крым" г. Саки - диплом "Партнер 2019 года"</li>
+                <li>Санаторий "Нижняя Ореанда" п. Ореанда - диплом "Лучший туроператор 2019 года"</li>
+                <li>Отель "Сказка" г. Алушта - диплом "Лучший туроператор 2019 года"</li>
+                <li>Отель "Петр" г. Евпатория - диплом "Лучший туроператор 2019"</li>
+                <li>Санаторий "Курпаты" п. Гаспра - благодарность "За плодотворное сотрудничество и существенный вклад в развитие санатория в 2019 году"</li>
+            </ul>
+
+            <p>Мы искренне делаем все необходимое для того, чтобы поддерживать репутацию ведущего туроператора Крыма. Мы уверены, что стабильность работы и профессионализм – залог успеха. Желаем туристам хорошего отдыха, а партнерам успешных продаж</p>
         </div>
     </main>
 @endsection
