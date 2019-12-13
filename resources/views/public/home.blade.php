@@ -159,6 +159,7 @@
                             <div class="hotel-name">{{ $hotel->name }}</div>
                             <div class="region-type">{{ $hotel->region->name }} | {{ $hotel->type->name }}</div>
                             @if(!empty($hotel->price))<div class="price-discount"><s class="pr-1">{{ $hotel->price->min_price }}</s> {{ intval($hotel->price->min_price - ($hotel->price->min_price * ($hotel->discount->max_discount / 100))) }} руб. <span class="pl-3">-{{ $hotel->discount->max_discount }}%</span></div>@endif
+                            <div class="region-type mb-0">с чел. в сутки</div>
                         </div>
                     </div>
                 </a>

@@ -54,7 +54,7 @@
                         <span class="discount">
                             -{{ $hotel->discount['max_discount'] }}%
                         </span>
-                        <p class="my-1">цена от, с чел. в сутки</p>
+                        <p class="my-1">с чел. в сутки</p>
                         @endif
                         @else Чтобы уточнить стоимость пожалуйста свяжитесь с нашим менеджером. @endif</div>
 
