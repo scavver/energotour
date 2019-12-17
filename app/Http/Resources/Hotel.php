@@ -12,21 +12,20 @@ class Hotel extends Resource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-
-    // Laravel Documentation Eloquent: API Resources
     public function toArray($request)
     {
-        /**
-         * 'properties' => $this->properties->map(function($row){ return $row->only(['id','class','title']); });
-         *
-         * Не лучшая практика использовать функцию map - лучше создать отдельный ресурс.
-         */
         return [
+            'id' => $this->id,
             'enabled' => $this->enabled,
             'name' => $this->name,
             'slug' => $this->slug,
             'type' => $this->type,
             'image' => $this->image['path'],
+            'rooms' => $this->rooms->map(function ($item) {
+                return collect($item->toArray())
+                    ->only(['id', 'name'])
+                    ->all();
+            }),
             'region' => [
                 'id' => $this->region->id,
                 'name' => $this->region->name,
