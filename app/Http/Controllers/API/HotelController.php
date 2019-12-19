@@ -52,7 +52,6 @@ class HotelController extends Controller
          * `app/Http/Resources/Hotel.php` (API Resources)
          */
         $hotels = Hotel::orderBy('priority', 'desc')->get();
-
         return new HotelCollection($hotels);
     }
 }

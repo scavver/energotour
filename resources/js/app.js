@@ -11,14 +11,15 @@ require('./summernote');
 window.Vue = require('vue');
 window.ekkoLightbox = require('ekko-lightbox');
 window.summernote = require('summernote/dist/summernote-bs4');
-
-// Плагины
+window.dayjs = require('dayjs');
 
 import Toastr from 'vue-toastr';
 import VueRouter from 'vue-router';
 import YmapPlugin from 'vue-yandex-maps';
+import Datepicker from 'vuejs-datepicker';
+import Vuelidate from 'vuelidate';
 
-// Настройки компонента Яндекс Карт
+// Yandex.Maps
 
 const settings = {
     apiKey: ''  // TODO: Use .env variable
@@ -27,6 +28,8 @@ const settings = {
 Vue.use(Toastr);
 Vue.use(VueRouter);
 Vue.use(YmapPlugin, settings);
+Vue.use(Datepicker);
+Vue.use(Vuelidate);
 
 // Компоненты
 
@@ -37,6 +40,8 @@ Vue.component('accommodation-location', require('./components/AccommodationLocat
 Vue.component('accommodation-markers', require('./components/AccommodationMarkers').default);
 Vue.component('landmark-list', require('./components/LandmarkList').default);
 Vue.component('landmark', require('./components/Landmark').default);
+Vue.component('order', require('./components/Order').default);
+Vue.component('datepicker', Datepicker);
 
 // Настройки Vue Router
 

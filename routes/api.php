@@ -19,14 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-/**
- * API на данный момент используется преимущественно для
- *
- * Отображения динамического списка объектов размещения;
- * Подгрузки координат на яндекс карты;
- * Достопримечатнльностей.
- */
-
 Route::get('hotels', 'API\HotelController@get_hotels');
 
 Route::get('types', 'API\TypeController@get_types');
@@ -40,8 +32,6 @@ Route::get('properties/{id}', 'API\PropertyController@get_hotel_ids');
 
 Route::get('coords', 'API\CoordController@get_coords');
 Route::get('coords/{slug}', 'API\CoordController@get_hotel_coords');
-
-// Достопримечательности
 
 Route::get('landmarks', 'API\LandmarkController@get_landmarks');
 Route::get('landmarks/{slug}', 'API\LandmarkController@get_landmark');

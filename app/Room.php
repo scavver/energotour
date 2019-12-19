@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'name',
         'hotel_id',
@@ -14,7 +18,7 @@ class Room extends Model
         'number_of_rooms',
         'category',
         'view',
-        'number_of_hotels',
+        'number_of_places',
         'number_of_extra_hotels',
         'area',
         'furniture',
@@ -23,15 +27,27 @@ class Room extends Model
         'service'
     ];
 
-    // Получить объект размещения, владеющий номером.
+    /**
+     * Get the hotel that owns the room.
+     */
     public function hotel()
     {
         return $this->belongsTo('App\Hotel');
     }
 
-    // Получить галерею номера.
+    /**
+     * Get the gallery that owns the room.
+     */
     public function gallery()
     {
         return $this->belongsTo('App\Gallery');
+    }
+
+    /**
+     * Get the orders for the room.
+     */
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
     }
 }

@@ -11,21 +11,29 @@
 |
 */
 
-Route::get('/', 'PageController@home')->name('home');   // Главная страница
-Route::get('/pages/{slug}', 'PageController@page');     // Кастомные страницы (Контакты, О компании, и т.д.)
+Auth::routes(['verify' => true, 'register' => false]);  # Laravel Authorization + disabling register route
 
-Auth::routes(['verify' => true, 'register' => false]);  // Laravel Authorization, Блокировка регистрации
+/**
+ * Public Routes
+ *
+ *
+ */
+Route::get('/', 'PageController@home')->name('home');   # Main page
+Route::get('/pages/{slug}', 'PageController@page');     # Pages
 
-// Public
 Route::prefix('hotels')->group(function () {
-    Route::get('/', 'HotelController@index')->name('hotels');                 // Список всех мест размещения - "Санатории и отели"
-    Route::get('/{slug}', 'HotelController@single')->name('hotels.single');   // Страница санатория или отеля
+    Route::get('/', 'HotelController@index')->name('hotels');                 # Hotels
+    Route::get('/order', 'OrderController@create')->name('create');           # Order
+    Route::post('/order', 'OrderController@store');                           # Order (POST)
+    Route::get('/{slug}', 'HotelController@single')->name('hotels.single');   # Hotel
 });
 
 Route::prefix('landmarks')->group(function () {
-    Route::get('/', 'LandmarkController@index')->name('landmarks');                 // Список всех достопримечательностей
-    Route::get('/{slug}', 'LandmarkController@single')->name('landmarks.single');   // Страница достопримечательности
+    Route::get('/', 'LandmarkController@index')->name('landmarks');                 # Landmarks
+    Route::get('/{slug}', 'LandmarkController@single')->name('landmarks.single');   # Landmark
 });
+
+# TODO: Make custom pages -> usual (/pages/{slug}).
 
 Route::prefix('tourists')->group(function () {
     Route::get('/how-to-booking', 'PageController@howToBooking')->name('tourists.howToBooking');    // Страница "Как забронировать тур"
@@ -42,30 +50,40 @@ Route::get('/excursions', 'PageController@excursions')->name('excursions');     
 Route::get('/documents', 'PageController@documents')->name('documents');                   // Страница "Ргеистрационные документы"
 Route::get('/avia', 'PageController@avia')->name('avia');                                  // Страница "Авиабилеты"
 
-Route::get('booking', function () {
-    return view('public.booking');
-})->name('booking');
+Route::get('booking', function () { return view('public.booking'); })->name('booking');
 
-// Management
+
+/**
+ * Management Routes
+ *
+ *
+ */
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('management')->group(function () {
-        Route::get('/', 'ManagementController@dashboard')->name('dashboard');                               // Контрольная панель
+        Route::get('/', 'ManagementController@dashboard')->name('dashboard');                               # Dashboard
 
-        Route::resource('/landmarks', 'Management\LandmarkController')->except(['show']);                   // Достопримечательности
-        Route::resource('/pages', 'Management\PageController')->except(['show']);                           // Страницы
-        Route::resource('/galleries', 'Management\GalleryController')->except(['show']);                    // Галереи
-        Route::resource('/rooms', 'Management\RoomController')->except(['show']);                           // Номера
-        Route::resource('/about', 'Management\AboutController')->except(['show']);                          // Описания
-        Route::resource('/food', 'Management\FoodController')->except(['show']);                            // Питание
-        Route::resource('/infrastructure', 'Management\InfrastructureController')->except(['show']);        // Инфраструктура
-        Route::resource('/treatment', 'Management\TreatmentController')->except(['show']);                  // Лечение
-        Route::resource('/hotels', 'Management\HotelController')->except(['show']);                         // Места
-        Route::resource('/prices', 'Management\PriceController')->except(['show']);                         // Прайсы
-        Route::resource('/discounts', 'Management\DiscountController')->except(['show']);                   // Скидки
-        Route::resource('/users', 'Management\UserController')->except(['show']);                           // Пользователи
-        Route::resource('/properties', 'Management\PropertyController')->except(['show']);                  // Услуги и удобства
-        Route::resource('/regions', 'Management\RegionController')->except(['show']);                       // Регионы
-        Route::resource('/types', 'Management\TypeController')->except(['show']);                           // Типы
-        Route::resource('/images', 'Management\ImageController')->except(['index', 'create', 'show']);      // Картинки
+        Route::resource('/images', 'Management\ImageController')->except(['index', 'create', 'show']);      # Images
+        Route::resource('/galleries', 'Management\GalleryController')->except(['show']);                    # Galleries
+
+        Route::resource('/landmarks', 'Management\LandmarkController')->except(['show']);                   # Landmarks
+        Route::resource('/pages', 'Management\PageController')->except(['show']);                           # Pages
+
+        Route::resource('/hotels', 'Management\HotelController')->except(['show']);                         # Hotels
+        Route::resource('/properties', 'Management\PropertyController')->except(['show']);                  # Properties
+        Route::resource('/regions', 'Management\RegionController')->except(['show']);                       # Regions
+        Route::resource('/types', 'Management\TypeController')->except(['show']);                           # Types
+        Route::resource('/discounts', 'Management\DiscountController')->except(['show']);                   # Discounts
+        Route::resource('/prices', 'Management\PriceController')->except(['show']);                         # Prices
+
+        Route::resource('/rooms', 'Management\RoomController')->except(['show']);                           # Rooms
+        Route::resource('/about', 'Management\AboutController')->except(['show']);                          # About
+        Route::resource('/food', 'Management\FoodController')->except(['show']);                            # Food
+        Route::resource('/infrastructure', 'Management\InfrastructureController')->except(['show']);        # Infrastructure
+        Route::resource('/treatment', 'Management\TreatmentController')->except(['show']);                  # Treatment
+
+        Route::resource('/users', 'Management\UserController')->except(['show']);                           # Users
+
+        Route::resource('/orders', 'Management\OrderController')->except(['create', 'store', 'edit', 'update']); # Orders
     });
 });

@@ -1,5 +1,6 @@
 <div class="nav flex-column nav-pills mx-0" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <a class="nav-link {{ request()->is('management') ? 'active' : '' }}" href="{{ url('/management') }}"><i class="fas fa-tachometer-alt fa-fw mr-2"></i> Контрольная панель</a>
+    <a class="nav-link {{ request()->is('management/orders')||request()->is('management/orders/*') ? 'active' : '' }}" href="{{ url('/management/orders') }}"><i class="fas fa-clipboard-list fa-fw mr-2"></i> Заявки</a>
     <a class="nav-link {{ request()->is('management/hotels')||request()->is('management/hotels/*') ? 'active' : '' }}" href="{{ url('/management/hotels') }}"><i class="fas fa-map-pin fa-fw mr-2"></i> Объекты размещения</a>
     <a class="nav-link {{ request()->is('management/landmarks')||request()->is('management/landmarks/*') ? 'active' : '' }}" href="{{ url('/management/landmarks') }}"><i class="fas fa-landmark fa-fw mr-2"></i> Достопримечательности</a>
     <a class="nav-link {{ request()->is('management/pages')||request()->is('management/pages/*') ? 'active' : '' }}" href="{{ url('/management/pages') }}"><i class="far fa-newspaper fa-fw mr-2"></i> Страницы</a>
