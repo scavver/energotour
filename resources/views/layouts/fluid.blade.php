@@ -7,6 +7,7 @@
     <title>{{ config('app.name', 'Energotour') }} - @yield("title")</title>
     <meta name="description" content="@yield("description")">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @include("includes.analytics")
 </head>
 <body>
 <div id="app">

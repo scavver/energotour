@@ -6,6 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Management') }} - @yield('title')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @include("includes.analytics")
 </head>
 <body>
     <div id="app">

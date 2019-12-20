@@ -14,8 +14,8 @@
 
                 <div class="photo-gallery">
                     <div class="row photos">
-                        <a v-for="path in landmark.gallery.images" :href="'https://x.energotour.com/' + path" data-toggle="lightbox" :data-gallery="landmark.slug" class="col-sm-6 col-md-4 col-lg-3 item">
-                            <img class="img-fluid" :src="'https://x.energotour.com/' + path" style="height: 150px; width: 100%; object-fit: cover;">
+                        <a v-for="path in landmark.gallery.images" :href="'https://energotour.com/' + path" data-toggle="lightbox" :data-gallery="landmark.slug" class="col-sm-6 col-md-4 col-lg-3 item">
+                            <img class="img-fluid" :src="'https://energotour.com/' + path" style="height: 150px; width: 100%; object-fit: cover;">
                         </a>
                     </div>
                 </div>

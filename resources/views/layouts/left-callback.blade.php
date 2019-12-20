@@ -7,6 +7,7 @@
     <title>Забронировать @yield("title") – со скидкой</title>
     <meta name="description" content="@yield("description")">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @include("includes.analytics")
 </head>
 <body>
 <div id="app">
