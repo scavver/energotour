@@ -12,9 +12,8 @@ class PageController extends Controller
     // Главная страница
     public function home()
     {
-        return view('public.maintenance');
+        # return view('public.maintenance');
 
-        /*
         $slides = Gallery::find(1)->images;
         $regions = Region::take(4)->get();
         $popular = Hotel::whereHas('properties', function($q) { $q->where('id', 1); })->take(3)->orderBy('priority', 'desc')->get();
@@ -24,7 +23,6 @@ class PageController extends Controller
         $family = Hotel::whereHas('properties', function($q) { $q->where('id', 7); })->where('id', '<>', 1)->get();
 
         return view('public.home', ['slides' => $slides, 'regions' => $regions, 'popular' => $popular, 'sanatorium' => $sanatorium, 'pool' => $pool, 'family' => $family]);
-        */
     }
 
     // Кастомные страницы (Контакты, О компании, и т.д.)
