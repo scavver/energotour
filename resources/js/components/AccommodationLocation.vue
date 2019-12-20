@@ -33,7 +33,7 @@
 
                 let slug = this.$route.fullPath.match("[^\/]+$"); // - /hotels/crimea-breeze -> crimea-breeze
 
-                axios.get('/api/coords/' + slug)
+                axios.get('https://energotour.com/api/coords/' + slug)
                     .then(response => {
                         this.hotels = response.data
                     })

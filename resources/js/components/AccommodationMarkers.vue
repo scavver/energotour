@@ -49,7 +49,7 @@
             getCoords() {
                 this.isLoading = true;
 
-                axios.get('/api/coords/')
+                axios.get('https://energotour.com/api/coords/')
                     .then(response => {
                         this.hotels = response.data
                     })
