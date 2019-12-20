@@ -10,6 +10,7 @@ use App\Region;
 use App\Hotel;
 use App\Image;
 use App\Type;
+use Intervention\Image\Facades\Image as Intervention;
 
 class HotelController extends Controller
 {
@@ -132,11 +133,23 @@ class HotelController extends Controller
                 // Сохраняем новый файл
                 $file_path = $request->image->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
 
+                // Подгоняем под 800х400
+                $resized = Intervention::make($file_path)->fit(800, 400, function ($constraint) {
+                    $constraint->upsize();
+                });
+                $resized->save($file_path);
+
                 $old_image->path = $file_path; // Заменяем путь на новый
                 $old_image->save();
             }
             else {
                 $file_path = $request->image->store('images'); // Сохраняем изображение в хранилище получаем в ответ путь
+
+                // Подгоняем под 800х400
+                $resized = Intervention::make($file_path)->fit(800, 400, function ($constraint) {
+                    $constraint->upsize();
+                });
+                $resized->save($file_path);
 
                 $image = new Image(); // Новая запись в таблицу с изображениями
                 $image->path = $file_path; // Передаем путь
