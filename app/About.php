@@ -6,13 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class About extends Model
 {
-    // Связанная с моделью таблица.
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'about';
 
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['hotel_id', 'description', 'rules_of_settlement', 'included_services', 'address', 'territory', 'reconstruction', 'children'];
 
-    // Получить отель, владеющий этим описанием.
+    /**
+     * Get hotel that owns this description.
+     */
     public function hotel()
     {
         return $this->belongsTo('App\Hotel');

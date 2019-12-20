@@ -36,9 +36,9 @@
             <dd class="col-6 col-md-8">{{ $room->view }}</dd>
             @endif
 
-            @if(!empty($room->number_of_hotels))
+            @if(!empty($room->number_of_places))
             <dt class="col-6 col-md-4">Кол-во основных мест</dt>
-            <dd class="col-6 col-md-8">{{ $room->number_of_hotels }}</dd>
+            <dd class="col-6 col-md-8">{{ $room->number_of_places }}</dd>
             @endif
 
 

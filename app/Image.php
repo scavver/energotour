@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Image extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['imageable_id', 'imageable_type', 'alt', 'path_compressed', 'path_sm', 'priority', 'gallery_id'];
 
     // Получить все модели, обладающие imageable

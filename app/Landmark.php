@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Landmark extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['region_id', 'user_id', 'title', 'description', 'content', 'slug'];
 
     // Получить регион достопримечательности

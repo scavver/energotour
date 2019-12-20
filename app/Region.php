@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Region extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['name'];
 
     // Определяет необходимость отметок времени для модели.

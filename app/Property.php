@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Property extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['title', 'class'];
 
     protected $hidden = ['pivot'];

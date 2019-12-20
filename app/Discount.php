@@ -6,10 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Discount extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['content', 'max_discount', 'hotel_id'];
 
-    // Получить место размещения, владеющее скидкой.
+    /**
+     * Get the hotel that owns a discount.
+     */
     public function hotel()
     {
         return $this->belongsTo('App\Hotel');

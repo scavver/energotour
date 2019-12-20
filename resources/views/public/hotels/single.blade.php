@@ -33,7 +33,9 @@
                         <a class="text-center text-md-right nav-link nav-link-single" id="v-pills-food-tab" data-toggle="pill" href="#v-pills-food" role="tab" aria-controls="v-pills-food" aria-selected="false">Питание</a>
                     @endif
                     {{-- Кнопка забронировать --}}
-                    <a class="text-center text-md-right nav-link nav-link-single" href="/booking" target="_blank">Забронировать</a>
+                    <a class="text-center text-md-right nav-link nav-link-single" href="/hotels/order" target="_blank" style="color: #fb0053 !important">Оставить заявку <i class="fas fa-clipboard-list fa-fw ml-1"></i></a>
+                    {{-- Кнопка забронировать --}}
+                    <a class="text-center text-md-right nav-link nav-link-single" href="/booking" target="_blank" style="color: #9C27B0 !important">Забронировать <i class="fas fa-external-link-alt fa-fw ml-1"></i></a>
                 </div>
 
                 {{-- Баннер --}}

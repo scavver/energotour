@@ -10,24 +10,46 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'name', 'email', 'password',
     ];
 
-    // Скрытие атрибутов при преобразовании в массив или JSON
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
     protected $hidden = [
         'password', 'remember_token',
     ];
 
-    // Атрибуты, которые нужно преобразовать в нативный тип.
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
 
-    // Получить достопримечательности созданные пользователем
+    /**
+     * Get the landmarks for the user (manager).
+     */
     public function landmarks()
     {
         return $this->hasMany('App\Landmark');
+    }
+
+    /**
+     * Get the orders for the user (manager).
+     */
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
     }
 }

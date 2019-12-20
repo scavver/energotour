@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Page extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['title', 'description', 'content', 'slug'];
 }

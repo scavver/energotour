@@ -94,11 +94,11 @@
         <div class="form-group">
             <div class="row">
                 <div class="col">
-                    <label for="number_of_hotels">Кол-во основных мест</label>
+                    <label for="number_of_places">Кол-во основных мест</label>
 
-                    <input id="number_of_hotels" type="text" class="form-control @error('number_of_hotels') is-invalid @enderror" name="number_of_hotels" value="{{ old('number_of_hotels') }}" required autocomplete="number_of_hotels">
+                    <input id="number_of_places" type="text" class="form-control @error('number_of_places') is-invalid @enderror" name="number_of_places" value="{{ old('number_of_places') }}" required autocomplete="number_of_places">
 
-                    @error('number_of_hotels')
+                    @error('number_of_places')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>

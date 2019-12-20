@@ -6,10 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Infrastructure extends Model
 {
-    // Связанная с моделью таблица.
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'infrastructure';
 
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['hotel_id', 'pool', 'beach', 'entertainments', 'sport', 'wi_fi', 'parking', 'extra'];
 
     // Получить отель, владеющий этой информацией по инфраструктуре.

@@ -6,10 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Food extends Model
 {
-    // Связанная с моделью таблица.
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
     protected $table = 'food';
 
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['hotel_id', 'included', 'extra'];
 
     // Получить отель, владеющий этой информацией по питанию.

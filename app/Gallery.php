@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gallery extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['name', 'hotel_id', 'is_main', 'is_room'];
 
     /**

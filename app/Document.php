@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Document extends Model
 {
-    // Атрибуты, для которых разрешено массовое назначение.
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = ['documentable_id', 'documentable_type', 'path'];
 
     // Получить все модели, обладающие documentable
