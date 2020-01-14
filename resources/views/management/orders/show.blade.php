@@ -36,7 +36,7 @@
     <dl class="row">
     @foreach($order->tourists as $tourist)
         <dt class="col-sm-3">Фамилия, имя, год рождения</dt>
-        <dd class="col-sm-9">{{ $tourist->last_name }} {{ $tourist->first_name }} {{ date("d.m.Y", strtotime($tourist->date_of_bith)) }}</dd>
+        <dd class="col-sm-9">{{ $tourist->last_name }} {{ $tourist->first_name }} {{ $tourist->date_of_bith }}</dd>
     @endforeach
     </dl>
     @if(!empty($order->comment))
