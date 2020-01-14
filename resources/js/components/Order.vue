@@ -115,7 +115,7 @@
                     };
                     try {
                         await axios.post('/hotels/order', order);
-                        this.$toastr.s('Mister, everything seems ok, boss.')
+                        this.$toastr.s('Заявка принята.')
                     } catch (e) {
                         this.$toastr.w(e.response.data.message);
                         return Promise.reject(e)

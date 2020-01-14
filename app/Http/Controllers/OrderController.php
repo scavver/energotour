@@ -45,7 +45,7 @@ class OrderController extends Controller
         $arrival = date("d.m.Y", strtotime($order->arrival));
         $departure = date("d.m.Y", strtotime($order->departure));
         $hotel = Hotel::find($validated['hotel_id'])->first();
-        $room = Room::find($validated['room_id'])->first();
+        $room = $order->room;
         $tourists = [];
 
         foreach ($validated['tourists'] as $key => $tourist) {
@@ -57,6 +57,6 @@ class OrderController extends Controller
         Mail::to(env('OFFICE_EMAIL'))->send(new OrderNotification($payer));
         Mail::to($payer['email'])->send(new OrderCopy($arrival, $departure, $hotel, $room, $payer, $order, $tourists));
 
-        return response('Hello, Boss!', 200);
+        return response('Заявка успешно принята!', 200);
     }
 }
