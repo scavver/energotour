@@ -9,106 +9,43 @@
 @endsection
 
 @section('content')
-     <div class="container-fluid bg-primary-dark-color pt-md-4 px-0">
-            <div class="container">
-                <div class="row">
-                    {{--<div class="col-12 col-sm-12 col-md-4 px-0 mb-3 mb-md-0 d-flex align-items-center">
-                        <iframe src="https://samo.energotour.com/fast_search" frameborder="0" height="387px" width="100%" scrolling="no"></iframe>--}}
-                        {{-- <div class="card border-0 shadow-sm h-100" id="fast-search">
-                            <div class="card-body pt-0">
-                                <h5 class="card-title my-3">Онлайн бронирование</h5>
-                                <div class="form-group">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option value="" disabled selected>Направление</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option value="" disabled selected>Место размещения</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="form-control" id="exampleFormControlSelect1">
-                                        <option value="" disabled selected>Дата заезда</option>
-                                    </select>
-                                </div>
-                                <div class="form-group form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control form-control" placeholder="Цена до">
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control form-control" placeholder="Ночей">
-                                    </div>
-                                </div>
-                                <div class="form-group form-row">
-                                    <div class="col">
-                                        <input type="text" class="form-control form-control" placeholder="Взрослых">
-                                    </div>
-                                    <div class="col">
-                                        <input type="text" class="form-control form-control" placeholder="Детей">
-                                    </div>
-                                </div>
-
-                                <button type="button" class="btn btn-primary text-white btn btn-block">Найти</button>
+     <div class="container-fluid bg-primary-dark-color px-0">
+            
+                {{-- Слайдер --}}
+                @if (!empty($slides))
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        @for($i = 0; $i < count($slides); $i++)
+                            <li data-target="#carouselExampleIndicators" data-slide-to="{{ $i }}" class="
+                                @if($i == 0)
+                                    active
+                                @endif">
+                            </li>
+                        @endfor
+                    </ol>
+                    <div class="carousel-inner">
+                        @foreach($slides as $slide)
+                            <div class="carousel-item @if($loop->first) active @endif">
+                                <img class="d-block" src="{{ asset($slide->path) }}" class="card-img" alt="{{ $slide->alt }}" style="height: 65vh; width: 100%; object-fit: cover">
                             </div>
-                        </div>--}}
-
-                    {{--</div>--}}
-
-                    <div class="col-12 col-sm-12 col-md-12 col-xl-12 pr-md-0 d-flex text-center align-items-center">
-                        @if (count($slides) > 0)
-                            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                </ol>
-                                <div class="carousel-inner shadow-sm" style="border-radius: .5rem">
-                                    @foreach($slides as $slide)
-                                        <div class="carousel-item @if($loop->first) active @endif">
-                                            <img class="d-block w-100 h-100" src="{{ $slide->path }}" class="card-img" alt="{{ $slide->alt }}">
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        @else
-                            <div class="d-flex justify-content-center text-center m-3">
-                                <span class="text-danger">Не удалось загрузить коллекцию изображений слайдера<br>views.public.home | app/Http/Controllers/PageController</span>
-                            </div>
-                        @endif
+                        @endforeach
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
-            </div>
-     </div>
+            @else
+                <div class="d-flex justify-content-center text-center m-3">
+                    <span class="text-danger">Не удалось загрузить коллекцию изображений слайдера<br>views.public.hotels.single | app/Http/Controllers/HotelController</span>
+                </div>
+            @endif
 
-    <div class="container-fluid bg-primary-dark-color">
-        <div class="container">
-            <div class="row pt-3 pb-4">
-                <div class="col text-center">
-                    <p id="about" class="mb-0" style="color: white; opacity: .85">
-                        Менеджеры нашей компании с удовольствием
-                        помогут Вам выбрать отель или санаторий в Крыму,
-                        который максимально оправдает Ваши ожидания от
-                        долгожданного отдыха. ООО «ТК «Энерго-Тур»
-                        работает с отелями и санаториями Ялты, Алушты,
-                        Евпатории и других городов Крыма с 2004 года. За
-                        это время мы посетили каждый из отелей, которые
-                        Вам предлагаем и, зная все их особенности, можем
-                        помочь с оптимальным выбором места Вашего
-                        будущего отдыха!
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+     </div>
 
     @if (count($regions) > 0)
     <div class="container-fluid bg-white">
@@ -219,11 +156,23 @@
          </div>
      </div>
 
-     {{--<div class="container-fluid bg-white">
+     <div class="container-fluid bg-white">
          <div class="container p-3 text-center">
-             <h4 class="mb-0 text-eclipse">Отели на карте</h4>
+             <p id="about" class="mb-0" style="font-family: Ubuntu,sans-serif; opacity: .85">
+                Менеджеры нашей компании с удовольствием
+                помогут Вам выбрать отель или санаторий в Крыму,
+                который максимально оправдает Ваши ожидания от
+                долгожданного отдыха. ООО «ТК «Энерго-Тур»
+                работает с отелями и санаториями Ялты, Алушты,
+                Евпатории и других городов Крыма с 2004 года. За
+                это время мы посетили каждый из отелей, которые
+                Вам предлагаем и, зная все их особенности, можем
+                помочь с оптимальным выбором места Вашего
+                будущего отдыха!
+             </p>
+             {{--<h4 class="mb-0 text-eclipse">Отели на карте</h4>--}}
          </div>
-     </div>--}}
+     </div>
 
     <accommodation-markers></accommodation-markers>
 
