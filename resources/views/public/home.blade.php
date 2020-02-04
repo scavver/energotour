@@ -27,6 +27,12 @@
                         @foreach($slides as $slide)
                             <div class="carousel-item @if($loop->first) active @endif">
                                 <img class="d-block" src="{{ asset($slide->path) }}" class="card-img" alt="{{ $slide->alt }}" style="height: 65vh; width: 100%; object-fit: cover">
+                                @if(!empty($slide->alt))
+                                <div class="carousel-caption d-none d-md-block">
+                                  {{--<h5>First slide label</h5>--}}
+                                  <p style="background: #0000007a; border-radius: 4px; width: max-content; padding-left: 10px; padding-right: 10px; margin: auto;">{{ $slide->alt }}</p>
+                                </div>
+                                @endif
                             </div>
                         @endforeach
                     </div>

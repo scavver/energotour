@@ -26,6 +26,7 @@
             tourists: [
                 { first_name: null, last_name: null, date_of_birth: null },
             ],
+            isButtonDisabled: null,
         }),
         validations: {
             hotel: {
@@ -103,6 +104,9 @@
                 if (this.$v.$invalid) {
                     this.submitStatus = 'ERROR'
                 } else {
+                    // Disabling button from multi clicks
+                    this.isButtonDisabled = true;
+                    
                     // Submit logic
                     const order = {
                         hotel_id: this.hotel.id,
@@ -124,6 +128,7 @@
                     // TODO: Interceptors
 
                     this.submitStatus = 'PENDING';
+                    
                     setTimeout(() => {
                         this.submitStatus = 'OK'
                     }, 500)
@@ -272,7 +277,7 @@
                 <p class="text-danger" v-if="submitStatus === 'ERROR'">Пожалуйста заполните форму корректно.</p>
                 <p v-if="submitStatus === 'PENDING'">Отправка...</p>
 
-                <button type="submit" class="btn btn-success">Отправить заявку</button>
+                <button type="submit" class="btn btn-success" v-bind:disabled="isButtonDisabled">Отправить заявку</button>
                 <button @click.prevent="addTourist" class="btn btn-outline-success">Добавить туриста</button>
                 <button v-if="Object.keys(tourists).length > 1" @click.prevent="removeTourist" class="btn btn-outline-primary">Убрать туриста</button>
             </form>

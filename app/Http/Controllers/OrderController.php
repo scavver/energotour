@@ -42,11 +42,11 @@ class OrderController extends Controller
 
         # Extra data for email template
 
-        $arrival = date("d.m.Y", strtotime($order->arrival));
+        $arrival   = date("d.m.Y", strtotime($order->arrival));
         $departure = date("d.m.Y", strtotime($order->departure));
-        $hotel = Hotel::find($validated['hotel_id'])->first();
-        $room = $order->room;
-        $tourists = [];
+        $hotel     = Hotel::find($order->hotel_id);
+        $room      = $order->room;
+        $tourists  = [];
 
         foreach ($validated['tourists'] as $key => $tourist) {
             $tourists[$key]['first_name'] = $tourist['first_name'];
